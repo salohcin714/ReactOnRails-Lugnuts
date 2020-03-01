@@ -327,3 +327,5 @@ fabric.properties
 
 # End of https://www.gitignore.io/api/node,ruby,rails,react,rubymine
 /ca-certificate.crt
+/select___from_information_schema_columns.csv
+/mysqlsampledatabase.sql
