@@ -21,7 +21,10 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: lugnuts
-  password: webd495
+  password: gfkh6dgttqtyycze
+  host: db-postgresql-nyc1-55291-do-user-4631391-0.a.db.ondigitalocean.com
+  port: 25060
+  sslmode: require
 
 development:
   <<: *default
