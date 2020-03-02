@@ -10,6 +10,13 @@ import {Container} from "@material-ui/core";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
+    typography: {
+        fontFamily: [
+            'myriad-pro',
+            'Helvetica Neue',
+            'sans-serif'
+        ]
+    },
     palette: {
         primary: {
             main: '#4D5F80',
@@ -18,7 +25,7 @@ const theme = createMuiTheme({
             main: '#B7312C'
         }
     }
-})
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     render(
