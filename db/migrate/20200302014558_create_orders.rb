@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
     create_table :orders do |t|
       t.integer :orderNumber
       t.date :orderDate
-      t.dat :requiredDate
+      t.date :requiredDate
       t.date :shippedDate
       t.string :status
       t.text :comments
