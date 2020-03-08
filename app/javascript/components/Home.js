@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import HeroImage from '../assets/images/heroimage.jpg';
+import {Container} from "@material-ui/core";
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -36,8 +38,12 @@ export default function ButtonAppBar() {
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
+            <Container maxWidth={"lg"}>
 
-            <img src={HeroImage} />
+                <img src={HeroImage} width={"lg"}/>
+            </Container>
         </div>
+
+
     );
 }
