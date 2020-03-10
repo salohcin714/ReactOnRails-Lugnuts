@@ -125,7 +125,7 @@ customer_list = [
     [496, "Kelly's Gift Shop", 'Snowden', 'Tony', '+64 9 5555500', "Arenales 1938 3'A'", NULL, 'Auckland  ', NULL, NULL, 'New Zealand']
 ]
 
-orderDetails_list = [
+order_details_list = [
     [10100, 'S18_1749', 30, '136.00', 3],
     [10100, 'S18_2248', 50, '55.09', 2],
     [10100, 'S18_4409', 22, '75.46', 4],
@@ -3580,7 +3580,7 @@ customer_list.each do |customerNumber, customerName, contactLastName, contactFir
   Customer.create(customerNumber: customerNumber, customerName: customerName, contactLastName: contactLastName, contactFirstName: contactFirstName, phone: phone, addressLine1: addressLine1, addressLine2: addressLine2, city: city, state: state, zipCode: zipCode, country: country)
 end
 
-orderDetails_list.each do |orderNumber, productCode, quantityOrdered, priceEach, orderLineNumber|
+order_details_list.each do |orderNumber, productCode, quantityOrdered, priceEach, orderLineNumber|
   OrderDetail.create(orderNumber: orderNumber, productCode: productCode, quantityOrdered: quantityOrdered, priceEach: priceEach, orderLineNumber: orderLineNumber)
 end
 
