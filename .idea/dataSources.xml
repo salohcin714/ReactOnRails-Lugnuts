@@ -13,5 +13,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://db-postgresql-nyc1-55291-do-user-4631391-0.a.db.ondigitalocean.com:25060/defaultdb?sslmode=require</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="postgres@localhost" uuid="0c9bf706-084a-4103-a5c1-b1d3b63423fe">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+    </data-source>
   </component>
 </project>
