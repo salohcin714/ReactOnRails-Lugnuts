@@ -40,7 +40,7 @@ export default function ButtonAppBar() {
             </AppBar>
             <Container maxWidth={"lg"}>
 
-                <img src={HeroImage} width={"lg"}/>
+                <img src={HeroImage} width={'inherit'}/>
             </Container>
         </div>
 
