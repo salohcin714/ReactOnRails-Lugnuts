@@ -20,6 +20,20 @@ const useStyles = makeStyles(theme => ({
     title: {
         flexGrow: 1,
     },
+    pageHero: {
+        backgroundImage: "url(" + HeroImage + ")",
+        backgroundAttachment: 'fixed',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+    },
+    pageHeroText: {
+        color: '#FFFFFF',
+        flexGrow: 1,
+        textAlign: 'center',
+        paddingTop: '5%',
+    },
+
 }));
 
 export default function ButtonAppBar() {
@@ -38,9 +52,16 @@ export default function ButtonAppBar() {
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
-            <Container maxWidth={"lg"}>
+            <Container maxWidth={"xl"} className={classes.pageHero} style={{height: '50vh'}}>
+                <Typography variant="h3" className={classes.pageHeroText}>
+                    Welcome
+                </Typography>
 
-                <img src={HeroImage} width={'inherit'}/>
+
+                <Button variant="contained" color="secondary" style={{justifyContent: 'center'}}>
+                    Shop Now
+                </Button>
+
             </Container>
         </div>
 
