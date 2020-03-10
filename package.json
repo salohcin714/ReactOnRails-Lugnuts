@@ -40,10 +40,6 @@
     "build:dev:server": "(cd client && yarn run --silent build:dev:server)",
     "hot-assets": "(cd client && yarn run hot-assets)",
     "start": "(cd client && yarn run --silent start)"
-  },
-  "cacheDirectories": [
-    "node_modules",
-    "client/node_modules"
-  ]
+  }
 }
 
