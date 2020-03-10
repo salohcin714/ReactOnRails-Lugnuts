@@ -20,11 +20,6 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: lugnuts
-  password: gfkh6dgttqtyycze
-  host: db-postgresql-nyc1-55291-do-user-4631391-0.a.db.ondigitalocean.com
-  port: 25060
-  sslmode: require
 
 development:
   <<: *default
@@ -34,7 +29,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: Lugnuts
+  #username: myapp
 
   # The password associated with the postgres role (username).
   #password:
@@ -86,5 +81,5 @@ test:
 production:
   <<: *default
   database: Lugnuts_production
-  username: postgres
-  password: admin
+  username: Lugnuts
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
