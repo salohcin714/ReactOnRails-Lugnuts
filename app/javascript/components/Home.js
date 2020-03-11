@@ -8,11 +8,15 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import HeroImage from '../assets/images/heroimage.jpg';
 import {Container} from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
+import Box from "@material-ui/core/Box";
 
 
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
+        justifyContent: 'center',
+        textAlign: 'center'
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -26,6 +30,8 @@ const useStyles = makeStyles(theme => ({
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
+        height: '32vh',
+        textAlign: 'center'
     },
     pageHeroText: {
         color: '#FFFFFF',
@@ -34,6 +40,7 @@ const useStyles = makeStyles(theme => ({
         paddingTop: '5%',
     },
 
+
 }));
 
 export default function ButtonAppBar() {
@@ -41,28 +48,31 @@ export default function ButtonAppBar() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon/>
-                    </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                        Lugnuts
+            <Box mb={1}>
+                <AppBar position="static">
+                    <Toolbar>
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                            <MenuIcon/>
+                        </IconButton>
+                        <Typography variant="h6" className={classes.title}>
+                            Lugnuts
+                        </Typography>
+                        <Button color="inherit">Login</Button>
+                    </Toolbar>
+                </AppBar>
+            </Box>
+            <Box m={1}>
+                <Paper className={classes.pageHero} style={{justifyContent: 'center'}}>
+                    <Typography variant="h3" className={classes.pageHeroText}>
+                        Welcome
                     </Typography>
-                    <Button color="inherit">Login</Button>
-                </Toolbar>
-            </AppBar>
-            <Container maxWidth={"xl"} className={classes.pageHero} style={{height: '50vh'}}>
-                <Typography variant="h3" className={classes.pageHeroText}>
-                    Welcome
-                </Typography>
-
-
-                <Button variant="contained" color="secondary" style={{justifyContent: 'center'}}>
-                    Shop Now
-                </Button>
-
-            </Container>
+                    <Box m={4}>
+                        <Button variant="contained" color="secondary" alignCenter className={classes.alignCenter}>
+                            Shop Now
+                        </Button>
+                    </Box>
+                </Paper>
+            </Box>
         </div>
 
 
