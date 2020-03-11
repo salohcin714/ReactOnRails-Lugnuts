@@ -10,13 +10,12 @@ import HeroImage from '../assets/images/heroimage.jpg';
 import {Container} from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
+import Navbar from "./Navbar";
 
 
 const useStyles = makeStyles(theme => ({
     root: {
-        flexGrow: 1,
-        justifyContent: 'center',
-        textAlign: 'center'
+        flexGrow: 1
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -37,7 +36,7 @@ const useStyles = makeStyles(theme => ({
         color: '#FFFFFF',
         flexGrow: 1,
         textAlign: 'center',
-        paddingTop: '5%',
+        paddingTop: theme.spacing(2)
     },
 
 
@@ -47,33 +46,20 @@ export default function ButtonAppBar() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <Box mb={1}>
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                            <MenuIcon/>
-                        </IconButton>
-                        <Typography variant="h6" className={classes.title}>
-                            Lugnuts
-                        </Typography>
-                        <Button color="inherit">Login</Button>
-                    </Toolbar>
-                </AppBar>
-            </Box>
+        <Container className={classes.root}>
             <Box m={1}>
                 <Paper className={classes.pageHero} style={{justifyContent: 'center'}}>
-                    <Typography variant="h3" className={classes.pageHeroText}>
+                    <Typography variant="h3" className={classes.pageHeroText} mt={4}>
                         Welcome
                     </Typography>
                     <Box m={4}>
-                        <Button variant="contained" color="secondary" alignCenter className={classes.alignCenter}>
+                        <Button variant="contained" color="secondary">
                             Shop Now
                         </Button>
                     </Box>
                 </Paper>
             </Box>
-        </div>
+        </Container>
 
 
     );
