@@ -8,13 +8,15 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import HeroImage from '../assets/images/heroimage.jpg';
 import Accessories from '../assets/images/caraccessories.jpg';
+import Product1 from '../assets/images/product1.jpg';
 import {Container} from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Navbar from "./Navbar";
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Divider from "@material-ui/core/Divider";
+import Chip from '@material-ui/core/Chip';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -50,8 +52,8 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: '6%',
         paddingBottom: '10px',
     },
-    accessoriesText: {
-
+    quantityBox: {
+        width: 60,
     },
 
 }));
@@ -105,6 +107,40 @@ export default function ButtonAppBar() {
                        <img src={Accessories} height="400vh" width="500vh"/>
                     </Grid>
                 </Grid>
+
+
+
+                 <Grid container spacing={3} className={classes.firstSection}>
+                     <Grid item xs={6}>
+                         <img src={Product1} height="400vh" width="500vh" />
+                     </Grid>
+
+                     <Grid item xs={6}>
+                         <Typography variant="h4">Product Name</Typography>
+                         <Chip
+                             label="$$$$"
+                             clickable
+                             color="primary"
+                             variant="outlined"
+                         />
+                         <Typography variant="caption" display="block">Quantity</Typography>
+                         <form className={classes.root} noValidate autoComplete="off">
+                             <TextField id="outlined-basic" label="1" variant="outlined" className={classes.quantityBox}/>
+                         </form>
+
+                         <div style={{marginTop: '30px'}}>
+                             <Button variant="contained" color="secondary">
+                                 Add To Cart
+                             </Button>
+                         </div>
+
+                         <Typography variant="p" style={{paddingTop: '20px'}} display="block">
+                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                             Urna condimentum mattis pellentesque id nibh tortor id aliquet lectus.
+                         </Typography>
+                     </Grid>
+                 </Grid>
                 </div>
             </React.Fragment>
 
