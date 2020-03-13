@@ -21,7 +21,13 @@ import fc1 from '../assets/images/fc1.jpg';
 import fc2 from '../assets/images/fc2.jpg';
 import fc3 from '../assets/images/fc3.jpg';
 import fc4 from '../assets/images/fc4.jpg';
+import fb from '../assets/images/facebook.svg';
+import ig from '../assets/images/instagram.svg';
+import tw from '../assets/images/twitter.svg';
 import CardActionArea from "@material-ui/core/CardActionArea";
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import TextField from '@material-ui/core/TextField';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -332,6 +338,40 @@ export default function ButtonAppBar() {
                                 </Button>
                             </CardActions>
                         </Card>
+                    </Grid>
+                </Grid>
+            </Box>
+
+
+            <Box mt={4}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12} sm={6}>
+                        <Typography variant="h5">Quick Links</Typography>
+                        <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
+                            <Button>Search</Button>
+                            <Button>Contact Us</Button>
+                            <Button>Refund Policy</Button>
+                        </ButtonGroup>
+                    </Grid>
+
+                    <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
+                        <Typography variant="h5">Join the mailing list</Typography>
+                        <TextField id="outlined-basic" label="E-Mail Address" variant="outlined" />
+                        <Button variant="contained" color="primary" style={{padding: '15px', marginLeft: '5px'}}>Subscribe</Button>
+                    </Grid>
+                </Grid>
+
+                <Divider style={{marginTop: '10px', marginBottom: '10px'}} />
+
+                <Grid container spacing={3}>
+                    <Grid item xs={12} sm={6}>
+                        <Typography variant="caption" gutterBottom>All Major Credit Cards Accepted</Typography>
+                    </Grid>
+
+                    <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
+                        <img src={fb} />
+                        <img src={ig} />
+                        <img src={tw} />
                     </Grid>
                 </Grid>
             </Box>
