@@ -11,9 +11,7 @@ import Box from "@material-ui/core/Box";
 import {Link} from 'react-router-dom'
 import CardMedia from "@material-ui/core/CardMedia";
 import Grid from '@material-ui/core/Grid';
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Chip from '@material-ui/core/Chip';
-import TextField from '@material-ui/core/TextField';
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import IconButton from "@material-ui/core/IconButton";
@@ -22,7 +20,7 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import useTheme from "@material-ui/core/styles/useTheme";
 import CardActions from "@material-ui/core/CardActions";
-
+import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -167,6 +165,51 @@ export default function ButtonAppBar() {
                     </Grid>
 
 
+                </Grid>
+            </Box>
+
+
+            <Box mt={4}>
+                <Typography variant="h3" style={{textAlign: 'center', marginBottom: '15px'}}>Testimonials</Typography>
+                <Grid container spacing={3} style={{textAlign: 'center'}}>
+                    <Grid item xs={12} sm={4}>
+                        <FormatQuoteIcon />
+                        <Typography variant="body2" gutterBottom style={{textAlign: 'justify'}}>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                            inventore consectetur, neque doloribus, cupiditate numquam
+                            dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+                        </Typography>
+                        <Typography variant="caption" display="block" gutterBottom>
+                            - Client Name
+                        </Typography>
+                    </Grid>
+
+                    <Grid item xs={12} sm={4}>
+                        <FormatQuoteIcon />
+                        <Typography variant="body2" gutterBottom style={{textAlign: 'justify'}}>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                            inventore consectetur, neque doloribus, cupiditate numquam
+                            dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+                        </Typography>
+                        <Typography variant="caption" display="block" gutterBottom>
+                            - Client Name
+                        </Typography>
+                    </Grid>
+
+                    <Grid item xs={12} sm={4}>
+                        <FormatQuoteIcon />
+                        <Typography variant="body2" gutterBottom style={{textAlign: 'justify'}}>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                            inventore consectetur, neque doloribus, cupiditate numquam
+                            dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+                        </Typography>
+                        <Typography variant="caption" display="block" gutterBottom>
+                            - Client Name
+                        </Typography>
+                    </Grid>
                 </Grid>
             </Box>
         </Container>
