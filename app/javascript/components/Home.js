@@ -21,13 +21,13 @@ import fc1 from '../assets/images/fc1.jpg';
 import fc2 from '../assets/images/fc2.jpg';
 import fc3 from '../assets/images/fc3.jpg';
 import fc4 from '../assets/images/fc4.jpg';
-import fb from '../assets/images/facebook.svg';
-import ig from '../assets/images/instagram.svg';
-import tw from '../assets/images/twitter.svg';
 import CardActionArea from "@material-ui/core/CardActionArea";
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import TextField from '@material-ui/core/TextField';
-import Divider from '@material-ui/core/Divider';
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import TextField from "@material-ui/core/TextField";
+import Divider from "@material-ui/core/Divider";
+import fb from "../assets/images/facebook.svg";
+import ig from "../assets/images/instagram.svg";
+import tw from "../assets/images/twitter.svg";
 
 const useStyles = makeStyles(theme => ({
     root: {
