@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import App from "../components/App";
 import {Container} from "@material-ui/core";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
-import Navbar from "../components/Navbar";
+
 
 const theme = createMuiTheme({
     typography: {

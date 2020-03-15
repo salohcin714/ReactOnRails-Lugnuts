@@ -1,6 +1,5 @@
 import React from "react";
 import Routes from "../routes/Index";
-import Navbar from "./Navbar";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -40,7 +39,6 @@ export default function App(props) {
 
     return (
         <Router>
-            <div>
                 <Container>
                     <Box mb={1}>
                         <AppBar position="static">
@@ -65,21 +63,12 @@ export default function App(props) {
                     </Box>
 
                     <Switch>
-                        <Route path="/" exact component={Home}>
-                            <Home/>
-                        </Route>
-                        <Route path="/about">
-                            <About/>
-                        </Route>
-                        <Route path="/shop">
-                            <Shop/>
-                        </Route>
-                        <Route path="/contact">
-                            <Contact/>
-                        </Route>
+                        <Route path="/" exact component={Home}/>
+                        <Route path="/about" exact component={About}/>
+                        <Route path="/shop" exact component={Shop}/>
+                        <Route path="/contact" exact component={Contact}/>
                     </Switch>
                 </Container>
-            </div>
         </Router>
 
 

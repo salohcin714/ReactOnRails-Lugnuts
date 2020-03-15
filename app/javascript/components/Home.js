@@ -25,9 +25,10 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import TextField from "@material-ui/core/TextField";
 import Divider from "@material-ui/core/Divider";
-import fb from "../assets/images/facebook.svg";
-import ig from "../assets/images/instagram.svg";
-import tw from "../assets/images/twitter.svg";
+import fb from "../assets/images/Facebook.svg";
+import ig from "../assets/images/Instagram.svg";
+import tw from "../assets/images/Twitter.svg";
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -119,7 +120,7 @@ export default function ButtonAppBar() {
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h4" component="h2">
-                                    Lizard
+                                    Accessories
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -129,13 +130,10 @@ export default function ButtonAppBar() {
                                     vehicula ipsum a arcu cursus. Praesent elementum facilisis leo vel.
                                 </Typography>
                             </CardContent>
-
                             <CardActions>
-
                                 <Button size="small" color="primary">
                                     View Accessories
                                 </Button>
-
                             </CardActions>
                         </Card>
                     </Grid>
@@ -149,7 +147,7 @@ export default function ButtonAppBar() {
                                 title="Contemplative Reptile"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h4" component="h2">
+                                <Typography gutterBottom variant="h4" component="h4">
                                     Product Name
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
@@ -160,18 +158,14 @@ export default function ButtonAppBar() {
                                     vehicula ipsum a arcu cursus. Praesent elementum facilisis leo vel.
                                 </Typography>
                             </CardContent>
-
                             <CardActions>
                                 <Chip label={"$X.XX"}/>
                                 <Button size="small" color="primary">
                                     Add to Cart
                                 </Button>
-
                             </CardActions>
                         </Card>
                     </Grid>
-
-
                 </Grid>
             </Box>
 
@@ -180,49 +174,62 @@ export default function ButtonAppBar() {
                 <Typography variant="h3" style={{textAlign: 'center', marginBottom: '15px'}}>Testimonials</Typography>
                 <Grid container spacing={3} style={{textAlign: 'center'}}>
                     <Grid item xs={12} sm={4}>
-                        <FormatQuoteIcon />
-                        <Typography variant="body2" gutterBottom style={{textAlign: 'justify'}}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Quos blanditiis tenetur unde suscipit, quam beatae rerum
-                            inventore consectetur, neque doloribus, cupiditate numquam
-                            dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-                        </Typography>
-                        <Typography variant="caption" display="block" gutterBottom>
-                            - Client Name
-                        </Typography>
+                        <Card>
+                            <CardContent>
+                                <FormatQuoteIcon/>
+                                <Typography variant="body2" gutterBottom style={{textAlign: 'justify'}}>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                                    inventore consectetur, neque doloribus, cupiditate numquam
+                                    dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+                                </Typography>
+                                <Typography variant="caption" display="block" gutterBottom>
+                                    - Client Name
+                                </Typography>
+                            </CardContent>
+                        </Card>
                     </Grid>
 
                     <Grid item xs={12} sm={4}>
-                        <FormatQuoteIcon />
-                        <Typography variant="body2" gutterBottom style={{textAlign: 'justify'}}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Quos blanditiis tenetur unde suscipit, quam beatae rerum
-                            inventore consectetur, neque doloribus, cupiditate numquam
-                            dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-                        </Typography>
-                        <Typography variant="caption" display="block" gutterBottom>
-                            - Client Name
-                        </Typography>
+                        <Card>
+                            <CardContent>
+                                <FormatQuoteIcon/>
+                                <Typography variant="body2" gutterBottom style={{textAlign: 'justify'}}>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                                    inventore consectetur, neque doloribus, cupiditate numquam
+                                    dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+                                </Typography>
+                                <Typography variant="caption" display="block" gutterBottom>
+                                    - Client Name
+                                </Typography>
+                            </CardContent>
+                        </Card>
                     </Grid>
 
                     <Grid item xs={12} sm={4}>
-                        <FormatQuoteIcon />
-                        <Typography variant="body2" gutterBottom style={{textAlign: 'justify'}}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Quos blanditiis tenetur unde suscipit, quam beatae rerum
-                            inventore consectetur, neque doloribus, cupiditate numquam
-                            dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-                        </Typography>
-                        <Typography variant="caption" display="block" gutterBottom>
-                            - Client Name
-                        </Typography>
+                        <Card>
+                            <CardContent>
+                                <FormatQuoteIcon/>
+                                <Typography variant="body2" gutterBottom style={{textAlign: 'justify'}}>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                                    inventore consectetur, neque doloribus, cupiditate numquam
+                                    dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+                                </Typography>
+                                <Typography variant="caption" display="block" gutterBottom>
+                                    - Client Name
+                                </Typography>
+                            </CardContent>
+                        </Card>
                     </Grid>
                 </Grid>
             </Box>
 
 
             <Box mt={4}>
-                <Typography variant="h3" style={{textAlign: 'center', marginBottom: '15px'}}>Featured Collection</Typography>
+                <Typography variant="h3" style={{textAlign: 'center', marginBottom: '15px'}}>Featured
+                    Collection</Typography>
                 <Grid container spacing={3} style={{textAlign: 'center'}}>
                     <Grid item xs={12} sm={3}>
                         <Card className={classes.root}>
@@ -239,7 +246,8 @@ export default function ButtonAppBar() {
                                         Product Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species,
+                                        ranging
                                         across all continents except Antarctica
                                     </Typography>
                                 </CardContent>
@@ -268,7 +276,8 @@ export default function ButtonAppBar() {
                                         Product Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species,
+                                        ranging
                                         across all continents except Antarctica
                                     </Typography>
                                 </CardContent>
@@ -297,7 +306,8 @@ export default function ButtonAppBar() {
                                         Product Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species,
+                                        ranging
                                         across all continents except Antarctica
                                     </Typography>
                                 </CardContent>
@@ -326,7 +336,8 @@ export default function ButtonAppBar() {
                                         Product Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species,
+                                        ranging
                                         across all continents except Antarctica
                                     </Typography>
                                 </CardContent>
@@ -356,12 +367,13 @@ export default function ButtonAppBar() {
 
                     <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
                         <Typography variant="h5">Join the mailing list</Typography>
-                        <TextField id="outlined-basic" label="E-Mail Address" variant="outlined" />
-                        <Button variant="contained" color="primary" style={{padding: '15px', marginLeft: '5px'}}>Subscribe</Button>
+                        <TextField id="outlined-basic" label="E-Mail Address" variant="outlined"/>
+                        <Button variant="contained" color="primary"
+                                style={{padding: '15px', marginLeft: '5px'}}>Subscribe</Button>
                     </Grid>
                 </Grid>
 
-                <Divider style={{marginTop: '10px', marginBottom: '10px'}} />
+                <Divider style={{marginTop: '10px', marginBottom: '10px'}}/>
 
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={6}>
@@ -369,14 +381,12 @@ export default function ButtonAppBar() {
                     </Grid>
 
                     <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
-                        <img src={fb} />
-                        <img src={ig} />
-                        <img src={tw} />
+                        <img src={fb} height={24} width={32}/>
+                        <img src={ig} height={24}/>
+                        <img src={tw} height={24}/>
                     </Grid>
                 </Grid>
             </Box>
         </Container>
-
-
     );
 }
