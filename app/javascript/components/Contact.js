@@ -10,7 +10,11 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Divider from "@material-ui/core/Divider";
 import fb from "../assets/images/Facebook.svg";
 import ig from "../assets/images/Instagram.svg";
-import tw from "../assets/images/twitter.svg";
+import tw from "../assets/images/Twitter.svg";
+import Card from "@material-ui/core/Card";
+import CardMedia from "@material-ui/core/CardMedia";
+import Paper from "@material-ui/core/Paper";
+import CardContent from "@material-ui/core/CardContent";
 
 export default function Contact() {
     return (
@@ -22,65 +26,75 @@ export default function Contact() {
             <Box mt={4}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} style={{textAlign: 'center'}}>
-                        <img src={Contactus} width="800vh" height="400vh" />
-                        <Typography variant="body1" mt={3}>
-                            555-555-5555
-                        </Typography>
-                        <Typography variant="body1" mt={3}>
-                            123 Street Name, City, State 12345
-                        </Typography>
+                        <Card>
+                            <Box m={4}>
+                                <Paper elevation={2}>
+                                    <CardMedia component={"img"} image={Contactus}/>
+                                </Paper>
+                            </Box>
+                            <CardContent>
+                                <Typography variant="body1">
+                                    (555)555-5555
+                                </Typography>
+                                <Typography variant="body1">
+                                    123 Street Name, City, State 12345
+                                </Typography>
+                            </CardContent>
+                        </Card>
                     </Grid>
+                    <Paper>
 
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="fullname"
-                            name="fullname"
-                            label="Full name"
-                            fullWidth
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="email"
-                            name="email"
-                            label="Email Address"
-                            fullWidth
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="phone"
-                            name="phone"
-                            label="Phone Number"
-                            fullWidth
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="orderNum"
-                            name="orderNum"
-                            label="Order Number"
-                            fullWidth
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            required
-                            id="message"
-                            label="Message"
-                            multiline
-                            rowsMax="4"
-                            fullWidth
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <Button variant="contained" color="secondary">
-                            Send
-                        </Button>
-                    </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                required
+                                id="fullname"
+                                name="fullname"
+                                label="Full name"
+                                fullWidth
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                required
+                                id="email"
+                                name="email"
+                                label="Email Address"
+                                fullWidth
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                required
+                                id="phone"
+                                name="phone"
+                                label="Phone Number"
+                                fullWidth
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                id="orderNum"
+                                name="orderNum"
+                                label="Order Number"
+                                fullWidth
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                required
+                                id="message"
+                                label="Message"
+                                multiline
+                                rowsMax="4"
+                                fullWidth
+                            />
+                        </Grid>
+                        <Grid item xs={12} style={{textAlign: "center"}}>
+                            <Button variant="contained" color="secondary">
+                                Send
+                            </Button>
+                        </Grid>
+                    </Paper>
                 </Grid>
 
             </Box>
@@ -90,9 +104,9 @@ export default function Contact() {
                     <Grid item xs={12} sm={6}>
                         <Typography variant="h5">Quick Links</Typography>
                         <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
-                            <Button>Search</Button>
-                            <Button>Contact Us</Button>
-                            <Button>Refund Policy</Button>
+                            <Button size={"large"}>Search</Button>
+                            <Button size={"large"}>Contact Us</Button>
+                            <Button size={"large"}>Refund Policy</Button>
                         </ButtonGroup>
                     </Grid>
 

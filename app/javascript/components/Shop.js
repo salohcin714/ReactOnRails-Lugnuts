@@ -41,6 +41,10 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'center',
         paddingTop: theme.spacing(2)
     },
+    linkFix: {
+        textDecoration: 'none',
+        color: "#FFFFFF"
+    }
 
 }));
 
@@ -48,7 +52,7 @@ const useStyles = makeStyles(theme => ({
 export default function Shop() {
     const classes = useStyles();
 
-    ;
+
 
     return (
         <Container className={classes.root}>
@@ -59,7 +63,7 @@ export default function Shop() {
                     </Typography>
                     <Box m={4}>
                         <Link to={"/shop"} className={classes.linkFix}>
-                            <Button variant="contained" color="secondary" size={"large"}>
+                            <Button variant="contained" color="secondary" size={"large"} className={classes.linkFix}>
                                 View What's new
                             </Button>
                         </Link>
