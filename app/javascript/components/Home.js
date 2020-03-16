@@ -27,7 +27,7 @@ import TextField from "@material-ui/core/TextField";
 import Divider from "@material-ui/core/Divider";
 import fb from "../assets/images/Facebook.svg";
 import ig from "../assets/images/Instagram.svg";
-import tw from "../assets/images/Twitter.svg";
+import tw from "../assets/images/twitter.svg";
 
 
 const useStyles = makeStyles(theme => ({
