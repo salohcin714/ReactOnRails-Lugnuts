@@ -16,6 +16,21 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import * as PropTypes from "prop-types";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import fc1 from '../assets/images/fc1.jpg';
+import fc2 from '../assets/images/fc2.jpg';
+import fc3 from '../assets/images/fc3.jpg';
+import fc4 from '../assets/images/fc4.jpg';
+import fc5 from '../assets/images/caraccessories.jpg';
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import Divider from "@material-ui/core/Divider";
+import fb from "../assets/images/Facebook.svg";
+import ig from "../assets/images/Instagram.svg";
+import tw from "../assets/images/Twitter.svg";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -48,7 +63,10 @@ const useStyles = makeStyles(theme => ({
     linkFix: {
         textDecoration: 'none',
         color: "#FFFFFF"
-    }
+    },
+    media: {
+        height: 200,
+    },
 
 }));
 
@@ -162,14 +180,218 @@ export default function Shop() {
                 index={value}
                 onChangeIndex={handleChangeIndex}
             >
-                <TabPanel value={value} index={0} dir={theme.direction}>
-                    Item One
+                <TabPanel value={value} index={0} dir={theme.direction} style={{textAlign: 'center', marginTop: '3%'}}>
+                    <Link style={{marginRight: '5%'}}>
+                       Classic Cars
+                    </Link>
+                    <Link style={{marginRight: '5%'}}>
+                        Motorcycles
+                    </Link>
+                    <Link style={{marginRight: '5%'}}>
+                        Trucks & Buses
+                    </Link>
+                    <Link style={{marginRight: '5%'}}>
+                        Vintage Cars
+                    </Link>
                 </TabPanel>
-                <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
+                <TabPanel value={value} index={1} dir={theme.direction} style={{textAlign: 'center', marginTop: '3%'}}>
+                    <Link style={{marginRight: '5%'}}>
+                        Year
+                    </Link>
+                    <Link style={{marginRight: '5%'}}>
+                        Scale
+                    </Link>
+                    <Link style={{marginRight: '5%'}}>
+                        Brand
+                    </Link>
+                    <Link style={{marginRight: '5%'}}>
+                        Under $50
+                    </Link>
                 </TabPanel>
 
             </SwipeableViews>
+
+            <Box mt={8}>
+                <Grid container spacing={3} style={{textAlign: 'center'}}>
+                    <Grid item xs={12}>
+                        <Typography variant="h4" style={{textAlign: 'center'}}>
+                            Customer Favorites
+                        </Typography>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                    className={classes.media}
+                                    image={fc1}
+                                 />
+                                 <CardContent>
+                                     <Typography gutterBottom variant="h5" component="h2">
+                                         Product 1
+                                     </Typography>
+                                     <Typography variant="body2" color="textSecondary" component="p">
+                                         Product description should go here
+                                     </Typography>
+                                 </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                    $$$$
+                                </Button>
+                                <Button size="small" color="primary">
+                                    Add To Cart
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+
+                    <Grid item xs={8}>
+                        <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                    className={classes.media}
+                                    image={fc2}
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Product 2
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        Product description should go here
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                    $$$$
+                                </Button>
+                                <Button size="small" color="primary">
+                                    Add To Cart
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                    className={classes.media}
+                                    image={fc3}
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Product 3
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        Product description should go here
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                    $$$$
+                                </Button>
+                                <Button size="small" color="primary">
+                                    Add To Cart
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                    className={classes.media}
+                                    image={fc4}
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Product 4
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        Product description should go here
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                    $$$$
+                                </Button>
+                                <Button size="small" color="primary">
+                                    Add To Cart
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                    className={classes.media}
+                                    image={fc5}
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Product 5
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        Product description should go here
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                    $$$$
+                                </Button>
+                                <Button size="small" color="primary">
+                                    Add To Cart
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+
+                </Grid>
+            </Box>
+
+
+            <Box mt={6}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12} sm={6}>
+                        <Typography variant="h5">Quick Links</Typography>
+                        <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
+                            <Button>Search</Button>
+                            <Button>Contact Us</Button>
+                            <Button>Refund Policy</Button>
+                        </ButtonGroup>
+                    </Grid>
+
+                    <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
+                        <Typography variant="h5">Join the mailing list</Typography>
+                        <TextField id="outlined-basic" label="E-Mail Address" variant="outlined"/>
+                        <Button variant="contained" color="primary"
+                                style={{padding: '15px', marginLeft: '5px'}}>Subscribe</Button>
+                    </Grid>
+                </Grid>
+
+                <Divider style={{marginTop: '10px', marginBottom: '10px'}}/>
+
+                <Grid container spacing={3}>
+                    <Grid item xs={12} sm={6}>
+                        <Typography variant="caption" gutterBottom>All Major Credit Cards Accepted</Typography>
+                    </Grid>
+
+                    <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
+                        <img src={fb} height={24} width={32}/>
+                        <img src={ig} height={24}/>
+                        <img src={tw} height={24}/>
+                    </Grid>
+                </Grid>
+            </Box>
+
 
         </Container>
     )
