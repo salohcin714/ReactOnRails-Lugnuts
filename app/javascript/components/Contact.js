@@ -15,6 +15,7 @@ import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import Paper from "@material-ui/core/Paper";
 import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
 
 export default function Contact() {
     return (
@@ -27,6 +28,9 @@ export default function Contact() {
                 <Grid container spacing={3}>
                     <Grid item xs={12} style={{textAlign: 'center'}}>
                         <Card>
+                            <CardHeader>
+                                <Typography variant={"h3"} component={"h3"}>Contact Us</Typography>
+                            </CardHeader>
                             <Box m={4}>
                                 <Paper elevation={2}>
                                     <CardMedia component={"img"} image={Contactus}/>
@@ -42,7 +46,9 @@ export default function Contact() {
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Paper>
+                </Grid>
+                <Paper>
+                    <Box m={3}>
 
                         <Grid item xs={12} sm={6}>
                             <TextField
@@ -94,8 +100,8 @@ export default function Contact() {
                                 Send
                             </Button>
                         </Grid>
+                    </Box>
                     </Paper>
-                </Grid>
 
             </Box>
 

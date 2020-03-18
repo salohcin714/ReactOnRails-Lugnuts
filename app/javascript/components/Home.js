@@ -28,6 +28,7 @@ import Divider from "@material-ui/core/Divider";
 import fb from "../assets/images/Facebook.svg";
 import ig from "../assets/images/Instagram.svg";
 import tw from "../assets/images/Twitter.svg";
+import axios from 'axios'
 
 
 const useStyles = makeStyles(theme => ({
@@ -91,6 +92,19 @@ const useStyles = makeStyles(theme => ({
 export default function ButtonAppBar() {
     const classes = useStyles();
     const theme = useTheme();
+
+    const url = `/api/v1/products/index`;
+    const products = [];
+
+    axios.get('api/v1/products.json')
+        .then(resp => {
+            console.log(resp)
+        })
+        .catch(data => {
+            debugger
+        });
+
+
     return (
         <Container className={classes.root}>
             <Box m={1} mt={3}>
