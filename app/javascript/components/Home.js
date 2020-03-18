@@ -101,7 +101,7 @@ export default function ButtonAppBar() {
             console.log(resp)
         })
         .catch(data => {
-            debugger
+            console.log(data)
         });
 
 
