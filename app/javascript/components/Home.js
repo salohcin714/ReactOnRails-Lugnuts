@@ -93,17 +93,7 @@ export default function ButtonAppBar() {
     const classes = useStyles();
     const theme = useTheme();
 
-    const url = `/api/v1/products/index`;
-    const products = [];
-
-    axios.get('api/v1/products.json')
-        .then(resp => {
-            console.log(resp)
-        })
-        .catch(data => {
-            console.log(data)
-        });
-
+console.log(axios.get('api/v1/products.json'));
 
     return (
         <Container className={classes.root}>

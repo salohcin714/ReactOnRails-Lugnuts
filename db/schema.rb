@@ -10,70 +10,95 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_185154) do
+ActiveRecord::Schema.define(version: 2020_03_19_201043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "customers", force: :cascade do |t|
-    t.integer "customerNumber"
-    t.string "customerName"
-    t.string "contactLastName"
-    t.string "contactFirstName"
+    t.string "firstName"
+    t.string "lastName"
     t.string "phone"
-    t.string "addressLine1"
-    t.string "addressLine2"
+    t.string "address"
     t.string "city"
     t.string "state"
-    t.string "zipCode"
+    t.string "postalCode"
+    t.string "country"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "country"
+    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "order_details", force: :cascade do |t|
-    t.integer "orderNumber"
-    t.integer "productCode"
-    t.integer "quantityordered"
-    t.decimal "priceEach"
-    t.integer "orderLineNumber"
+    t.bigint "order_id", null: false
+    t.bigint "product_id", null: false
+    t.integer "quantity"
+    t.decimal "sellPrice"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_details_on_order_id"
+    t.index ["product_id"], name: "index_order_details_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "orderNumber"
-    t.date "orderDate"
-    t.date "requiredDate"
+    t.date "date"
     t.date "shippedDate"
     t.string "status"
-    t.text "comments"
-    t.integer "customerNumber"
+    t.string "comments"
+    t.bigint "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "product_lines", force: :cascade do |t|
-    t.string "productLine"
-    t.string "textDescription"
-    t.text "htmlDescription"
-    t.string "image"
+    t.string "name"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "productCode"
-    t.string "productName"
-    t.string "productLine"
-    t.string "productScale"
-    t.string "productVendor"
-    t.text "productDescription"
-    t.integer "quantityInStock"
-    t.decimal "buyPrice"
-    t.decimal "MSRP"
+    t.string "name"
+    t.bigint "product_line_id", null: false
+    t.string "description"
+    t.integer "quantity"
+    t.decimal "cost"
+    t.decimal "retail"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_line_id"], name: "index_products_on_product_line_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.bigint "product_id", null: false
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_reviews_on_customer_id"
+    t.index ["product_id"], name: "index_reviews_on_product_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "customers", "users"
+  add_foreign_key "order_details", "orders"
+  add_foreign_key "order_details", "products"
+  add_foreign_key "orders", "customers"
+  add_foreign_key "products", "product_lines"
+  add_foreign_key "reviews", "customers"
+  add_foreign_key "reviews", "products"
 end
