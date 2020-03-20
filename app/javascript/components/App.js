@@ -12,7 +12,9 @@ import About from "./About";
 import Shop from "./Shop";
 import Contact from "./Contact";
 import {makeStyles} from "@material-ui/core/styles";
-import HeroImage from "../assets/images/heroimage.jpg";
+import axios from 'axios'
+import {Check} from "@material-ui/icons";
+import Checkout from "./Checkout";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -67,13 +69,56 @@ export default function App(props) {
                         <Route path="/about" exact component={About}/>
                         <Route path="/shop" exact component={Shop}/>
                         <Route path="/contact" exact component={Contact}/>
+                        <Route path="/checkout" exact component={Checkout}/>
                     </Switch>
                 </Container>
         </Router>
 
 
-
-
     )
 
+}
+
+class Test extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            currentUser: null
+        };
+        this.updateCurrentUser = this.updateCurrentUser.bind(this)
+    }
+
+    componentDidMount() {
+        let that = this;
+        axios.get('/users/check_for_user', {})
+            .then(function (response) {
+                if (response.data.email) {
+                    that.setState({
+                        currentUser: response.data.email
+                    })
+                } else {
+                    that.setState({
+                        currentUser: null
+                    })
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    updateCurrentUser(email) {
+        this.setState({
+            currentUser: email
+        })
+    }
+
+    // render() {
+    //     const classes = useStyles();
+    //     return (
+    //         <div>
+    //             <Navbar updateCurrentUser={this.updateCurrentUser} />
+    //         </div>
+    //     );
+    // }
 }

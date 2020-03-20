@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 import Grid from '@material-ui/core/Grid';
 import {makeStyles, useTheme} from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import {Link} from "react-router-dom";
+import {Link, Route, Switch} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
@@ -31,6 +31,8 @@ import Divider from "@material-ui/core/Divider";
 import fb from "../assets/images/Facebook.svg";
 import ig from "../assets/images/Instagram.svg";
 import tw from "../assets/images/Twitter.svg";
+import Cart from "./Cart";
+import Checkout from "./Checkout";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -391,7 +393,10 @@ export default function Shop() {
                     </Grid>
                 </Grid>
             </Box>
-
+            <Switch>
+                <Route path={"/shop/cart"} exact component={Cart}/>
+                <Route path={"shop/checkout"} exact component={Checkout()}/>
+            </Switch>
 
         </Container>
     )

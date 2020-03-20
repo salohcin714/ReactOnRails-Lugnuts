@@ -16,28 +16,22 @@ const useStyles = makeStyles({
     },
 });
 
-function ccyFormat(num: number) {
+
+function ccyFormat(num) {
     return `${num.toFixed(2)}`;
 }
 
-function priceRow(qty: number, unit: number) {
+function priceRow(qty, unit) {
     return qty * unit;
 }
 
-function createRow(desc: string, qty: number, unit: number) {
+function createRow(desc, qty, unit) {
     const price = priceRow(qty, unit);
-    return { desc, qty, unit, price };
+    return {desc, qty, unit, price};
 }
 
-interface Row {
-    desc: string;
-    qty: number;
-    unit: number;
-    price: number;
-}
-
-function subtotal(items: Row[]) {
-    return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
+function subtotal(items) {
+    return items.map(({price}) => price).reduce((sum, i) => sum + i, 0);
 }
 
 const rows = [
