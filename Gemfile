@@ -43,3 +43,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'fast_jsonapi'
 gem 'devise'
+gem 'activeadmin'
+gem "active_material", github: "vigetlabs/active_material"

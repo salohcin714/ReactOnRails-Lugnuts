@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users
   namespace :api do
     namespace :v1 do
-      get '/products', to: 'products#index'
-      get 'products/show/:id', to: 'products#show'
+      resources :product_lines, param: :id
+      resources :products, param: :id
+      resources :reviews, only: [:create, :destroy]
     end
   end
 
