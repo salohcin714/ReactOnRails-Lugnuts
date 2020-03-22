@@ -5,6 +5,7 @@ import About from "../components/About";
 import Shop from "../components/Shop";
 import Contact from "../components/Contact";
 import Checkout from "../components/Checkout";
+import AllProducts from "../components/AllProducts";
 
 export default function Routes() {
     return (
@@ -24,6 +25,9 @@ export default function Routes() {
             </Route>
             <Route path="/checkout">
                 <Checkout />
+            </Route>
+            <Route path="/allproducts">
+                <AllProducts />
             </Route>
         </Switch>
     </Router>
