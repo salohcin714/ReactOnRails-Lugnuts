@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, defaults: {format: :json}
   namespace :api do
     namespace :v1 do
-      resources :product_lines, param: :id
-      resources :products, param: :id
-      resources :reviews, only: [:create, :destroy]
+      resources :product_lines, param: :id, defaults: {format: :json}
+      resources :products, param: :id, defaults: {format: :json}
+      resources :reviews, only: [:create, :destroy], defaults: {format: :json}
     end
   end
 

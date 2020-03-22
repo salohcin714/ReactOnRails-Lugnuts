@@ -15,8 +15,9 @@ import {makeStyles} from "@material-ui/core/styles";
 import axios from 'axios'
 import {Check} from "@material-ui/icons";
 import Checkout from "./Checkout";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = theme => ({
     root: {
         flexGrow: 1
     },
@@ -33,8 +34,59 @@ const useStyles = makeStyles(theme => ({
     }
 
 
-}));
+});
 
+class App extends React.Component {
+    constructor() {
+        super();
+
+    }
+
+    render() {
+        const {classes} = this.props;
+
+        return (
+            <Router>
+                <Container>
+                    <Box mb={1}>
+                        <AppBar position="static">
+                            <Toolbar>
+                                <Typography variant="h6" className={classes.title}>
+                                    Lugnuts
+                                </Typography>
+                                <Link to="/about" className={classes.linkFix}>
+                                    <Button color={"inherit"} variant={"text"}>About</Button>
+                                </Link>
+                                <Link to="/shop" className={classes.linkFix}>
+                                    <Button color={"inherit"} variant={"text"}>Shop</Button>
+                                </Link>
+                                <Link to="/contact" className={classes.linkFix}>
+                                    <Button color={"inherit"} variant={"text"}>Contact</Button>
+                                </Link>
+                                <Link to="/" className={classes.linkFix}>
+                                    <Button color={"inherit"} variant={"text"}>Login</Button>
+                                </Link>
+                            </Toolbar>
+                        </AppBar>
+                    </Box>
+
+                    <Switch>
+                        <Route path="/" exact component={Home}/>
+                        <Route path="/about" exact component={About}/>
+                        <Route path="/shop/checkout" exact component={Checkout}/>
+                        <Route path="/shop" exact component={Shop}/>
+                        <Route path="/contact" exact component={Contact}/>
+
+                    </Switch>
+                </Container>
+            </Router>
+        );
+    }
+}
+
+export default withStyles(useStyles)(App)
+
+/*
 export default function App(props) {
 
     const classes = useStyles();
@@ -121,4 +173,4 @@ class Test extends React.Component {
     //         </div>
     //     );
     // }
-}
+}*/

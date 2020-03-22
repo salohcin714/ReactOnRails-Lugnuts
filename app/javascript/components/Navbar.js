@@ -1,0 +1,31 @@
+import * as React from "react";
+
+
+class Navbar extends React.Component {
+    constructor(props) {
+        super(props);
+        if (this.props.currentUser == null) {
+            this.state = {
+                page: "login"
+            }
+        } else {
+            this.state = {
+                page: "delete"
+            }
+        }
+        this.changePage = this.changePage.bind(this);
+    }
+
+    changePage(newPage) {
+        this.setState({
+            page: newPage
+        })
+    }
+
+    render() {
+        switch (this.state.page) {
+            case "signup":
+                return
+        }
+    }
+}

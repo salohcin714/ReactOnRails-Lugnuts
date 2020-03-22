@@ -45,3 +45,4 @@ gem 'fast_jsonapi'
 gem 'devise'
 gem 'activeadmin'
 gem "active_material", github: "vigetlabs/active_material"
+gem "country_select"
