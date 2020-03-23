@@ -12,6 +12,11 @@ import {makeStyles} from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from '@material-ui/core/ButtonBase';
+import carAccessories from '../assets/images/caraccessories.jpg';
+import fc1 from '../assets/images/fc1.jpg';
+import fc2 from '../assets/images/fc2.jpg';
+import fc3 from '../assets/images/fc3.jpg';
+import fc4 from '../assets/images/fc4.jpg';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -24,6 +29,16 @@ const useStyles = makeStyles(theme => ({
     },
     formControl: {
         margin: theme.spacing(3),
+    },
+    image: {
+        width: 128,
+        height: 128,
+    },
+    img: {
+        margin: 'auto',
+        display: 'block',
+        maxWidth: '100%',
+        maxHeight: '100%',
     },
 }));
 
@@ -54,7 +69,7 @@ export default function AllProducts() {
         <Container maxWidth={"lg"}>
             <Box mt={4}>
                 <Grid container spacing={3}>
-                    <Grid item xs={3}>
+                    <Grid item xs={2}>
                         <FormControl component="fieldset" className={classes.formControl}>
                             <FormLabel component="legend">Scale</FormLabel>
                             <FormGroup>
@@ -145,8 +160,140 @@ export default function AllProducts() {
                         </FormControl>
                     </Grid>
 
-                    <Grid item xs={9}>
+                    <Grid item xs={5}>
+                        <Paper className={classes.paper}>
+                            <Grid container spacing={2}>
+                                <Grid item>
+                                    <ButtonBase className={classes.image}>
+                                        <img className={classes.img} alt="complex" src={carAccessories} />
+                                    </ButtonBase>
+                                </Grid>
+                                <Grid item xs={12} sm container>
+                                    <Grid item xs container direction="column" spacing={2}>
+                                        <Grid item xs>
+                                            <Typography gutterBottom variant="subtitle1">
+                                                Standard license
+                                            </Typography>
+                                            <Typography variant="body2" gutterBottom>
+                                                Full resolution 1920x1080 • JPEG
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary">
+                                                ID: 1030114
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                                                Add To Cart
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle1">$19.00</Typography>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Paper>
 
+                        <Paper className={classes.paper} style={{marginTop: '20px'}}>
+                            <Grid container spacing={2}>
+                                <Grid item>
+                                    <ButtonBase className={classes.image}>
+                                        <img className={classes.img} alt="complex" src={fc1} />
+                                    </ButtonBase>
+                                </Grid>
+                                <Grid item xs={12} sm container>
+                                    <Grid item xs container direction="column" spacing={2}>
+                                        <Grid item xs>
+                                            <Typography gutterBottom variant="subtitle1">
+                                                Standard license
+                                            </Typography>
+                                            <Typography variant="body2" gutterBottom>
+                                                Full resolution 1920x1080 • JPEG
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary">
+                                                ID: 1030114
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                                                Add To Cart
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle1">$19.00</Typography>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Paper>
+                    </Grid>
+
+                    <Grid item xs={5}>
+                        <Paper className={classes.paper}>
+                            <Grid container spacing={2}>
+                                <Grid item>
+                                    <ButtonBase className={classes.image}>
+                                        <img className={classes.img} alt="complex" src={fc3} />
+                                    </ButtonBase>
+                                </Grid>
+                                <Grid item xs={12} sm container>
+                                    <Grid item xs container direction="column" spacing={2}>
+                                        <Grid item xs>
+                                            <Typography gutterBottom variant="subtitle1">
+                                                Standard license
+                                            </Typography>
+                                            <Typography variant="body2" gutterBottom>
+                                                Full resolution 1920x1080 • JPEG
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary">
+                                                ID: 1030114
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                                                Remove
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle1">$19.00</Typography>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Paper>
+
+                        <Paper className={classes.paper} style={{marginTop: '20px'}}>
+                            <Grid container spacing={2}>
+                                <Grid item>
+                                    <ButtonBase className={classes.image}>
+                                        <img className={classes.img} alt="complex" src={fc2} />
+                                    </ButtonBase>
+                                </Grid>
+                                <Grid item xs={12} sm container>
+                                    <Grid item xs container direction="column" spacing={2}>
+                                        <Grid item xs>
+                                            <Typography gutterBottom variant="subtitle1">
+                                                Standard license
+                                            </Typography>
+                                            <Typography variant="body2" gutterBottom>
+                                                Full resolution 1920x1080 • JPEG
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary">
+                                                ID: 1030114
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                                                Add To Cart
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle1">$19.00</Typography>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Paper>
                     </Grid>
                 </Grid>
             </Box>
