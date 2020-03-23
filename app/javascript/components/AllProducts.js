@@ -3,12 +3,13 @@ import {Container} from "@material-ui/core";
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import ListSubheader from '@material-ui/core/ListSubheader';
+import {makeStyles} from '@material-ui/core/styles';
+import Slider from '@material-ui/core/Slider';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -19,48 +20,88 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    formControl: {
+        margin: theme.spacing(3),
+    },
 }));
 
 export default function AllProducts() {
     const classes = useStyles();
 
-    const [checked, setChecked] = React.useState([1]);
+    const [state, setState] = React.useState({
 
-    const handleToggle = value => () => {
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
+    });
 
-        if (currentIndex === -1) {
-            newChecked.push(value);
-        } else {
-            newChecked.splice(currentIndex, 1);
-        }
-
-        setChecked(newChecked);
+    const handleChange = event => {
+        setState({ ...state, [event.target.name]: event.target.checked });
     }
+
+
+
     return (
         <Container maxWidth={"lg"}>
             <Box mt={4}>
                 <Grid container spacing={3}>
                     <Grid item xs={3}>
-                        <List dense subheader={<ListSubheader>Scale</ListSubheader>}>
-                            {[0,1,2,3].map(value => {
-                                const labelID = 'checkbox-list-secondary-label-${value}';
-                                return (
-                                    <ListItem key={value} button>
-                                        <ListItemText id={labelID} primary={'Line item ${value + 1}'} />
-                                        <ListItemSecondaryAction>
-                                            <Checkbox
-                                                edge="end"
-                                                onChange={handleToggle(value)}
-                                                checked={checked.indexOf(value) !== -1}
-                                                inputProps={{ 'aria-labelledby': labelID }}
-                                            />
-                                        </ListItemSecondaryAction>
-                                    </ListItem>
-                                );
-                            })}
-                        </List>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Scale</FormLabel>
+                            <FormGroup>
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="1:10"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="1:12"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="1:18"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="1:72"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="1:24"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="1:32"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="1:50"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="1:700"
+                                />
+                            </FormGroup>
+                        </FormControl>
+
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Product Line</FormLabel>
+                            <FormGroup>
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="Classic Cars"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="Motorcycles"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="Trucks & Buses"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={handleChange} />}
+                                    label="Vintage Cars"
+                                />
+                            </FormGroup>
+                        </FormControl>
                     </Grid>
 
                     <Grid item xs={9}>

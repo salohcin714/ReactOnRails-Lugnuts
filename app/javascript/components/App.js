@@ -16,6 +16,7 @@ import axios from 'axios'
 import {Check} from "@material-ui/icons";
 import Checkout from "./Checkout";
 import withStyles from "@material-ui/core/styles/withStyles";
+import AllProducts from "./AllProducts";
 
 const useStyles = theme => ({
     root: {
@@ -76,7 +77,7 @@ class App extends React.Component {
                         <Route path="/shop/checkout" exact component={Checkout}/>
                         <Route path="/shop" exact component={Shop}/>
                         <Route path="/contact" exact component={Contact}/>
-
+                        <Route path="/allproducts" exact component={AllProducts}/>
                     </Switch>
                 </Container>
             </Router>
