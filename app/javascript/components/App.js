@@ -11,9 +11,7 @@ import Home from "./Home";
 import About from "./About";
 import Shop from "./Shop";
 import Contact from "./Contact";
-import {makeStyles} from "@material-ui/core/styles";
 import axios from 'axios'
-import {Check} from "@material-ui/icons";
 import Checkout from "./Checkout";
 import withStyles from "@material-ui/core/styles/withStyles";
 import AllProducts from "./AllProducts";

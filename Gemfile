@@ -46,3 +46,5 @@ gem 'devise'
 gem 'activeadmin'
 gem "active_material", github: "vigetlabs/active_material"
 gem "country_select"
+gem "bcrypt"
+gem "rack-cors"

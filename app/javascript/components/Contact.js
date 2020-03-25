@@ -95,13 +95,17 @@ export default function Contact() {
                                 fullWidth
                             />
                         </Grid>
+
                         <Grid item xs={12} style={{textAlign: "center"}}>
-                            <Button variant="contained" color="secondary">
-                                Send
-                            </Button>
+                            <Box mt={3} mb={3}>
+                                <Button variant="contained" color="secondary">
+                                    Send
+                                </Button>
+                            </Box>
                         </Grid>
                     </Box>
-                    </Paper>
+
+                </Paper>
 
             </Box>
 

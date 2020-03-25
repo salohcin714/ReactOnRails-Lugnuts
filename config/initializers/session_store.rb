@@ -1,0 +1,1 @@
+Rails.application.config.session_store :cookie_store, key: "_authentication_app", domain: "lugnuts-webd495.herokuapp.com"

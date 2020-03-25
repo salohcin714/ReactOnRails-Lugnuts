@@ -184,7 +184,7 @@ export default function Shop() {
             >
                 <TabPanel value={value} index={0} dir={theme.direction} style={{textAlign: 'center', marginTop: '3%'}}>
                     <Link style={{marginRight: '5%'}}>
-                       Classic Cars
+                        Classic Cars
                     </Link>
                     <Link style={{marginRight: '5%'}}>
                         Motorcycles
@@ -227,15 +227,15 @@ export default function Shop() {
                                 <CardMedia
                                     className={classes.media}
                                     image={fc1}
-                                 />
-                                 <CardContent>
-                                     <Typography gutterBottom variant="h5" component="h2">
-                                         Product 1
-                                     </Typography>
-                                     <Typography variant="body2" color="textSecondary" component="p">
-                                         Product description should go here
-                                     </Typography>
-                                 </CardContent>
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Product 1
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        Product description should go here
+                                    </Typography>
+                                </CardContent>
                             </CardActionArea>
                             <CardActions>
                                 <Button size="small" color="primary">

@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users, defaults: {format: :json}
+
   namespace :api do
     namespace :v1 do
       resources :product_lines, param: :id, defaults: {format: :json}
       resources :products, param: :id, defaults: {format: :json}
       resources :reviews, only: [:create, :destroy], defaults: {format: :json}
+      resources :sessions, only: [:create]
+      resources :registrations, only: [:create]
+      delete :logout, to: "sessions#logout"
+      get :logged_in, to: "sessions#logged_in"
     end
   end
 
