@@ -10,11 +10,13 @@ module Api
 
 
         if user
-          Customer.create(user_id: user.id)
+          customer = Customer.create(user_id: user.id)
           session[:user_id] = user.id
+          session[:customer_id] = customer.id
           render json: {
               status: :created,
-              user: user
+              user: user,
+              customer: customer
           }
         else
           render json: {status: 500}

@@ -9,11 +9,13 @@ module Api
                    .try(:authenticate, params["user"]["password"])
 
         if user
+          customer = Customer.find_by(user_id: user.id)
           session[:user_id] = user.id
           render json: {
               status: :created,
               logged_in: true,
-              user: user
+              user: user,
+              customer: customer
           }
         else
           render json: {status: 401}

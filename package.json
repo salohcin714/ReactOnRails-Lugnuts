@@ -15,7 +15,6 @@
     "file-loader": "^5.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
-    "react-devise": "^0.0.19",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-router": "latest",
@@ -23,10 +22,15 @@
     "react-swipeable-views": "^0.13.9",
     "turbolinks": "^5.2.0",
     "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "@material-ui/styles": "latest",
+    "history": "latest"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.19.0",
     "webpack-dev-server": "^3.10.3"
   }
 }
