@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Routes from '../routes/Index';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -35,11 +35,45 @@ const styles = (theme) => ({
   linkFix: {
     textDecoration: 'none',
     color: '#FFFFFF',
-
   },
-
-
 });
+
+class Auth extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+  }
+
+  handleLogoutClick() {
+    axios.delete("/api/v1/logout", {withCredentials: true})
+      .then(response => {
+        this.props.handleLogout();
+      }).catch(error => {
+      console.log("logout error", error);
+    })
+
+
+  }
+
+  render() {
+    const {classes} = this.props;
+    if (this.props.loggedInStatus === "LOGGED_IN") {
+      return (
+        <div>
+          <Button color={"inherit"} variant={"text"}
+                  onClick={() => this.handleLogoutClick()}>Logout</Button>
+        </div>
+      )
+    } else {
+      return (
+        <Link to="/login" className={classes.linkFix}>
+          <Button color={'inherit'} variant={'text'}>Login</Button>
+        </Link>
+      )
+    }
+  }
+}
 
 class App extends React.Component {
   constructor() {
@@ -47,15 +81,25 @@ class App extends React.Component {
 
     this.state = {
       loggedInStatus: 'NOT_LOGGED_IN',
-      user: {}
+      user: {},
+      customer: {}
     };
 
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentDidMount() {
     this.checkLoginStatus()
+  }
+
+  handleLogout() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {},
+      customer: {}
+    })
   }
 
   checkLoginStatus() {
@@ -64,12 +108,14 @@ class App extends React.Component {
         if (response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN") {
           this.setState({
             loggedInStatus: "LOGGED_IN",
-            user: response.data.user
+            user: response.data.user,
+            customer: response.data.customer
           })
         } else if (!response.data.logged_in && this.state.loggedInStatus === "LOGGED_IN") {
           this.setState({
             loggedInStatus: "NOT_LOGGED_IN",
-            user: {}
+            user: {},
+            customer: {}
           })
         }
       })
@@ -87,7 +133,8 @@ class App extends React.Component {
   handleLogin(data) {
     this.setState({
       loggedInStatus: "LOGGED_IN",
-      user: data.user
+      user: data.user,
+      customer: data.customer
     })
   }
 
@@ -117,9 +164,10 @@ class App extends React.Component {
                 <Link to="/contact" className={classes.linkFix}>
                   <Button color={'inherit'} variant={'text'}>Contact</Button>
                 </Link>
-                <Link to="/login" className={classes.linkFix}>
-                  <Button color={'inherit'} variant={'text'}>Login</Button>
-                </Link>
+                <Auth handleLogout={this.handleLogout}
+                      loggedInStatus={this.state.loggedInStatus}
+                      classes={classes}/>
+
               </Toolbar>
             </AppBar>
           </Box>
