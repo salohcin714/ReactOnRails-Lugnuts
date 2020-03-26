@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Routes from '../routes/Index';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -14,13 +14,13 @@ import Contact from './Contact';
 import axios from 'axios';
 import Checkout from './Checkout';
 import withStyles from '@material-ui/core/styles/withStyles';
-import AllProducts from './AllProducts';
+import Products from './Products';
 import ProductDetail from './ProductDetail';
-import history from "./utils/history";
+import history from './utils/history';
 
 import Registration from './auth/Registration';
-import PropTypes from "prop-types";
-import Login from "./auth/Login";
+import PropTypes from 'prop-types';
+import Login from './auth/Login';
 
 const styles = (theme) => ({
   root: {
@@ -46,34 +46,37 @@ class Auth extends Component {
   }
 
   handleLogoutClick() {
-    axios.delete("/api/v1/logout", {withCredentials: true})
-      .then(response => {
-        this.props.handleLogout();
-      }).catch(error => {
-      console.log("logout error", error);
-    })
-
-
+    axios.delete('/api/v1/logout', {withCredentials: true}).then((response) => {
+      this.props.handleLogout();
+    }).catch((error) => {
+      console.log('logout error', error);
+    });
   }
 
   render() {
     const {classes} = this.props;
-    if (this.props.loggedInStatus === "LOGGED_IN") {
+    if (this.props.loggedInStatus === 'LOGGED_IN') {
       return (
-        <div>
-          <Button color={"inherit"} variant={"text"}
-                  onClick={() => this.handleLogoutClick()}>Logout</Button>
-        </div>
-      )
+          <div>
+            <Button color={'inherit'} variant={'text'}
+                    onClick={() => this.handleLogoutClick()}>Logout</Button>
+          </div>
+      );
     } else {
       return (
-        <Link to="/login" className={classes.linkFix}>
-          <Button color={'inherit'} variant={'text'}>Login</Button>
-        </Link>
-      )
+          <Link to="/login" className={classes.linkFix}>
+            <Button color={'inherit'} variant={'text'}>Login</Button>
+          </Link>
+      );
     }
   }
 }
+
+Auth.propTypes = {
+  classes: PropTypes.object.isRequired,
+  loggedInStatus: PropTypes.string.isRequired,
+  handleLogout: PropTypes.func.isRequired,
+};
 
 class App extends React.Component {
   constructor() {
@@ -82,7 +85,7 @@ class App extends React.Component {
     this.state = {
       loggedInStatus: 'NOT_LOGGED_IN',
       user: {},
-      customer: {}
+      customer: {},
     };
 
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
@@ -91,51 +94,50 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.checkLoginStatus()
+    this.checkLoginStatus();
   }
 
   handleLogout() {
     this.setState({
-      loggedInStatus: "NOT_LOGGED_IN",
+      loggedInStatus: 'NOT_LOGGED_IN',
       user: {},
-      customer: {}
-    })
+      customer: {},
+    });
   }
 
   checkLoginStatus() {
-    axios.get("api/v1/logged_in", {withCredentials: true})
-      .then(response => {
-        if (response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN") {
-          this.setState({
-            loggedInStatus: "LOGGED_IN",
-            user: response.data.user,
-            customer: response.data.customer
-          })
-        } else if (!response.data.logged_in && this.state.loggedInStatus === "LOGGED_IN") {
-          this.setState({
-            loggedInStatus: "NOT_LOGGED_IN",
-            user: {},
-            customer: {}
-          })
-        }
-      })
-      .catch(error => {
-        console.log("check login error", error)
-      })
+    axios.get('api/v1/logged_in', {withCredentials: true}).then((response) => {
+      if (response.data.logged_in && this.state.loggedInStatus ===
+          'NOT_LOGGED_IN') {
+        this.setState({
+          loggedInStatus: 'LOGGED_IN',
+          user: response.data.user,
+          customer: response.data.customer,
+        });
+      } else if (!response.data.logged_in && this.state.loggedInStatus ===
+          'LOGGED_IN') {
+        this.setState({
+          loggedInStatus: 'NOT_LOGGED_IN',
+          user: {},
+          customer: {},
+        });
+      }
+    }).catch((error) => {
+      console.log('check login error', error);
+    });
   }
-
 
   handleSuccessfulAuth(data) {
     this.handleLogin(data);
-    history.push("/")
+    history.push('/');
   }
 
   handleLogin(data) {
     this.setState({
-      loggedInStatus: "LOGGED_IN",
+      loggedInStatus: 'LOGGED_IN',
       user: data.user,
-      customer: data.customer
-    })
+      customer: data.customer,
+    });
   }
 
   render() {
@@ -143,54 +145,53 @@ class App extends React.Component {
 
     return (
 
-      <Router history={history}>
-        <h1>Status: {this.state.loggedInStatus}</h1>
-        <Container>
-          <Box mb={1}>
-            <AppBar position="static">
-              <Toolbar>
-                <Link to={'/'} className={classes.linkFix}
-                      style={{flexGrow: 1}}>
-                  <Typography variant="h6" className={classes.title}>
-                    Lugnuts
-                  </Typography>
-                </Link>
-                <Link to="/about" className={classes.linkFix}>
-                  <Button color={'inherit'} variant={'text'}>About</Button>
-                </Link>
-                <Link to="/shop" className={classes.linkFix}>
-                  <Button color={'inherit'} variant={'text'}>Shop</Button>
-                </Link>
-                <Link to="/contact" className={classes.linkFix}>
-                  <Button color={'inherit'} variant={'text'}>Contact</Button>
-                </Link>
-                <Auth handleLogout={this.handleLogout}
-                      loggedInStatus={this.state.loggedInStatus}
-                      classes={classes}/>
+        <Router history={history}>
+          <Container>
+            <Box mb={1}>
+              <AppBar position="static">
+                <Toolbar>
+                  <Link to={'/'} className={classes.linkFix}
+                        style={{flexGrow: 1}}>
+                    <Typography variant="h6" className={classes.title}>
+                      Lugnuts
+                    </Typography>
+                  </Link>
+                  <Link to="/about" className={classes.linkFix}>
+                    <Button color={'inherit'} variant={'text'}>About</Button>
+                  </Link>
+                  <Link to="/shop" className={classes.linkFix}>
+                    <Button color={'inherit'} variant={'text'}>Shop</Button>
+                  </Link>
+                  <Link to="/contact" className={classes.linkFix}>
+                    <Button color={'inherit'} variant={'text'}>Contact</Button>
+                  </Link>
+                  <Auth handleLogout={this.handleLogout}
+                        loggedInStatus={this.state.loggedInStatus}
+                        classes={classes}/>
 
-              </Toolbar>
-            </AppBar>
-          </Box>
-        </Container>
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/about" exact component={About}/>
-          <Route path="/shop/checkout" exact component={Checkout}/>
-          <Route path="/shop" exact render={(props) => (
-            <Shop {...props} loggedInStatus={this.state.loggedInStatus}/>
-          )}/>
-          <Route path="/contact" exact component={Contact}/>
-          <Route path="/login" exact>
-            <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
-          </Route>
-          <Route path="/register">
-            <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
-          </Route>
+                </Toolbar>
+              </AppBar>
+            </Box>
+          </Container>
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/about" exact component={About}/>
+            <Route path="/shop/checkout" exact component={Checkout}/>
+            <Route path="/shop" exact render={(props) => (
+                <Shop {...props} loggedInStatus={this.state.loggedInStatus}/>
+            )}/>
+            <Route path="/contact" exact component={Contact}/>
+            <Route path="/login" exact>
+              <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+            </Route>
+            <Route path="/register">
+              <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+            </Route>
 
-          <Route path="/allproducts" exact component={AllProducts}/>
-          <Route path="/productdetail" exact component={ProductDetail}/>
-        </Switch>
-      </Router>
+            <Route path="/products" exact component={Products}/>
+            <Route path="/product/detail" exact component={ProductDetail}/>
+          </Switch>
+        </Router>
     );
   }
 }

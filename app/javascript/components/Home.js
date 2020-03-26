@@ -31,7 +31,7 @@ import ig from '../assets/images/Instagram.svg';
 import tw from '../assets/images/Twitter.svg';
 import {withStyles} from '@material-ui/styles';
 import axios from 'axios';
-
+import Footer from './Footer';
 
 const styles = (theme) => ({
   root: {
@@ -96,382 +96,344 @@ class Home extends Component {
     super(props);
   }
 
-
   render() {
     const {classes} = this.props;
     return (
-      <Container className={classes.root}>
-        <Box m={1} mt={3}>
-          <Paper className={classes.pageHero}
-                 style={{justifyContent: 'center'}}>
-            <Typography variant="h3" className={classes.pageHeroText} mt={4}>
-              Welcome
-            </Typography>
-            <Box m={4}>
-              <Link to={'/shop'} className={classes.linkFix}>
-                <Button variant="contained" color="secondary" size={'large'}>
-                  Shop Now
-                </Button>
-              </Link>
-            </Box>
-          </Paper>
-        </Box>
-        <Box m={1} mt={3}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-              <Card className={classes.root}>
-                <CardMedia
-                  component="img"
-                  alt="Contemplative Reptile"
-                  height="320"
-                  image={Accessories}
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h4" component="h2">
-                    Accessories
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary"
-                              component="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                    Urna condimentum mattis pellentesque id nibh tortor id
-                    aliquet
-                    lectus. Egestas maecenas pharetra convallis posuere morbi
-                    leo
-                    urna molestie. Nullam vehicula ipsum a arcu cursus. Praesent
-                    elementum facilisis leo vel.
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" color="primary">
-                    View Accessories
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Card className={classes.root}>
-                <CardMedia
-                  component="img"
-                  alt="Contemplative Reptile"
-                  height="320"
-                  image={Product1}
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h4" component="h4">
-                    Product Name
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary"
-                              component="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                    Urna condimentum mattis pellentesque id nibh tortor id
-                    aliquet
-                    lectus. Egestas maecenas pharetra convallis posuere morbi
-                    leo
-                    urna molestie. Nullam vehicula ipsum a arcu cursus. Praesent
-                    elementum facilisis leo vel.
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Chip label={'$X.XX'}/>
-                  <Button size="small" color="primary">
-                    Add to Cart
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          </Grid>
-        </Box>
-
-
-        <Box mt={4}>
-          <Typography
-            variant="h3"
-            style={{
-              textAlign: 'center',
-              marginBottom: '15px',
-            }}
-          >
-            Testimonials
-          </Typography>
-          <Grid container spacing={3} style={{textAlign: 'center'}}>
-            <Grid item xs={12} sm={4}>
-              <Card>
-                <CardContent>
-                  <FormatQuoteIcon/>
-                  <Typography
-                    variant="body2"
-                    gutterBottom
-                    style={{
-                      textAlign: 'justify',
-                    }}
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quos blanditiis tenetur unde suscipit, quam beatae rerum
-                    inventore consectetur, neque doloribus, cupiditate numquam
-                    dignissimos laborum fugiat deleniti? Eum quasi quidem
-                    quibusdam.
-                  </Typography>
-                  <Typography variant="caption" display="block" gutterBottom>
-                    - Client Name
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={4}>
-              <Card>
-                <CardContent>
-                  <FormatQuoteIcon/>
-                  <Typography
-                    variant="body2"
-                    gutterBottom
-                    style={{
-                      textAlign: 'justify',
-                    }}
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quos blanditiis tenetur unde suscipit, quam beatae rerum
-                    inventore consectetur, neque doloribus, cupiditate numquam
-                    dignissimos laborum fugiat deleniti? Eum quasi quidem
-                    quibusdam.
-                  </Typography>
-                  <Typography variant="caption" display="block" gutterBottom>
-                    - Client Name
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={4}>
-              <Card>
-                <CardContent>
-                  <FormatQuoteIcon/>
-                  <Typography
-                    variant="body2"
-                    gutterBottom
-                    style={{
-                      textAlign: 'justify',
-                    }}
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quos blanditiis tenetur unde suscipit, quam beatae rerum
-                    inventore consectetur, neque doloribus, cupiditate numquam
-                    dignissimos laborum fugiat deleniti? Eum quasi quidem
-                    quibusdam.
-                  </Typography>
-                  <Typography variant="caption" display="block" gutterBottom>
-                    - Client Name
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
-        </Box>
-
-
-        <Box mt={4}>
-          <Typography
-            variant="h3"
-            style={{
-              textAlign: 'center',
-              marginBottom: '15px',
-            }}
-          >
-            Featured Collection
-          </Typography>
-          <Grid container spacing={3} style={{textAlign: 'center'}}>
-            <Grid item xs={12} sm={3}>
-              <Card className={classes.root}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    alt="Contemplative Reptile"
-                    height="140"
-                    image={fc1}
-                    title="Contemplative Reptile"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Product Name
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      Lizards are a widespread group of squamate reptiles, with
-                      over 6,000 species, ranging across all continents except
-                      Antarctica
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <Chip label={'$X.XX'}/>
-                  <Button size="small" color="primary">
-                    Add to Cart
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={3}>
-              <Card className={classes.root}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    alt="Contemplative Reptile"
-                    height="140"
-                    image={fc2}
-                    title="Contemplative Reptile"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Product Name
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      Lizards are a widespread group of squamate reptiles, with
-                      over 6,000 species, ranging across all continents except
-                      Antarctica
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <Chip label={'$X.XX'}/>
-                  <Button size="small" color="primary">
-                    Add to Cart
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={3}>
-              <Card className={classes.root}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    alt="Contemplative Reptile"
-                    height="140"
-                    image={fc3}
-                    title="Contemplative Reptile"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Product Name
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      Lizards are a widespread group of squamate reptiles, with
-                      over 6,000 species, ranging across all continents except
-                      Antarctica
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <Chip label={'$X.XX'}/>
-                  <Button size="small" color="primary">
-                    Add to Cart
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={3}>
-              <Card className={classes.root}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    alt="Contemplative Reptile"
-                    height="140"
-                    image={fc4}
-                    title="Contemplative Reptile"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Product Name
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      Lizards are a widespread group of squamate reptiles, with
-                      over 6,000 species, ranging across all continents except
-                      Antarctica
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <Chip label={'$X.XX'}/>
-                  <Button size="small" color="primary">
-                    Add to Cart
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          </Grid>
-        </Box>
-
-
-        <Box mt={4}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-              <Typography variant="h5">Quick Links</Typography>
-              <ButtonGroup
-                variant="text"
-                color="primary"
-                aria-label="text primary button group"
-              >
-                <Button>Search</Button>
-                <Button>Contact Us</Button>
-                <Button>Refund Policy</Button>
-              </ButtonGroup>
-            </Grid>
-
-            <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
-              <Typography variant="h5">Join the mailing list</Typography>
-              <TextField
-                id="outlined-basic"
-                label="E-Mail Address"
-                variant="outlined"
-              />
-              <Button variant="contained" color="primary"
-                      style={{
-                        padding: '15px',
-                        marginLeft: '5px',
-                      }}>Subscribe</Button>
-            </Grid>
-          </Grid>
-
-          <Divider style={{marginTop: '10px', marginBottom: '10px'}}/>
-
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-              <Typography variant="caption" gutterBottom>
-                All Major Credit Cards Accepted
+        <Container className={classes.root}>
+          <Box m={1} mt={3}>
+            <Paper className={classes.pageHero}
+                   style={{justifyContent: 'center'}}>
+              <Typography variant="h3" className={classes.pageHeroText} mt={4}>
+                Welcome
               </Typography>
+              <Box m={4}>
+                <Link to={'/shop'} className={classes.linkFix}>
+                  <Button variant="contained" color="secondary" size={'large'}>
+                    Shop Now
+                  </Button>
+                </Link>
+              </Box>
+            </Paper>
+          </Box>
+          <Box m={1} mt={3}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={6}>
+                <Card className={classes.root}>
+                  <CardMedia
+                      component="img"
+                      alt="Contemplative Reptile"
+                      height="320"
+                      image={Accessories}
+                      title="Contemplative Reptile"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h4" component="h2">
+                      Accessories
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary"
+                                component="p">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed
+                      do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua.
+                      Urna condimentum mattis pellentesque id nibh tortor id
+                      aliquet
+                      lectus. Egestas maecenas pharetra convallis posuere morbi
+                      leo
+                      urna molestie. Nullam vehicula ipsum a arcu cursus.
+                      Praesent
+                      elementum facilisis leo vel.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      View Accessories
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Card className={classes.root}>
+                  <CardMedia
+                      component="img"
+                      alt="Contemplative Reptile"
+                      height="320"
+                      image={Product1}
+                      title="Contemplative Reptile"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h4" component="h4">
+                      Product Name
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary"
+                                component="p">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed
+                      do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua.
+                      Urna condimentum mattis pellentesque id nibh tortor id
+                      aliquet
+                      lectus. Egestas maecenas pharetra convallis posuere morbi
+                      leo
+                      urna molestie. Nullam vehicula ipsum a arcu cursus.
+                      Praesent
+                      elementum facilisis leo vel.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Chip label={'$X.XX'}/>
+                    <Button size="small" color="primary">
+                      Add to Cart
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
             </Grid>
+          </Box>
 
-            <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
-              <img src={fb} height={24} width={32}/>
-              <img src={ig} height={24}/>
-              <img src={tw} height={24}/>
+
+          <Box mt={4}>
+            <Typography
+                variant="h3"
+                style={{
+                  textAlign: 'center',
+                  marginBottom: '15px',
+                }}
+            >
+              Testimonials
+            </Typography>
+            <Grid container spacing={3} style={{textAlign: 'center'}}>
+              <Grid item xs={12} sm={4}>
+                <Card>
+                  <CardContent>
+                    <FormatQuoteIcon/>
+                    <Typography
+                        variant="body2"
+                        gutterBottom
+                        style={{
+                          textAlign: 'justify',
+                        }}
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                      inventore consectetur, neque doloribus, cupiditate numquam
+                      dignissimos laborum fugiat deleniti? Eum quasi quidem
+                      quibusdam.
+                    </Typography>
+                    <Typography variant="caption" display="block" gutterBottom>
+                      - Client Name
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} sm={4}>
+                <Card>
+                  <CardContent>
+                    <FormatQuoteIcon/>
+                    <Typography
+                        variant="body2"
+                        gutterBottom
+                        style={{
+                          textAlign: 'justify',
+                        }}
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                      inventore consectetur, neque doloribus, cupiditate numquam
+                      dignissimos laborum fugiat deleniti? Eum quasi quidem
+                      quibusdam.
+                    </Typography>
+                    <Typography variant="caption" display="block" gutterBottom>
+                      - Client Name
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} sm={4}>
+                <Card>
+                  <CardContent>
+                    <FormatQuoteIcon/>
+                    <Typography
+                        variant="body2"
+                        gutterBottom
+                        style={{
+                          textAlign: 'justify',
+                        }}
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                      inventore consectetur, neque doloribus, cupiditate numquam
+                      dignissimos laborum fugiat deleniti? Eum quasi quidem
+                      quibusdam.
+                    </Typography>
+                    <Typography variant="caption" display="block" gutterBottom>
+                      - Client Name
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
             </Grid>
-          </Grid>
-        </Box>
-      </Container>
+          </Box>
+
+
+          <Box mt={4}>
+            <Typography
+                variant="h3"
+                style={{
+                  textAlign: 'center',
+                  marginBottom: '15px',
+                }}
+            >
+              Featured Collection
+            </Typography>
+            <Grid container spacing={3} style={{textAlign: 'center'}}>
+              <Grid item xs={12} sm={3}>
+                <Card className={classes.root}>
+                  <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        alt="Contemplative Reptile"
+                        height="140"
+                        image={fc1}
+                        title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Product Name
+                      </Typography>
+                      <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                      >
+                        Lizards are a widespread group of squamate reptiles,
+                        with
+                        over 6,000 species, ranging across all continents except
+                        Antarctica
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Chip label={'$X.XX'}/>
+                    <Button size="small" color="primary">
+                      Add to Cart
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} sm={3}>
+                <Card className={classes.root}>
+                  <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        alt="Contemplative Reptile"
+                        height="140"
+                        image={fc2}
+                        title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Product Name
+                      </Typography>
+                      <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                      >
+                        Lizards are a widespread group of squamate reptiles,
+                        with
+                        over 6,000 species, ranging across all continents except
+                        Antarctica
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Chip label={'$X.XX'}/>
+                    <Button size="small" color="primary">
+                      Add to Cart
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} sm={3}>
+                <Card className={classes.root}>
+                  <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        alt="Contemplative Reptile"
+                        height="140"
+                        image={fc3}
+                        title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Product Name
+                      </Typography>
+                      <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                      >
+                        Lizards are a widespread group of squamate reptiles,
+                        with
+                        over 6,000 species, ranging across all continents except
+                        Antarctica
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Chip label={'$X.XX'}/>
+                    <Button size="small" color="primary">
+                      Add to Cart
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} sm={3}>
+                <Card className={classes.root}>
+                  <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        alt="Contemplative Reptile"
+                        height="140"
+                        image={fc4}
+                        title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Product Name
+                      </Typography>
+                      <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                      >
+                        Lizards are a widespread group of squamate reptiles,
+                        with
+                        over 6,000 species, ranging across all continents except
+                        Antarctica
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Chip label={'$X.XX'}/>
+                    <Button size="small" color="primary">
+                      Add to Cart
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            </Grid>
+          </Box>
+
+
+          <Footer/>
+        </Container>
     );
   }
 }

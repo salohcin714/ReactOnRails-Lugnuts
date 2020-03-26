@@ -11,21 +11,23 @@ import CardContent from '@material-ui/core/CardContent';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
+import CardHeader from '@material-ui/core/CardHeader';
+import Footer from './Footer';
 
 function TabPanel(props) {
   const {children, value, index, ...other} = props;
 
   return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={'vertical-tabpanel-${index}'}
-      aria-labelledby={'vertical-tab-${index}'}
-      {...other}
-    >
-      {value === index && <Box p={3}>{children}</Box>}
-    </Typography>
+      <Typography
+          component="div"
+          role="tabpanel"
+          hidden={value !== index}
+          id={'vertical-tabpanel-${index}'}
+          aria-labelledby={'vertical-tab-${index}'}
+          {...other}
+      >
+        {value === index && <Box p={3}>{children}</Box>}
+      </Typography>
   );
 }
 
@@ -63,88 +65,78 @@ export default function About() {
   };
 
   return (
-    <Container>
+      <Container>
+        <Container maxWidth={'md'}>
+          <Box mt={3}>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <Card>
+                  <CardHeader title={'About Us'}/>
+                  <CardMedia
+                      component={'img'}
+                      image={About1}
+                      title="Contemplative Reptile"
+                      height={400}
+                  />
+                  <CardContent style={{textAlign: 'center'}}>
+                    <Typography variant="body1" component="p"
+                                style={{marginBottom: '20px'}}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Urna condimentum mattis pellentesque id nibh
+                      tortor id aliquet lectus. Egestas maecenas pharetra
+                      convallis posuere morbi leo urna molestie. Nullam vehicula
+                      ipsum a arcu cursus. Praesent elementum facilisis leo vel.
+                    </Typography>
 
+                    <Typography variant="body1" component="p"
+                                style={{marginBottom: '20px'}}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Urna condimentum mattis pellentesque id nibh
+                      tortor id aliquet lectus. Egestas maecenas pharetra
+                      convallis posuere morbi leo urna molestie. Nullam vehicula
+                      ipsum a arcu cursus. Praesent elementum facilisis leo vel.
+                    </Typography>
 
-      <Box mt={3}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Card>
-              <CardMedia
-                component={'img'}
-                image={About1}
-                title="Contemplative Reptile"
-                height={400}
-              />
-              <CardContent style={{textAlign: 'center'}}>
-                <Typography gutterBottom variant="h3" component="h3">
-                  About Us
-                </Typography>
-                <Typography variant="body1" component="p"
-                            style={{marginBottom: '20px'}}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Urna condimentum
-                  mattis pellentesque id
-                  nibh tortor id aliquet lectus. Egestas maecenas pharetra
-                  convallis posuere morbi leo
-                  urna molestie. Nullam vehicula ipsum a arcu cursus. Praesent
-                  elementum facilisis leo
-                  vel.
-                </Typography>
+                    <Typography variant="body1" component="p"
+                                style={{marginBottom: '20px'}}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Urna condimentum mattis pellentesque id nibh
+                      tortor id aliquet lectus. Egestas maecenas pharetra
+                      convallis posuere morbi leo urna molestie. Nullam vehicula
+                      ipsum a arcu cursus. Praesent elementum facilisis leo vel.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
 
-                <Typography variant="body1" component="p"
-                            style={{marginBottom: '20px'}}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Urna condimentum
-                  mattis pellentesque id
-                  nibh tortor id aliquet lectus. Egestas maecenas pharetra
-                  convallis posuere morbi leo
-                  urna molestie. Nullam vehicula ipsum a arcu cursus. Praesent
-                  elementum facilisis leo
-                  vel.
-                </Typography>
+            <div className={classes.root}>
+              <Tabs
+                  orientation="vertical"
+                  variant="scrollable"
+                  value={value}
+                  onChange={handleChange}
+                  aria-label="Company History"
+                  className={classes.tabs}
+              >
+                <Tab label="The Beginning" {...allyProps(0)} />
+                <Tab label="The Middle" {...allyProps(1)} />
+              </Tabs>
+              <TabPanel index={0} value={value}>
+                The beginning of the company started like this...
+              </TabPanel>
+              <TabPanel index={1} value={value}>
+                The story went like this...
+              </TabPanel>
+            </div>
 
-                <Typography variant="body1" component="p"
-                            style={{marginBottom: '20px'}}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Urna condimentum
-                  mattis pellentesque id
-                  nibh tortor id aliquet lectus. Egestas maecenas pharetra
-                  convallis posuere morbi leo
-                  urna molestie. Nullam vehicula ipsum a arcu cursus. Praesent
-                  elementum facilisis leo
-                  vel.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+          </Box>
 
-        <div className={classes.root}>
-          <Tabs
-            orientation="vertical"
-            variant="scrollable"
-            value={value}
-            onChange={handleChange}
-            aria-label="Company History"
-            className={classes.tabs}
-          >
-            <Tab label="The Beginning" {...allyProps(0)} />
-            <Tab label="The Middle" {...allyProps(1)} />
-          </Tabs>
-          <TabPanel index={0} value={value}>
-            The beginning of the company started like this...
-          </TabPanel>
-          <TabPanel index={1} value={value}>
-            The story went like this...
-          </TabPanel>
-        </div>
-
-      </Box>
-
-    </Container>
+        </Container>
+        <Footer/>
+      </Container>
   );
 }

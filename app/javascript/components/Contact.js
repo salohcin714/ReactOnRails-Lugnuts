@@ -19,7 +19,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 
 export default function Contact() {
   return (
-    <Container>
+    <Container maxWidth={'sm'}>
       <Typography variant={'h3'} style={{textAlign: 'center'}}>
         Contact Us
       </Typography>
@@ -28,18 +28,10 @@ export default function Contact() {
         <Grid container spacing={3}>
           <Grid item xs={12} style={{textAlign: 'center'}}>
             <Card>
-              <CardHeader>
-                <Typography
-                  variant={'h3'}
-                  component={'h3'}>
-                  Contact Us
-                </Typography>
-              </CardHeader>
-              <Box m={4}>
-                <Paper elevation={2}>
-                  <CardMedia component={'img'} image={Contactus}/>
-                </Paper>
-              </Box>
+              <CardHeader title={'Contact us'}/>
+              <CardMedia
+                  component={'img'}
+                  image={Contactus}/>
               <CardContent>
                 <Typography variant="body1">
                   (555)555-5555

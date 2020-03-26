@@ -1,8 +1,18 @@
 import React, {Component} from 'react';
-import axios from 'axios'
-import history from "../utils/history";
+import PropTypes from 'prop-types';
+import axios from 'axios';
+import history from '../utils/history';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import {Container} from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Box from '@material-ui/core/Box';
+import CardHeader from '@material-ui/core/CardHeader';
+import Typography from '@material-ui/core/Typography';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
@@ -17,62 +27,83 @@ export default class Login extends Component {
     this.handleNewUser = this.handleNewUser.bind(this);
   }
 
-
   handleSubmit(event) {
-    axios.post("api/v1/sessions", {
-        user: {
-          email: this.state.email,
-          password: this.state.password
-        }
-      }, {withCredentials: true}
-    ).then(response => {
-      console.log("response from login", response);
+    axios.post('api/v1/sessions', {
+          user: {
+            email: this.state.email,
+            password: this.state.password,
+          },
+        }, {withCredentials: true},
+    ).then((response) => {
+      console.log('response from login', response);
       if (response.data.logged_in) {
-        this.props.handleSuccessfulAuth(response.data)
+        this.props.handleSuccessfulAuth(response.data);
       }
-    }).catch(error => {
-        console.log("login error", error)
-      }
+    }).catch((error) => {
+          console.log('login error', error);
+        },
     );
-
-
     event.preventDefault();
   }
 
   handleNewUser(event) {
-    history.push("/register")
+    history.push('/register');
   }
 
   handleChange(event) {
     this.setState({
-        [event.target.name]: event.target.value
-      }
-    )
+          [event.target.name]: event.target.value,
+        },
+    );
   }
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type={'email'}
-            name={'email'}
-            placeholder={'Email'}
-            value={this.state.email}
-            onChange={this.handleChange}
-            required/>
-          <input
-            type={'password'}
-            name={'password'}
-            placeholder={'Password'}
-            value={this.state.password}
-            onChange={this.handleChange}
-            required/>
-          <button type={'submit'}>Login</button>
-        </form>
-        <button onClick={this.handleNewUser}>First Time Here?</button>
-      </div>
+        <Container maxWidth={'xs'}>
+          <Box mt={3}>
+            <Card>
+              <CardHeader title={'Login'}/>
+              <CardContent>
+                <form onSubmit={this.handleSubmit}>
+                  <Box m={1}>
+                    <TextField
+                        type={'email'}
+                        name={'email'}
+                        label={'Email'}
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        fullWidth
+                        required/>
+                  </Box>
+                  <Box m={1}>
+                    <TextField
+                        type={'password'}
+                        name={'password'}
+                        label={'Password'}
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        fullWidth
+                        required/>
+                  </Box>
+                  <Box m={1} style={{textAlign: 'center'}}>
+                    <Button variant={'contained'} type={'submit'}
+                            color={'primary'}>Login</Button>
+                  </Box>
+                </form>
+              </CardContent>
+              <CardActions>
+                <Button onClick={this.handleNewUser}>First Time Here?</Button>
+              </CardActions>
+            </Card>
+          </Box>
+        </Container>
 
     );
   }
 }
+
+Login.proptypes = {
+  handleSuccessfulAuth: PropTypes.func.isRequired,
+};
+
+export default Login;
