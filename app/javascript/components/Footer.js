@@ -9,36 +9,45 @@ import ig from '../assets/images/Instagram.svg';
 import tw from '../assets/images/Twitter.svg';
 import Box from '@material-ui/core/Box';
 import React from 'react';
+import {Card} from '@material-ui/core';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 
 export default function Footer() {
   return (
       <Box mt={4}>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
-            <Typography variant="h5">Quick Links</Typography>
-            <ButtonGroup
-                variant="text"
-                color="primary"
-                aria-label="text primary button group"
-            >
-              <Button>Search</Button>
-              <Button>Contact Us</Button>
-              <Button>Refund Policy</Button>
-            </ButtonGroup>
+            <Card style={{height: '100%'}}>
+              <CardHeader
+                  title={'Quick Links'}/>
+              <br/>
+              <CardActions>
+
+                <Button variant={'text'} size={'large'}>Search</Button>
+                <Button variant={'text'} size={'large'}>Contact Us</Button>
+                <Button variant={'text'} size={'large'}>Refund Policy</Button>
+
+              </CardActions>
+            </Card>
+
           </Grid>
 
-          <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
-            <Typography variant="h5">Join the mailing list</Typography>
-            <TextField
-                id="outlined-basic"
-                label="E-Mail Address"
-                variant="outlined"
-            />
-            <Button variant="contained" color="primary"
-                    style={{
-                      padding: '15px',
-                      marginLeft: '5px',
-                    }}>Subscribe</Button>
+          <Grid item xs={12} sm={6}>
+            <Card style={{height: '100%'}}>
+              <CardHeader
+                  title={'Join the mailing list'}/>
+              <CardContent>
+
+                <TextField variant={'outlined'} label={'Email Address'}
+                           style={{flexGrow: 1}}/>
+                <Button variant={'contained'} color={'primary'}
+                        size={'large'}>Subscribe</Button>
+
+              </CardContent>
+            </Card>
+
           </Grid>
         </Grid>
 

@@ -2,21 +2,21 @@
 // like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
 // of the page.
 
-import React from 'react'
-import {render} from "react-dom"
-import PropTypes from 'prop-types'
-import App from "../components/App";
-import {Container} from "@material-ui/core";
-import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
-
+import React from 'react';
+import {render} from 'react-dom';
+import PropTypes from 'prop-types';
+import App from '../components/App';
+import {Container} from '@material-ui/core';
+import {createMuiTheme} from '@material-ui/core/styles';
+import {ThemeProvider} from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
     typography: {
         fontFamily: [
             'myriad-pro',
             'Helvetica Neue',
-            'sans-serif'
-        ]
+            'sans-serif',
+        ],
     },
     palette: {
         primary: {

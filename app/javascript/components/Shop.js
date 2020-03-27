@@ -34,13 +34,9 @@ import tw from '../assets/images/Twitter.svg';
 
 import {withStyles} from '@material-ui/styles';
 
-const styles = (theme) => ({
+const styles = () => ({
   root: {
     flexGrow: 1,
-  },
-
-  menuButton: {
-    marginRight: theme.spacing(2),
   },
 
   title: {
@@ -60,7 +56,6 @@ const styles = (theme) => ({
     color: '#FFFFFF',
     flexGrow: 1,
     textAlign: 'center',
-    paddingTop: theme.spacing(2),
   },
   linkFix: {
     textDecoration: 'none',
@@ -84,20 +79,11 @@ class Shop extends Component {
         <Container className={classes.root}>
 
           <Box m={1} mt={3}>
-            <Paper className={classes.shopHero}
-                   style={{justifyContent: 'center'}}>
-              <Typography variant="h3" className={classes.shopHeroText} mt={4}>
-                Shop
-              </Typography>
-              <Box m={4}>
-                <Link to={'/shop'} className={classes.linkFix}>
-                  <Button variant="contained" color="secondary" size={'large'}
-                          className={classes.linkFix}>
-                    View What's new
-                  </Button>
-                </Link>
-              </Box>
-            </Paper>
+            <Card>
+              <CardMedia
+                  component={'img'}
+                  image={Shop1}/>
+            </Card>
           </Box>
 
           <Box mt={4}>
@@ -143,7 +129,7 @@ class Shop extends Component {
                   </Typography>
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item md={4} xs={12}>
                   <Card className={classes.root}>
                     <CardActionArea>
                       <CardMedia
@@ -171,7 +157,7 @@ class Shop extends Component {
                   </Card>
                 </Grid>
 
-                <Grid item xs={8}>
+                <Grid item md={8} xs={12}>
                   <Card className={classes.root}>
                     <CardActionArea>
                       <CardMedia
@@ -199,7 +185,7 @@ class Shop extends Component {
                   </Card>
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item md={4} xs={12}>
                   <Card className={classes.root}>
                     <CardActionArea>
                       <CardMedia
@@ -227,7 +213,7 @@ class Shop extends Component {
                   </Card>
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item md={4} xs={12}>
                   <Card className={classes.root}>
                     <CardActionArea>
                       <CardMedia
@@ -255,7 +241,7 @@ class Shop extends Component {
                   </Card>
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item md={4} xs={12}>
                   <Card className={classes.root}>
                     <CardActionArea>
                       <CardMedia

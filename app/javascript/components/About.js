@@ -65,7 +65,7 @@ export default function About() {
   };
 
   return (
-      <Container>
+      <Container maxWidth={'lg'}>
         <Container maxWidth={'md'}>
           <Box mt={3}>
             <Grid container spacing={3}>
