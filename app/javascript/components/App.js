@@ -176,10 +176,12 @@ class App extends React.Component {
           <Switch>
             <Route path="/" exact component={Home}/>
             <Route path="/about" exact component={About}/>
+            <Route path="/shop/products" exact component={Products}/>
             <Route path="/shop/checkout" exact component={Checkout}/>
-            <Route path="/shop" exact render={(props) => (
-                <Shop {...props} loggedInStatus={this.state.loggedInStatus}/>
-            )}/>
+            <Route path="/shop" exact>
+              <Shop loggedInStatus={this.state.loggedInStatus}
+                    user={this.state.user} customer={this.state.customer}/>
+            </Route>
             <Route path="/contact" exact component={Contact}/>
             <Route path="/login" exact>
               <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
@@ -188,7 +190,7 @@ class App extends React.Component {
               <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
             </Route>
 
-            <Route path="/products" exact component={Products}/>
+
             <Route path="/product/detail" exact component={ProductDetail}/>
           </Switch>
         </Router>

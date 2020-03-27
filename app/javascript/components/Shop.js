@@ -33,6 +33,7 @@ import ig from '../assets/images/Instagram.svg';
 import tw from '../assets/images/Twitter.svg';
 
 import {withStyles} from '@material-ui/styles';
+import Footer from './Footer';
 
 const styles = () => ({
   root: {
@@ -271,49 +272,9 @@ class Shop extends Component {
 
               </Grid>
             </Box>
-
-
-            <Box mt={6}>
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="h5">Quick Links</Typography>
-                  <ButtonGroup variant="text" color="primary"
-                               aria-label="text primary button group">
-                    <Button>Search</Button>
-                    <Button>Contact Us</Button>
-                    <Button>Refund Policy</Button>
-                  </ButtonGroup>
-                </Grid>
-
-                <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
-                  <Typography variant="h5">Join the mailing list</Typography>
-                  <TextField id="outlined-basic" label="E-Mail Address"
-                             variant="outlined"/>
-                  <Button variant="contained" color="primary"
-                          style={{
-                            padding: '15px',
-                            marginLeft: '5px',
-                          }}>Subscribe</Button>
-                </Grid>
-              </Grid>
-
-              <Divider style={{marginTop: '10px', marginBottom: '10px'}}/>
-
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="caption" gutterBottom>All Major Credit
-                    Cards Accepted</Typography>
-                </Grid>
-
-                <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
-                  <img src={fb} height={24} width={32}/>
-                  <img src={ig} height={24}/>
-                  <img src={tw} height={24}/>
-                </Grid>
-              </Grid>
-            </Box>
-
           </Box>
+
+          <Footer/>
         </Container>
     );
   }

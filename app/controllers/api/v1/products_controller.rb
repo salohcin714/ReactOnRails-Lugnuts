@@ -4,13 +4,17 @@ module Api
       def index
         products = Product.all
 
-        render json: ProductSerializer.new(products, options).serialized_json
+        render json: {
+            products: products
+        }
       end
 
       def show
         product = Product.find_by(id: params[:id])
 
-        render json: ProductSerializer.new(product, options).serialized_json
+        render json: {
+            product: product
+        }
       end
 
       def create
