@@ -29,7 +29,7 @@ import Divider from '@material-ui/core/Divider';
 import fb from '../assets/images/Facebook.svg';
 import ig from '../assets/images/Instagram.svg';
 import tw from '../assets/images/Twitter.svg';
-import {withStyles} from '@material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import axios from 'axios';
 import Footer from './Footer';
 
