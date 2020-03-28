@@ -5,6 +5,7 @@ import {Container} from '@material-ui/core';
 import Shop1 from '../assets/images/shop1.jpg';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import axios from 'axios';
 import {makeStyles, useTheme} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import {Link, Route, Switch} from 'react-router-dom';
@@ -72,6 +73,22 @@ class Shop extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      query: '',
+      results: {},
+      loading: false,
+      message: '',
+    }
+
+  }
+
+  componentDidMount() {
+    axios.get('api/v1/products', {withCredentials: true})
+    .then((response) => {
+      console.log("server response", response)
+    }).catch((error) => {
+      console.log("server error", error)
+    });
   }
 
   render() {
