@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {Container} from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import {makeStyles} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import fc2 from '../assets/images/fc2.jpg';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -19,198 +20,114 @@ import Divider from '@material-ui/core/Divider';
 import fb from '../assets/images/Facebook.svg';
 import ig from '../assets/images/Instagram.svg';
 import tw from '../assets/images/Twitter.svg';
+import Footer from './Footer';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import Chip from '@material-ui/core/Chip';
+import {AttachMoney} from '@material-ui/icons';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardActions from '@material-ui/core/CardActions';
 
-const useStyles = makeStyles((theme) => ({
+const styles = (theme) => ({
   root: {
-    flexGrow: 1,
+    display: 'flex',
   },
-  img: {
-    width: '550px',
-    height: '600px',
-    marginRight: '10px',
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
   },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-}));
+});
 
-export default function ProductDetail() {
-  const classes = useStyles();
+class ProductDetail extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <Container maxWidth="lg">
-      <Box mt={4}>
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
-            <img src={fc2} className={classes.img}/>
-          </Grid>
+  }
 
-          <Grid item xs={6}>
-            <Typography variant="h3">
-              Product Name
-            </Typography>
+  componentDidMount() {
+    console.log(this.props);
+    const {product} = this.props.location.state.product;
+    console.log(product);
+  }
 
-            <Typography variant="h5">
-              $$$$
-            </Typography>
-            <ExpansionPanel style={{marginTop: '10%'}}>
-              <ExpansionPanelSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography className={classes.heading}>Description</Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                <Typography>
+  render() {
+    const {classes} = this.props;
+    const {product} = this.props.location.state;
+    return (
+        <Container maxWidth="lg">
+          <Box mt={3}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={6}>
+                <Card>
+                  <CardMedia component={'img'} image={product.image_url}/>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <Card>
+                  <CardHeader title={product.name}/>
+                  <CardContent>
+                    <Chip color={'secondary'} icon={<AttachMoney/>}
+                          label={product.retail}/>
+                    <Box mt={1}>
+                      <Typography
+                          variant={'body1'}>{product.description}</Typography>
+                    </Box>
+                  </CardContent>
+                  <CardActions/>
+                </Card>
+
+
+              </Grid>
+            </Grid>
+          </Box>
+
+
+          <Box mt={6}>
+            <Grid container spacing={3} style={{textAlign: 'center'}}>
+              <Grid item xs={4}>
+                <LocalShippingIcon/>
+                <Typography variant="h5">Free 2-day Shipping</Typography>
+                <Typography variant="body2">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse malesuada lacus ex, sit amet blandit leo
                   lobortis eget.
                 </Typography>
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
+              </Grid>
 
-            <ExpansionPanel style={{marginTop: '10px'}}>
-              <ExpansionPanelSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography className={classes.heading}>
-                  {/* eslint-disable-next-line react/no-unescaped-entities */}
-                  What's Included
-                </Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                <Typography>
+              <Grid item xs={4}>
+                <VerifiedUserIcon/>
+                <Typography variant="h5">Refundable Policy</Typography>
+                <Typography variant="body2">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse malesuada lacus ex, sit amet blandit leo
                   lobortis eget.
                 </Typography>
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
+              </Grid>
 
-            <ExpansionPanel style={{marginTop: '10px'}}>
-              <ExpansionPanelSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography className={classes.heading}>
-                  Details & Care
-                </Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                <Typography>
+              <Grid item xs={4}>
+                <HelpIcon/>
+                <Typography variant="h5">Dependable Customer
+                  Service</Typography>
+                <Typography variant="body2">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse malesuada lacus ex, sit amet blandit leo
                   lobortis eget.
                 </Typography>
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
-
-            <Button
-              variant="contained"
-              color="secondary"
-              style={{
-                marginTop: '10%',
-              }}
-            >
-              Add To Cart
-            </Button>
-
-          </Grid>
-        </Grid>
-      </Box>
+              </Grid>
+            </Grid>
+          </Box>
 
 
-      <Box mt={6}>
-        <Grid container spacing={3} style={{textAlign: 'center'}}>
-          <Grid item xs={4}>
-            <LocalShippingIcon/>
-            <Typography variant="h5">Free 2-day Shipping</Typography>
-            <Typography variant="body2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo
-              lobortis eget.
-            </Typography>
-          </Grid>
-
-          <Grid item xs={4}>
-            <VerifiedUserIcon/>
-            <Typography variant="h5">Refundable Policy</Typography>
-            <Typography variant="body2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo
-              lobortis eget.
-            </Typography>
-          </Grid>
-
-          <Grid item xs={4}>
-            <HelpIcon/>
-            <Typography variant="h5">Dependable Customer Service</Typography>
-            <Typography variant="body2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo
-              lobortis eget.
-            </Typography>
-          </Grid>
-        </Grid>
-      </Box>
-
-
-      <Box mt={6}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <Typography variant="h5">Quick Links</Typography>
-            <ButtonGroup
-              variant="text"
-              color="primary"
-              aria-label="text primary button group"
-            >
-              <Button>Search</Button>
-              <Button>Contact Us</Button>
-              <Button>Refund Policy</Button>
-            </ButtonGroup>
-          </Grid>
-
-          <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
-            <Typography variant="h5">Join the mailing list</Typography>
-            <TextField
-              id="outlined-basic"
-              label="E-Mail Address"
-              variant="outlined"
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              style={{
-                padding: '15px',
-                marginLeft: '5px',
-              }}
-            >
-              Subscribe
-            </Button>
-          </Grid>
-        </Grid>
-
-        <Divider style={{marginTop: '10px', marginBottom: '10px'}}/>
-
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <Typography variant="caption" gutterBottom>
-              All Major Credit Cards Accepted
-            </Typography>
-          </Grid>
-
-          <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
-            <img src={fb} height={24} width={32}/>
-            <img src={ig} height={24}/>
-            <img src={tw} height={24}/>
-          </Grid>
-        </Grid>
-      </Box>
-    </Container>
-  );
+          <Footer/>
+        </Container>
+    );
+  }
 }
+
+ProductDetail.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(ProductDetail);
