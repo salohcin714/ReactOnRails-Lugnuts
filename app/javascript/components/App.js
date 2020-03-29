@@ -15,7 +15,6 @@ import Checkout from './Checkout';
 import {withStyles} from '@material-ui/core/styles';
 import Products from './Products';
 import ProductDetail from './ProductDetail';
-import Search from './Search';
 import history from './utils/history';
 
 import Registration from './auth/Registration';
@@ -194,7 +193,7 @@ class App extends React.Component {
 
             <Route path="/product/detail" exact component={ProductDetail}/>
 
-            <Route path="/search" exact component={Search}/>
+
           </Switch>
         </Router>
     );
