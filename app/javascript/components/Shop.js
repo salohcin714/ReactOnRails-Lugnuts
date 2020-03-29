@@ -32,6 +32,7 @@ import Divider from '@material-ui/core/Divider';
 import fb from '../assets/images/Facebook.svg';
 import ig from '../assets/images/Instagram.svg';
 import tw from '../assets/images/Twitter.svg';
+import ProductCard from './ProductCard';
 
 
 import {withStyles} from '@material-ui/styles';
@@ -105,13 +106,6 @@ class Shop extends Component {
     return (
         <Container className={classes.root}>
 
-          <Box m={1} mt={3}>
-            <Card>
-              <CardMedia
-                  component={'img'}
-                  image={Shop1}/>
-            </Card>
-          </Box>
 
           <Box mt={4}>
             <Grid container spacing={3} style={{justifyContent: 'center'}}>
@@ -134,185 +128,20 @@ class Shop extends Component {
                 />
 
 
-                <ul>
-                  {this.state.products.map(product => {
-                    return <li key={product.id}>{product.name}</li>
-                  })}
-                </ul>
-
-
-
-
-
 
               </Grid>
             </Grid>
           </Box>
 
           <Box mt={4}>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-
-
-              </Grid>
-            </Grid>
-
-            // Todo add product line links back in
-
-
-            <Box mt={8}>
-              <Grid container spacing={3} style={{textAlign: 'center'}}>
-                <Grid item xs={12}>
-                  <Typography variant="h4" style={{textAlign: 'center'}}>
-                    Customer Favorites
-                  </Typography>
-                </Grid>
-
-                <Grid item md={4} xs={12}>
-                  <Card className={classes.root}>
-                    <CardActionArea>
-                      <CardMedia
-                          className={classes.media}
-                          image={fc1}
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          Product 1
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary"
-                                    component="p">
-                          Product description should go here
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        $$$$
-                      </Button>
-                      <Button size="small" color="primary">
-                        Add To Cart
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-
-                <Grid item md={8} xs={12}>
-                  <Card className={classes.root}>
-                    <CardActionArea>
-                      <CardMedia
-                          className={classes.media}
-                          image={fc2}
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          Product 2
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary"
-                                    component="p">
-                          Product description should go here
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        $$$$
-                      </Button>
-                      <Button size="small" color="primary">
-                        Add To Cart
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-
-                <Grid item md={4} xs={12}>
-                  <Card className={classes.root}>
-                    <CardActionArea>
-                      <CardMedia
-                          className={classes.media}
-                          image={fc3}
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          Product 3
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary"
-                                    component="p">
-                          Product description should go here
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        $$$$
-                      </Button>
-                      <Button size="small" color="primary">
-                        Add To Cart
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-
-                <Grid item md={4} xs={12}>
-                  <Card className={classes.root}>
-                    <CardActionArea>
-                      <CardMedia
-                          className={classes.media}
-                          image={fc4}
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          Product 4
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary"
-                                    component="p">
-                          Product description should go here
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        $$$$
-                      </Button>
-                      <Button size="small" color="primary">
-                        Add To Cart
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-
-                <Grid item md={4} xs={12}>
-                  <Card className={classes.root}>
-                    <CardActionArea>
-                      <CardMedia
-                          className={classes.media}
-                          image={fc5}
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          Product 5
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary"
-                                    component="p">
-                          Product description should go here
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        $$$$
-                      </Button>
-                      <Button size="small" color="primary">
-                        Add To Cart
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-
-              </Grid>
-            </Box>
+            {this.state.products.map(product => {
+              return <ProductCard key={product.id} />
+                    })}
           </Box>
 
-          <Footer/>
+
+
+          <Footer />
         </Container>
     );
   }
