@@ -6,6 +6,20 @@ ActiveAdmin.register Customer do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :firstName, :lastName, :phone, :address, :city, :state, :postalCode, :country
+
+  form do |f|
+    inputs do
+      input :firstName
+      input :lastName
+      input :phone
+      input :address
+      input :city
+      input :state
+      input :postalCode
+      input :country
+    end
+    actions
+  end
   #
   # or
   #

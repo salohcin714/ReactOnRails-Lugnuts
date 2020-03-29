@@ -71,16 +71,20 @@ export default function About() {
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Card>
+                  <CardMedia component={'img'} image={About1}
+                             title="Contemplative Reptile"/>
                   <CardHeader title={'About Us'}/>
-                  <CardMedia
-                      component={'img'}
-                      image={About1}
-                      title="Contemplative Reptile"
-                      height={400}
-                  />
-                  <CardContent style={{textAlign: 'center'}}>
-                    <Typography variant="body1" component="p"
-                                style={{marginBottom: '20px'}}>
+                  <CardContent>
+                    <Typography variant="body1" component="p">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Urna condimentum mattis pellentesque id nibh
+                      tortor id aliquet lectus. Egestas maecenas pharetra
+                      convallis posuere morbi leo urna molestie. Nullam vehicula
+                      ipsum a arcu cursus. Praesent elementum facilisis leo vel.
+                    </Typography>
+                    <br/>
+                    <Typography variant="body1" component="p">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua. Urna condimentum mattis pellentesque id nibh
@@ -89,18 +93,7 @@ export default function About() {
                       ipsum a arcu cursus. Praesent elementum facilisis leo vel.
                     </Typography>
 
-                    <Typography variant="body1" component="p"
-                                style={{marginBottom: '20px'}}>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Urna condimentum mattis pellentesque id nibh
-                      tortor id aliquet lectus. Egestas maecenas pharetra
-                      convallis posuere morbi leo urna molestie. Nullam vehicula
-                      ipsum a arcu cursus. Praesent elementum facilisis leo vel.
-                    </Typography>
-
-                    <Typography variant="body1" component="p"
-                                style={{marginBottom: '20px'}}>
+                    <Typography variant="body1" component="p">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua. Urna condimentum mattis pellentesque id nibh
@@ -114,14 +107,9 @@ export default function About() {
             </Grid>
 
             <div className={classes.root}>
-              <Tabs
-                  orientation="vertical"
-                  variant="scrollable"
-                  value={value}
-                  onChange={handleChange}
-                  aria-label="Company History"
-                  className={classes.tabs}
-              >
+              <Tabs orientation="vertical" variant="scrollable" value={value}
+                    onChange={handleChange} aria-label="Company History"
+                    className={classes.tabs}>
                 <Tab label="The Beginning" {...allyProps(0)} />
                 <Tab label="The Middle" {...allyProps(1)} />
               </Tabs>

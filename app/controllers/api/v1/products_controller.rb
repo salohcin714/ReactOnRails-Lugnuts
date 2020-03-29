@@ -47,9 +47,12 @@ module Api
         end
       end
 
-      def search
-        product = Product.where('description LIKE :search OR name LIKE :search', search: "%#{params[:search]}%")
-        render json: ProductSerializer.new(product).serialized_json
+      def latest
+        products = Product.last(4)
+
+        render json: {
+            latest: products
+        }
       end
 
       private

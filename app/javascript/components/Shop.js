@@ -32,9 +32,9 @@ import Divider from '@material-ui/core/Divider';
 import fb from '../assets/images/Facebook.svg';
 import ig from '../assets/images/Instagram.svg';
 import tw from '../assets/images/Twitter.svg';
-
-import {withStyles} from '@material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Footer from './Footer';
+
 
 const styles = () => ({
   root: {
@@ -83,11 +83,18 @@ class Shop extends Component {
   }
 
   componentDidMount() {
-    axios.get('api/v1/products', {withCredentials: true})
-    .then((response) => {
-      console.log("server response", response)
+    axios.get('api/v1/products', {withCredentials: true}).then((response) => {
+      console.log('server response', response);
     }).catch((error) => {
-      console.log("server error", error)
+      console.log('server error', error);
+    });
+  }
+
+  componentDidMount() {
+    axios.get('api/v1/products', {withCredentials: true}).then((response) => {
+      console.log('server response', response);
+    }).catch((error) => {
+      console.log('server error', error);
     });
   }
 

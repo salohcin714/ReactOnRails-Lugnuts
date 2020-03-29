@@ -12,7 +12,7 @@ import Shop from './Shop';
 import Contact from './Contact';
 import axios from 'axios';
 import Checkout from './Checkout';
-import withStyles from '@material-ui/core/styles/withStyles';
+import {withStyles} from '@material-ui/core/styles';
 import Products from './Products';
 import ProductDetail from './ProductDetail';
 import Search from './Search';
@@ -95,6 +95,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.checkLoginStatus();
+
   }
 
   handleLogout() {

@@ -1,37 +1,3 @@
-
-
-=begin
-Product.create([
-                  {
-                       name: "Optima Battery D51R",
-                       product_line_id: 2,
-                       description: "Optima YellowTop Deep Cycle & Starting Battery for extreme conditions where the battery performs deep cycle & starting jobs! Spill-proof AGM design can be mounted in most positions, is more vibration resistant & recharges faster than standard batteries.",
-                       quantity: 5,
-                       cost: 189.75,
-                       retail: 237.99,
-                       image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/jci/D51R/image/3/"
-                   },
-                   {
-                       name: "Bosch Envision 26in Beam Wiper Blade",
-                       product_line_id: 1,
-                       description: "Bosch Envision with Night Focus technology for sharpened night visibility and Clear Max 365 which creates an optimal wipe angle to minimize glare for safer driving. The NightBlack™ spoiler combines a light absorbing charcoal powder and water repelling polymer compound that reduces glare from reflective lights for enhanced visibility.",
-                       quantity: 10,
-                       cost: 20.00,
-                       retail: 29.99,
-                       image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/bos/EN26/image/3/"
-                   },
-                   {
-                       name: "Autolite XP Iridium Spark Plug XP5682",
-                       product_line_id: 3,
-                       description: "Autolite has over 100 years of engineering experience and has sold over 11 billion plugs. Designed and engineered in the USA, Autolite platinum spark plugs provide a center wire platinum firing tip which provides reduced gap erosion, fewer misfires, better performance and increased durability. Consider upgrading to Autolite double platinum or iridium XP spark plugs for increased performance. Autolite is an official NASCAR performance partner.",
-                       quantity: 9,
-                       cost: 2.50,
-                       retail: 7.99,
-                       image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/aut/XP5682/image/3/"
-                   }
-               ])
-=end
-
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 wiper_blades = ProductLine.create(
@@ -46,4 +12,89 @@ wiper_blades.products.create(
     cost: 20.00,
     retail: 29.99,
     image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/bos/EN26/image/3/"
+)
+wiper_blades.products.create(
+    name: "Bosch Envision 24in Beam Wiper Blade",
+    description: "Bosch Envision with Night Focus technology for sharpened night visibility and Clear Max 365 which creates an optimal wipe angle to minimize glare for safer driving. The NightBlack™ spoiler combines a light absorbing charcoal powder and water repelling polymer compound that reduces glare from reflective lights for enhanced visibility.",
+    quantity: 10,
+    cost: 20.00,
+    retail: 29.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/bos/EN24/image/3/"
+)
+wiper_blades.products.create(
+    name: "Bosch Envision 22in Beam Wiper Blade",
+    description: "Bosch Envision with Night Focus technology for sharpened night visibility and Clear Max 365 which creates an optimal wipe angle to minimize glare for safer driving. The NightBlack™ spoiler combines a light absorbing charcoal powder and water repelling polymer compound that reduces glare from reflective lights for enhanced visibility.",
+    quantity: 10,
+    cost: 20.00,
+    retail: 29.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/bos/EN22/image/3/"
+)
+wiper_blades.products.create(
+    name: "Bosch Envision 20in Beam Wiper Blade",
+    description: "Bosch Envision with Night Focus technology for sharpened night visibility and Clear Max 365 which creates an optimal wipe angle to minimize glare for safer driving. The NightBlack™ spoiler combines a light absorbing charcoal powder and water repelling polymer compound that reduces glare from reflective lights for enhanced visibility.",
+    quantity: 10,
+    cost: 20.00,
+    retail: 29.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/bos/EN20/image/3/"
+)
+wiper_blades.products.create(
+    name: "Bosch Envision 19in Beam Wiper Blade",
+    description: "Bosch Envision with Night Focus technology for sharpened night visibility and Clear Max 365 which creates an optimal wipe angle to minimize glare for safer driving. The NightBlack™ spoiler combines a light absorbing charcoal powder and water repelling polymer compound that reduces glare from reflective lights for enhanced visibility.",
+    quantity: 10,
+    cost: 20.00,
+    retail: 27.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/bos/EN19/image/3/"
+)
+wiper_blades.products.create(
+    name: "Bosch Envision 18in Beam Wiper Blade",
+    description: "Bosch Envision with Night Focus technology for sharpened night visibility and Clear Max 365 which creates an optimal wipe angle to minimize glare for safer driving. The NightBlack™ spoiler combines a light absorbing charcoal powder and water repelling polymer compound that reduces glare from reflective lights for enhanced visibility.",
+    quantity: 10,
+    cost: 20.00,
+    retail: 27.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/bos/EN18/image/3/"
+)
+wiper_blades.products.create(
+    name: "Bosch Envision 17in Beam Wiper Blade",
+    description: "Bosch Envision with Night Focus technology for sharpened night visibility and Clear Max 365 which creates an optimal wipe angle to minimize glare for safer driving. The NightBlack™ spoiler combines a light absorbing charcoal powder and water repelling polymer compound that reduces glare from reflective lights for enhanced visibility.",
+    quantity: 10,
+    cost: 20.00,
+    retail: 29.99,
+    image_url: "https://contentinfo.autozone
+.com/znetcs/product-info/en/US/bos/EN17/image/3/"
+)
+wiper_blades.products.create(
+    name: "Bosch Envision 16in Beam Wiper Blade",
+    description: "Bosch Envision with Night Focus technology for sharpened night visibility and Clear Max 365 which creates an optimal wipe angle to minimize glare for safer driving. The NightBlack™ spoiler combines a light absorbing charcoal powder and water repelling polymer compound that reduces glare from reflective lights for enhanced visibility.",
+    quantity: 10,
+    cost: 20.00,
+    retail: 27.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/bos/EN16/image/3/"
+)
+
+batteries = ProductLine.create(
+    name: "Car Batteries",
+    description: "Get a dependable car battery from Lugnuts. With proven
+tough coverage and premium performance, Lugnuts has the right car batteries
+you need to stay on the road."
+)
+
+batteries.products.create(
+    name: "Optima Battery D34-78",
+    description: "Optima YellowTop Deep Cycle & Starting Battery for extreme
+conditions where the battery performs deep cycle & starting jobs! Spill-proof AGM design can be mounted in most positions, is more vibration resistant & recharges faster than a standard battery.",
+    quantity: 4,
+    cost: 200.00,
+    retail: 264.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/jci/D34-78/image/3/"
+)
+batteries.products.create(
+    name: "Optima Battery D51R",
+    description: "Optima YellowTop Deep Cycle & Starting Battery for extreme
+conditions where the battery performs deep cycle & starting jobs! Spill-proof
+ AGM design can be mounted in most positions, is more vibration resistant &
+recharges faster than a standard battery.",
+    quantity: 4,
+    cost: 200.00,
+    retail: 237.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/jci/D51R/image/3/"
 )

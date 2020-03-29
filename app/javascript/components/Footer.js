@@ -18,7 +18,7 @@ export default function Footer() {
   return (
       <Box mt={4}>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} md={6}>
             <Card style={{height: '100%'}}>
               <CardHeader
                   title={'Quick Links'}/>
@@ -34,32 +34,33 @@ export default function Footer() {
 
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} md={6}>
             <Card style={{height: '100%'}}>
               <CardHeader
                   title={'Join the mailing list'}/>
-              <CardContent>
+              <Box m={1}>
+                <CardActions>
 
-                <TextField variant={'outlined'} label={'Email Address'}
-                           style={{flexGrow: 1}}/>
-                <Button variant={'contained'} color={'primary'}
-                        size={'large'}>Subscribe</Button>
+                  <TextField variant={'outlined'} label={'Email Address'}
+                             style={{flexGrow: 1}}/>
+                  <Button variant={'contained'} color={'primary'}
+                          style={{alignContent: 'right'}}>Subscribe</Button>
 
-              </CardContent>
+                </CardActions>
+              </Box>
             </Card>
 
           </Grid>
         </Grid>
-
-        <Divider style={{marginTop: '10px', marginBottom: '10px'}}/>
-
+        <Box mt={3} mb={1}>
+          <Divider/>
+        </Box>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
-            <Typography variant="caption" gutterBottom>
+            <Typography variant={'overline'} gutterBottom>
               All Major Credit Cards Accepted
             </Typography>
           </Grid>
-
           <Grid item xs={12} sm={6} style={{textAlign: 'right'}}>
             <img src={fb} height={24} width={32}/>
             <img src={ig} height={24}/>
