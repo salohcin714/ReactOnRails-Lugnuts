@@ -9,6 +9,8 @@ import React, {Component} from 'react';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
+import Box from '@material-ui/core/Box';
+import {AttachMoney} from '@material-ui/icons';
 
 class ProductCard extends Component {
   constructor(props) {
@@ -23,18 +25,20 @@ class ProductCard extends Component {
             <CardMedia component={'img'} image={this.props.product.image_url}/>
             <CardHeader title={this.props.product.name}/>
             <CardContent>
-              <Chip label={`$${this.props.product.retail}`}/>
-              <br/>
-              <Typography variant={'body2'}>
-                {this.props.product.description}
-              </Typography>
+              <Chip icon={<AttachMoney/>} label={this.props.product.retail}/>
+              <Box mt={1}>
+                <Typography variant={'body2'}>
+                  {this.props.product.description}
+                </Typography>
+              </Box>
             </CardContent>
-            <CardActions>
+            <CardActions style={{alignItems: 'flex-end'}}>
               <Link to={{
                 pathname: '/product/detail',
                 state: {product: this.props.product},
-              }}>
-                <Button variant={'text'}>View Product</Button>
+              }} style={{color: '#FFFFFF', textDecoration: 'none'}}>
+                <Button variant={'contained'} color={'secondary'}>View
+                  Product</Button>
               </Link>
             </CardActions>
           </Card>
