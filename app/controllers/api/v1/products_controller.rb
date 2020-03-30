@@ -2,10 +2,22 @@ module Api
   module V1
     class ProductsController < ApplicationController
       def index
-        products = Product.all
-
+        products = Product.select(:name, :id, :description, :retail,
+                                  :product_line_id, :image_url).all
+        renderProduct = []
+        products.each do |p|
+          productInfo = {
+              id: p.id,
+              name: p.name,
+              description: p.description.truncate(64, separator: ' '),
+              retail: p.retail,
+              productLineID: p.product_line_id,
+              imageURL: p.image_url
+          }
+          renderProduct.push(productInfo)
+        end
         render json: {
-            products: products
+            products: renderProduct
         }
       end
 
@@ -13,7 +25,15 @@ module Api
         product = Product.find_by(id: params[:id])
 
         render json: {
-            product: product
+            product: {
+                id: product.id,
+                name: product.name,
+                description: product.description.truncate(64, separator: ' '),
+                retail: product.retail,
+                productLineID: product.product_line_id,
+                imageURL: product.image_url
+
+            }
         }
       end
 
@@ -49,9 +69,20 @@ module Api
 
       def latest
         products = Product.last(4)
-
+        renderProduct = []
+        products.each do |p|
+          productInfo = {
+              id: p.id,
+              name: p.name,
+              description: p.description.truncate(64, separator: ' '),
+              retail: p.retail,
+              productLineID: p.product_line_id,
+              imageURL: p.image_url
+          }
+          renderProduct.push(productInfo)
+        end
         render json: {
-            latest: products
+            latest: renderProduct
         }
       end
 

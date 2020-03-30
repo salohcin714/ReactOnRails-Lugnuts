@@ -18,11 +18,10 @@ class ProductCard extends Component {
   }
 
   render() {
-
     return (
         <Grid item xs={12} sm={6} lg={3}>
           <Card style={{height: '100%'}}>
-            <CardMedia component={'img'} image={this.props.product.image_url}/>
+            <CardMedia component={'img'} image={this.props.product.imageURL}/>
             <CardHeader title={this.props.product.name}/>
             <CardContent>
               <Chip icon={<AttachMoney/>} label={this.props.product.retail}/>

@@ -33,11 +33,8 @@ import fb from '../assets/images/Facebook.svg';
 import ig from '../assets/images/Instagram.svg';
 import tw from '../assets/images/Twitter.svg';
 import ProductCard from './ProductCard';
-
-
-import {withStyles} from '@material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Footer from './Footer';
-
 
 const styles = () => ({
   root: {
@@ -74,29 +71,22 @@ const styles = () => ({
 
 class Shop extends Component {
 
-
-
-
   constructor(props) {
     super(props);
 
     this.state = {
-      products: []
+      products: [],
     };
 
   };
 
-
-
-
   componentDidMount() {
-    axios.get('api/v1/products', {withCredentials: true})
-    .then((response) => {
-      const products = response.data;
-      this.setState({ products: products.products });
+    axios.get('api/v1/products', {withCredentials: true}).then((response) => {
+      const products = response.data.products;
+      this.setState({products: products});
       console.log(products);
     }).catch((error) => {
-      console.log("server error", error);
+      console.log('server error', error);
     });
   }
 
@@ -128,20 +118,18 @@ class Shop extends Component {
                 />
 
 
-
               </Grid>
             </Grid>
           </Box>
 
-          <Box mt={4}>
-            {this.state.products.map(product => {
-              return <ProductCard key={product.id} />
-                    })}
-          </Box>
+          <Grid container spacing={3}>
+            {this.state.products.map((product, i) => {
+              return <ProductCard key={i} product={product}/>;
+            })}
+          </Grid>
 
 
-
-          <Footer />
+          <Footer/>
         </Container>
     );
   }
