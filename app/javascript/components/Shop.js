@@ -76,22 +76,33 @@ class Shop extends Component {
 
     this.state = {
       products: [],
+      search: ''
     };
 
   };
+
+  updateSearch(event) {
+    this.setState({search: event.target.value});
+  }
 
   componentDidMount() {
     axios.get('api/v1/products', {withCredentials: true}).then((response) => {
       const products = response.data.products;
       this.setState({products: products});
-      console.log(products);
     }).catch((error) => {
       console.log('server error', error);
     });
   }
 
+
+
   render() {
     const {classes} = this.props;
+    let filteredProducts = this.state.products.filter(
+        (product) => {
+          return product.name.indexOf(this.state.search) !== -1;
+        }
+    );
 
     return (
         <Container className={classes.root}>
@@ -106,6 +117,8 @@ class Shop extends Component {
 
 
                 <TextField
+                    value={this.state.search}
+                    onChange={this.updateSearch.bind(this)}
                     fullWidth
                     placeholder="Search the shop..."
                     InputProps={{
@@ -123,7 +136,7 @@ class Shop extends Component {
           </Box>
 
           <Grid container spacing={3}>
-            {this.state.products.map((product, i) => {
+            {filteredProducts.map((product, i) => {
               return <ProductCard key={i} product={product}/>;
             })}
           </Grid>
