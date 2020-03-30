@@ -1,18 +1,16 @@
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
-import fb from '../assets/images/Facebook.svg';
-import ig from '../assets/images/Instagram.svg';
-import tw from '../assets/images/Twitter.svg';
+import fb from '../assets/SVG/facebook.svg';
+import ig from '../assets/SVG/instagram.svg';
+import tw from '../assets/SVG/twitter.svg';
 import Box from '@material-ui/core/Box';
 import React from 'react';
 import {Card} from '@material-ui/core';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 
 export default function Footer() {
   return (

@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Chip from '@material-ui/core/Chip';
 import ProductCard from './ProductCard';
 
 class Latest extends Component {

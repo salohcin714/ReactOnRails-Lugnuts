@@ -5,21 +5,9 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import {withStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import fc2 from '../assets/images/fc2.jpg';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Button from '@material-ui/core/Button';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import HelpIcon from '@material-ui/icons/Help';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import TextField from '@material-ui/core/TextField';
-import Divider from '@material-ui/core/Divider';
-import fb from '../assets/images/Facebook.svg';
-import ig from '../assets/images/Instagram.svg';
-import tw from '../assets/images/Twitter.svg';
 import Footer from './Footer';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -42,7 +30,6 @@ const styles = (theme) => ({
 class ProductDetail extends Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
@@ -52,7 +39,6 @@ class ProductDetail extends Component {
   }
 
   render() {
-    const {classes} = this.props;
     const {product} = this.props.location.state;
     return (
         <Container maxWidth="lg">
@@ -128,6 +114,7 @@ class ProductDetail extends Component {
 
 ProductDetail.propTypes = {
   classes: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(ProductDetail);

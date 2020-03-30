@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import {Router, Link, Route, Switch, Redirect} from 'react-router-dom';
+import {Router, Link, Route, Switch} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import {Container} from '@material-ui/core';
@@ -13,7 +13,6 @@ import Contact from './Contact';
 import axios from 'axios';
 import Checkout from './Checkout';
 import {withStyles} from '@material-ui/core/styles';
-import Products from './Products';
 import ProductDetail from './ProductDetail';
 import history from './utils/history';
 
@@ -94,7 +93,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.checkLoginStatus();
-
   }
 
   handleLogout() {
@@ -176,7 +174,6 @@ class App extends React.Component {
           <Switch>
             <Route path="/" exact component={Home}/>
             <Route path="/about" exact component={About}/>
-            <Route path="/shop/products" exact component={Products}/>
             <Route path="/shop/checkout" exact component={Checkout}/>
             <Route path="/shop" exact>
               <Shop loggedInStatus={this.state.loggedInStatus}

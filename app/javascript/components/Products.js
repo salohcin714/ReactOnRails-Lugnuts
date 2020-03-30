@@ -16,14 +16,6 @@ import carAccessories from '../assets/images/caraccessories.jpg';
 import fc1 from '../assets/images/fc1.jpg';
 import fc2 from '../assets/images/fc2.jpg';
 import fc3 from '../assets/images/fc3.jpg';
-import fc4 from '../assets/images/fc4.jpg';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Divider from '@material-ui/core/Divider';
-import fb from '../assets/images/Facebook.svg';
-import ig from '../assets/images/Instagram.svg';
-import tw from '../assets/images/Twitter.svg';
 import Footer from './Footer';
 
 const useStyles = makeStyles((theme) => ({

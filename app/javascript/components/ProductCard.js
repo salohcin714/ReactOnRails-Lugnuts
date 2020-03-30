@@ -12,6 +12,7 @@ import {Link} from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import {AttachMoney} from '@material-ui/icons';
 import smartTruncate from 'smart-truncate';
+import PropTypes from 'prop-types';
 
 class ProductCard extends Component {
   constructor(props) {
@@ -46,5 +47,9 @@ class ProductCard extends Component {
     );
   }
 }
+
+ProductCard.propTypes = {
+  product: PropTypes.object.isRequired,
+};
 
 export default ProductCard;

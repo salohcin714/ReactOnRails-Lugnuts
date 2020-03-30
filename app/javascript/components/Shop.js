@@ -6,32 +6,9 @@ import Shop1 from '../assets/images/shop1.jpg';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
-import {makeStyles, useTheme} from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import {Link, Route, Switch} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
-import SwipeableViews from 'react-swipeable-views';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import fc1 from '../assets/images/fc1.jpg';
-import fc2 from '../assets/images/fc2.jpg';
-import fc3 from '../assets/images/fc3.jpg';
-import fc4 from '../assets/images/fc4.jpg';
-import fc5 from '../assets/images/caraccessories.jpg';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Divider from '@material-ui/core/Divider';
-import fb from '../assets/images/Facebook.svg';
-import ig from '../assets/images/Instagram.svg';
-import tw from '../assets/images/Twitter.svg';
 import ProductCard from './ProductCard';
 import {withStyles} from '@material-ui/core/styles';
 import Footer from './Footer';
@@ -70,15 +47,13 @@ const styles = () => ({
 });
 
 class Shop extends Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
       products: [],
-      search: ''
+      search: '',
     };
-
   };
 
   updateSearch(event) {
@@ -94,15 +69,13 @@ class Shop extends Component {
     });
   }
 
-
-
   render() {
     const {classes} = this.props;
-    let filteredProducts = this.state.products.filter(
+    const filteredProducts = this.state.products.filter(
         (product) => {
           return product.name.toLowerCase().
               indexOf(this.state.search.toLowerCase()) !== -1;
-        }
+        },
     );
 
     return (
