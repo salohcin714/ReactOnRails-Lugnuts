@@ -2,14 +2,13 @@ module Api
   module V1
     class ProductsController < ApplicationController
       def index
-        products = Product.select(:name, :id, :description, :retail,
-                                  :product_line_id, :image_url).all
+        products = Product.all
         renderProduct = []
         products.each do |p|
           productInfo = {
               id: p.id,
               name: p.name,
-              description: p.description.truncate(64, separator: ' '),
+              description: p.description,
               retail: p.retail,
               productLineID: p.product_line_id,
               imageURL: p.image_url
@@ -28,7 +27,7 @@ module Api
             product: {
                 id: product.id,
                 name: product.name,
-                description: product.description.truncate(64, separator: ' '),
+                description: product.description,
                 retail: product.retail,
                 productLineID: product.product_line_id,
                 imageURL: product.image_url
@@ -74,7 +73,7 @@ module Api
           productInfo = {
               id: p.id,
               name: p.name,
-              description: p.description.truncate(64, separator: ' '),
+              description: p.description,
               retail: p.retail,
               productLineID: p.product_line_id,
               imageURL: p.image_url

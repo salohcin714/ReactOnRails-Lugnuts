@@ -7389,6 +7389,11 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
+smart-truncate@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/smart-truncate/-/smart-truncate-1.0.1.tgz#a2173d7abc724a5a30e1b63af88616228b14a475"
+  integrity sha512-f+kSLMDWKSCpYhwOZM+Da4d8klk5nY4gH57HOEOaaotsZEsTIm/51/9vKDNE26WjU72eBM1zEYdQl6uDwvZfLg==
+
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"

@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import {AttachMoney} from '@material-ui/icons';
+import smartTruncate from 'smart-truncate';
 
 class ProductCard extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class ProductCard extends Component {
               <Chip icon={<AttachMoney/>} label={this.props.product.retail}/>
               <Box mt={1}>
                 <Typography variant={'body2'}>
-                  {this.props.product.description}
+                  {smartTruncate(this.props.product.description, 64)}
                 </Typography>
               </Box>
             </CardContent>

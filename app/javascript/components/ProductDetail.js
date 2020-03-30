@@ -60,7 +60,7 @@ class ProductDetail extends Component {
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
                 <Card>
-                  <CardMedia component={'img'} image={product.image_url}/>
+                  <CardMedia component={'img'} image={product.imageURL}/>
                 </Card>
               </Grid>
 
