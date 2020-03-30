@@ -100,7 +100,8 @@ class Shop extends Component {
     const {classes} = this.props;
     let filteredProducts = this.state.products.filter(
         (product) => {
-          return product.name.indexOf(this.state.search) !== -1;
+          return product.name.toLowerCase().
+              indexOf(this.state.search.toLowerCase()) !== -1;
         }
     );
 
