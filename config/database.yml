@@ -92,5 +92,6 @@ production:
   username: lugnuts
   password: gfkh6dgttqtyycze
   host: db-postgresql-nyc1-55291-do-user-4631391-0.a.db.ondigitalocean.com
+  port: 25060
   database: Lugnuts_production
   sslmode: require

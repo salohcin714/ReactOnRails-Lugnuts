@@ -15,7 +15,6 @@ import Checkout from './Checkout';
 import {withStyles} from '@material-ui/core/styles';
 import ProductDetail from './ProductDetail';
 import history from './utils/history';
-
 import Registration from './auth/Registration';
 import PropTypes from 'prop-types';
 import Login from './auth/Login';
@@ -85,6 +84,7 @@ class App extends React.Component {
       loggedInStatus: 'NOT_LOGGED_IN',
       user: {},
       customer: {},
+      cart: [],
     };
 
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);

@@ -16,6 +16,8 @@ import {AttachMoney} from '@material-ui/icons';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
+import {Link} from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const styles = (theme) => ({
   root: {
@@ -62,7 +64,11 @@ class ProductDetail extends Component {
                     </Box>
                   </CardContent>
                   <CardActions>
-
+                    <Link to={{
+                      pathname: '/cart',
+                      state: {},
+                    }}><Button variant={'contained'} color={'primary'}>Add to
+                      Cart</Button></Link>
                   </CardActions>
                 </Card>
 
