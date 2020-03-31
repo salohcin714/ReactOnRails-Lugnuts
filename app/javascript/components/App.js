@@ -19,6 +19,7 @@ import history from './utils/history';
 import Registration from './auth/Registration';
 import PropTypes from 'prop-types';
 import Login from './auth/Login';
+import Cart from './Cart';
 
 const styles = (theme) => ({
   root: {
@@ -183,6 +184,7 @@ class App extends React.Component {
             <Route path="/login" exact>
               <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
             </Route>
+            <Route path={'/cart'} exact component={Cart}/>
             <Route path="/register">
               <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
             </Route>

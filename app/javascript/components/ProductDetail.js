@@ -61,7 +61,9 @@ class ProductDetail extends Component {
                           variant={'body1'}>{product.description}</Typography>
                     </Box>
                   </CardContent>
-                  <CardActions/>
+                  <CardActions>
+
+                  </CardActions>
                 </Card>
 
 
@@ -70,25 +72,27 @@ class ProductDetail extends Component {
           </Box>
 
 
-          <Box mt={6}>
-            <Grid container spacing={3} style={{textAlign: 'center'}}>
-              <Grid item xs={4}>
-                <LocalShippingIcon/>
-                <Typography variant="h5">Free 2-day Shipping</Typography>
-                <Typography variant="body2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo
-                  lobortis eget.
-                </Typography>
-              </Grid>
+          <Box mt={3}>
+            <Card>
+              <CardContent>
+                <Grid container spacing={3} style={{textAlign: 'center'}}>
+                  <Grid item xs={4}>
+                    <LocalShippingIcon/>
+                    <Typography variant="h5">Free 2-day Shipping</Typography>
+                    <Typography variant="body2">
+                      Orders over $50 qualify for free shipping.
+                    </Typography>
+                    <Typography variant={'caption'}>Note: This does not apply to
+                      international orders</Typography>
+                  </Grid>
 
               <Grid item xs={4}>
                 <VerifiedUserIcon/>
-                <Typography variant="h5">Refundable Policy</Typography>
+                <Typography variant="h5">Refund Policy</Typography>
                 <Typography variant="body2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo
-                  lobortis eget.
+                  All orders can be returned within 30 days of ship date. Any
+                  defective products must go through the manufacturer's
+                  warranty.
                 </Typography>
               </Grid>
 
@@ -102,7 +106,9 @@ class ProductDetail extends Component {
                   lobortis eget.
                 </Typography>
               </Grid>
-            </Grid>
+                </Grid>
+              </CardContent>
+            </Card>
           </Box>
 
 

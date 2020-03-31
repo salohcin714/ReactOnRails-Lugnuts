@@ -89,6 +89,8 @@ test:
 #
 production:
   <<: *default
+  username: lugnuts
+  password: gfkh6dgttqtyycze
+  host: db-postgresql-nyc1-55291-do-user-4631391-0.a.db.ondigitalocean.com
   database: Lugnuts_production
-  username: Lugnuts
-  password: <%= ENV['LUGNUTS_DATABASE_PASSWORD'] %>
+  sslmode: require

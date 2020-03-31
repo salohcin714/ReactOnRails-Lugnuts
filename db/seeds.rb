@@ -79,14 +79,68 @@ you need to stay on the road."
 )
 
 batteries.products.create(
+    name: "Duralast Platinum Battery 24F-AGM",
+    description: "Duralast Platinum is an Absorbed Glass Mat (AGM) battery
+designed to give you the ultimate combination of power, durability and
+flexibility. Delivering maximum Cold Cranking Amps and Reserve Capacity,
+Duralast Platinum provides safe, reliable power to vehicles with multiple
+electronic accessories.",
+    quantity: 4,
+    cost: 175.00,
+    retail: 199.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/jci/24F-AGM/image/3/"
+)
+
+batteries.products.create(
+    name: "Optima Battery 25",
+    description: "Optima RedTop, the starting battery with performance power.
+ Engineered for trucks, SUV's and performance vehicles. The spill-proof
+AGM design can be mounted in most positions, is more vibration resistant and
+recharges faster than a standard battery.",
+    quantity: 4,
+    cost: 180.00,
+    retail: 199.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/jci/25/image/3/"
+)
+
+batteries.products.create(
     name: "Optima Battery D34-78",
     description: "Optima YellowTop Deep Cycle & Starting Battery for extreme
-conditions where the battery performs deep cycle & starting jobs! Spill-proof AGM design can be mounted in most positions, is more vibration resistant & recharges faster than a standard battery.",
+conditions where the battery performs deep cycle & starting jobs! Spill-proof
+ AGM design can be mounted in most positions, is more vibration resistant &
+recharges faster than a standard battery.",
     quantity: 4,
     cost: 200.00,
     retail: 264.99,
     image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/jci/D34-78/image/3/"
 )
+
+batteries.products.create(
+    name: "Duralast Platinum Battery 35-AGM",
+    description: "Duralast Platinum is an Absorbed Glass Mat (AGM) battery
+designed to give you the ultimate combination of power, durability and
+flexibility. Delivering maximum Cold Cranking Amps and Reserve Capacity,
+Duralast Platinum provides safe, reliable power to vehicles with multiple
+electronic accessories.",
+    quantity: 4,
+    cost: 175.00,
+    retail: 199.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/jci/35-AGM/image/3/"
+)
+
+
+batteries.products.create(
+    name: "Optima Battery D35",
+    description: "Optima YellowTop Deep Cycle & Starting Battery for extreme
+conditions where the battery performs deep cycle & starting jobs! Spill-proof
+ AGM design can be mounted in most positions, is more vibration resistant &
+recharges faster than a standard battery.",
+    quantity: 4,
+    cost: 200.00,
+    retail: 234.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/jci/D35/image/3/"
+)
+
 batteries.products.create(
     name: "Optima Battery D51R",
     description: "Optima YellowTop Deep Cycle & Starting Battery for extreme
@@ -98,3 +152,20 @@ recharges faster than a standard battery.",
     retail: 237.99,
     image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/jci/D51R/image/3/"
 )
+
+batteries.products.create(
+    name: "Odyssey Battery 65-PC1750T",
+    description: "Odyssey absorbed glass mat batteries are engineered with
+thin plate pure lead technology. The flat plates are constructed of 99.99%
+pure lead - not lead alloy, so they can be made thinner in order for more to
+fit in the battery. The additional plates result in 15% more surface area for
+ more power. This advanced manufacturing design delivers increased
+reliability and long life.",
+    quantity: 4,
+    cost: 250.00,
+    retail: 299.99,
+    image_url: "https://contentinfo.autozone.com/znetcs/product-info/en/US/ody/65-PC1750T/image/3/"
+)
+
+
+
