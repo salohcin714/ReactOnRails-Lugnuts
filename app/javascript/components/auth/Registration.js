@@ -69,6 +69,8 @@ export default class Registration extends Component {
                         type={'email'}
                         name={'email'}
                         label={'Email'}
+                        helperText={'Don\'t worry, we don\'t share your' +
+                        ' information'}
                         value={this.state.email}
                         onChange={this.handleChange}
                         fullWidth
