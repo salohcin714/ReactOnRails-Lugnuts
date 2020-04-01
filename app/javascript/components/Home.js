@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import styles from './App.css';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import {Container} from '@material-ui/core';
@@ -11,7 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
-import {withStyles} from '@material-ui/core/styles';
 import Footer from './Footer';
 import CardHeader from '@material-ui/core/CardHeader';
 import Hero from '../assets/images/hero.png';
@@ -25,9 +22,17 @@ class Home extends Component {
   }
 
   render() {
-    const {classes} = this.props;
+    const root = {
+      flexGrow: 1,
+    };
+
+    const linkFix = {
+      textDecoration: 'none',
+      color: '#FFFFFF',
+    };
+
     return (
-        <Container className={'root'}>
+        <Container style={root}>
           <Box mt={3}>
             <Card>
               <CardMedia
@@ -37,7 +42,7 @@ class Home extends Component {
             </Card>
           </Box>
           <Box m={3} style={{textAlign: 'center'}}>
-            <Link to={'/shop'} className={'linkFix'}>
+            <Link to={'/shop'} style={linkFix}>
               <Button variant={'contained'} color={'secondary'} size={'large'}>Go
                 to the Store</Button>
             </Link>

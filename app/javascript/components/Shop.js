@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import styles from './App.css';
 import Typography from '@material-ui/core/Typography';
 import {Container} from '@material-ui/core';
 import Shop1 from '../assets/images/shop1.jpg';
@@ -46,8 +45,11 @@ class Shop extends Component {
         },
     );
 
+    const root = {
+      flexGrow: 1,
+    };
     return (
-        <Container className={'root'}>
+        <Container style={root}>
 
 
           <Box mt={4}>

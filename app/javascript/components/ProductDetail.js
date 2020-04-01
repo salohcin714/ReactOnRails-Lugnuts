@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import styles from './App.css';
 import {Container} from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import {withStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
@@ -33,8 +31,18 @@ class ProductDetail extends Component {
 
   render() {
     const {product} = this.props.location.state;
+
+    const linkFix = {
+      textDecoration: 'none',
+      color: '#FFFFFF',
+    };
+
+    const root = {
+      flexGrow: 1,
+    };
+
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" style={root}>
           <Box mt={3}>
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
@@ -58,8 +66,8 @@ class ProductDetail extends Component {
                     <Link to={{
                       pathname: '/cart',
                       state: {},
-                    }} className={'linkFix'}><Button variant={'contained'}
-                                                     color={'primary'}
+                    }} style={linkFix}><Button variant={'contained'}
+                                               color={'primary'}
                     >Add to Cart</Button>
                     </Link>
                   </CardActions>

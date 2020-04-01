@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import styles from './App.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -37,6 +36,10 @@ class Auth extends Component {
   }
 
   render() {
+    const linkFix = {
+      textDecoration: 'none',
+      color: '#FFFFFF',
+    };
     if (this.props.loggedInStatus === 'LOGGED_IN') {
       return (
           <div>
@@ -46,7 +49,7 @@ class Auth extends Component {
       );
     } else {
       return (
-          <Link to="/login" className={'linkFix'}>
+          <Link to="/login" style={linkFix}>
             <Button color={'inherit'} variant={'text'}>Login</Button>
           </Link>
       );
@@ -124,25 +127,33 @@ class App extends React.Component {
 
   render() {
 
+    const linkFix = {
+      textDecoration: 'none',
+      color: '#FFFFFF',
+    };
+
+    const root = {
+      flexGrow: 1,
+    };
     return (
 
         <Router history={history}>
-          <Container>
+          <Container style={root}>
             <Box mb={1}>
               <AppBar position="static">
                 <Toolbar>
-                  <Link to={'/'} className={'linkFix'} style={{flexGrow: 1}}>
-                    <Typography variant="h6" className={'nav-title'}>
+                  <Link to={'/'} style={{...linkFix, ...root}}>
+                    <Typography variant="h6">
                       Lugnuts
                     </Typography>
                   </Link>
-                  <Link to="/about" className={'linkFix'}>
+                  <Link to="/about" style={linkFix}>
                     <Button color={'inherit'} variant={'text'}>About</Button>
                   </Link>
-                  <Link to="/shop" className={'linkFix'}>
+                  <Link to="/shop" style={linkFix}>
                     <Button color={'inherit'} variant={'text'}>Shop</Button>
                   </Link>
-                  <Link to="/contact" className={'linkFix'}>
+                  <Link to="/contact" style={linkFix}>
                     <Button color={'inherit'} variant={'text'}>Contact</Button>
                   </Link>
                   <Auth handleLogout={this.handleLogout}
@@ -152,7 +163,7 @@ class App extends React.Component {
                 </Toolbar>
               </AppBar>
             </Box>
-          </Container>
+
           <Switch>
             <Route path="/" exact component={Home}/>
             <Route path="/about" exact component={About}/>
@@ -175,6 +186,7 @@ class App extends React.Component {
 
 
           </Switch>
+          </Container>
         </Router>
     );
   }
