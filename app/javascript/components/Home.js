@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import styles from './App.css';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import {Container} from '@material-ui/core';
@@ -16,25 +17,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Hero from '../assets/images/hero.png';
 import Latest from './Latest';
 
-const styles = (theme) => ({
-  root: {
-    flexGrow: 1,
 
-  },
-  title: {
-    flexGrow: 1,
-  },
-  linkFix: {
-    textDecoration: 'none',
-    color: '#FFFFFF',
-
-  },
-  cardLayout: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-
-});
 
 class Home extends Component {
   constructor(props) {
@@ -44,7 +27,7 @@ class Home extends Component {
   render() {
     const {classes} = this.props;
     return (
-        <Container className={classes.root}>
+        <Container className={'root'}>
           <Box mt={3}>
             <Card>
               <CardMedia
@@ -54,7 +37,7 @@ class Home extends Component {
             </Card>
           </Box>
           <Box m={3} style={{textAlign: 'center'}}>
-            <Link to={'/shop'} className={classes.linkFix}>
+            <Link to={'/shop'} className={'linkFix'}>
               <Button variant={'contained'} color={'secondary'} size={'large'}>Go
                 to the Store</Button>
             </Link>
@@ -146,8 +129,4 @@ class Home extends Component {
   }
 }
 
-Home.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Home);
+export default Home;

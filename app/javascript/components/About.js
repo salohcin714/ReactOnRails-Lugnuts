@@ -44,20 +44,10 @@ function allyProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-    display: 'flex',
-    height: 224,
-  },
-  tabs: {
-    borderRight: '1px solid ${theme.palette.divider}',
-  },
-}));
+
 
 export default function About() {
-  const classes = useStyles();
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -106,10 +96,10 @@ export default function About() {
               </Grid>
             </Grid>
 
-            <div className={classes.root}>
+            <div>
               <Tabs orientation="vertical" variant="scrollable" value={value}
                     onChange={handleChange} aria-label="Company History"
-                    className={classes.tabs}>
+              >
                 <Tab label="The Beginning" {...allyProps(0)} />
                 <Tab label="The Middle" {...allyProps(1)} />
               </Tabs>

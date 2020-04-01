@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import styles from './App.css';
 import {Container} from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -18,16 +19,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import {Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-
-const styles = (theme) => ({
-  root: {
-    display: 'flex',
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-});
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -67,8 +58,10 @@ class ProductDetail extends Component {
                     <Link to={{
                       pathname: '/cart',
                       state: {},
-                    }}><Button variant={'contained'} color={'primary'}>Add to
-                      Cart</Button></Link>
+                    }} className={'linkFix'}><Button variant={'contained'}
+                                                     color={'primary'}
+                    >Add to Cart</Button>
+                    </Link>
                   </CardActions>
                 </Card>
 
@@ -92,26 +85,27 @@ class ProductDetail extends Component {
                       international orders</Typography>
                   </Grid>
 
-              <Grid item xs={4}>
-                <VerifiedUserIcon/>
-                <Typography variant="h5">Refund Policy</Typography>
-                <Typography variant="body2">
-                  All orders can be returned within 30 days of ship date. Any
-                  defective products must go through the manufacturer's
-                  warranty.
-                </Typography>
-              </Grid>
+                  <Grid item xs={4}>
+                    <VerifiedUserIcon/>
+                    <Typography variant="h5">Refund Policy</Typography>
+                    <Typography variant="body2">
+                      All orders can be returned within 30 days of ship date.
+                      Any
+                      defective products must go through the manufacturer's
+                      warranty.
+                    </Typography>
+                  </Grid>
 
-              <Grid item xs={4}>
-                <HelpIcon/>
-                <Typography variant="h5">Dependable Customer
-                  Service</Typography>
-                <Typography variant="body2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo
-                  lobortis eget.
-                </Typography>
-              </Grid>
+                  <Grid item xs={4}>
+                    <HelpIcon/>
+                    <Typography variant="h5">Dependable Customer
+                      Service</Typography>
+                    <Typography variant="body2">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Suspendisse malesuada lacus ex, sit amet blandit leo
+                      lobortis eget.
+                    </Typography>
+                  </Grid>
                 </Grid>
               </CardContent>
             </Card>
@@ -125,8 +119,7 @@ class ProductDetail extends Component {
 }
 
 ProductDetail.propTypes = {
-  classes: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ProductDetail);
+export default ProductDetail;

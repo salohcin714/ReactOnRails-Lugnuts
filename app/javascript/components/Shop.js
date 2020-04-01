@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import styles from './App.css';
 import Typography from '@material-ui/core/Typography';
 import {Container} from '@material-ui/core';
 import Shop1 from '../assets/images/shop1.jpg';
@@ -13,38 +14,6 @@ import ProductCard from './ProductCard';
 import {withStyles} from '@material-ui/core/styles';
 import Footer from './Footer';
 
-const styles = () => ({
-  root: {
-    flexGrow: 1,
-  },
-
-  title: {
-    flexGrow: 1,
-  },
-  shopHero: {
-    backgroundImage: 'url(' + Shop1 + ')',
-    backgroundAttachment: 'fixed',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    height: '40vh',
-    textAlign: 'center',
-  },
-
-  shopHeroText: {
-    color: '#FFFFFF',
-    flexGrow: 1,
-    textAlign: 'center',
-  },
-  linkFix: {
-    textDecoration: 'none',
-    color: '#FFFFFF',
-  },
-  media: {
-    height: 200,
-  },
-
-});
 
 class Shop extends Component {
   constructor(props) {
@@ -70,7 +39,6 @@ class Shop extends Component {
   }
 
   render() {
-    const {classes} = this.props;
     const filteredProducts = this.state.products.filter(
         (product) => {
           return product.name.toLowerCase().
@@ -79,7 +47,7 @@ class Shop extends Component {
     );
 
     return (
-        <Container className={classes.root}>
+        <Container className={'root'}>
 
 
           <Box mt={4}>
@@ -122,8 +90,4 @@ class Shop extends Component {
   }
 }
 
-Shop.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Shop);
+export default Shop;

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './App.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -12,7 +13,6 @@ import Shop from './Shop';
 import Contact from './Contact';
 import axios from 'axios';
 import Checkout from './Checkout';
-import {withStyles} from '@material-ui/core/styles';
 import ProductDetail from './ProductDetail';
 import history from './utils/history';
 import Registration from './auth/Registration';
@@ -20,21 +20,6 @@ import PropTypes from 'prop-types';
 import Login from './auth/Login';
 import Cart from './Cart';
 
-const styles = (theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  linkFix: {
-    textDecoration: 'none',
-    color: '#FFFFFF',
-  },
-});
 
 class Auth extends Component {
   constructor(props) {
@@ -52,7 +37,6 @@ class Auth extends Component {
   }
 
   render() {
-    const {classes} = this.props;
     if (this.props.loggedInStatus === 'LOGGED_IN') {
       return (
           <div>
@@ -62,7 +46,7 @@ class Auth extends Component {
       );
     } else {
       return (
-          <Link to="/login" className={classes.linkFix}>
+          <Link to="/login" className={'linkFix'}>
             <Button color={'inherit'} variant={'text'}>Login</Button>
           </Link>
       );
@@ -71,7 +55,6 @@ class Auth extends Component {
 }
 
 Auth.propTypes = {
-  classes: PropTypes.object.isRequired,
   loggedInStatus: PropTypes.string.isRequired,
   handleLogout: PropTypes.func.isRequired,
 };
@@ -140,7 +123,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {classes} = this.props;
+
 
     return (
 
@@ -149,24 +132,23 @@ class App extends React.Component {
             <Box mb={1}>
               <AppBar position="static">
                 <Toolbar>
-                  <Link to={'/'} className={classes.linkFix}
-                        style={{flexGrow: 1}}>
-                    <Typography variant="h6" className={classes.title}>
+                  <Link to={'/'} className={'linkFix'} style={{flexGrow: 1}}>
+                    <Typography variant="h6" className={'nav-title'}>
                       Lugnuts
                     </Typography>
                   </Link>
-                  <Link to="/about" className={classes.linkFix}>
+                  <Link to="/about" className={'linkFix'}>
                     <Button color={'inherit'} variant={'text'}>About</Button>
                   </Link>
-                  <Link to="/shop" className={classes.linkFix}>
+                  <Link to="/shop" className={'linkFix'}>
                     <Button color={'inherit'} variant={'text'}>Shop</Button>
                   </Link>
-                  <Link to="/contact" className={classes.linkFix}>
+                  <Link to="/contact" className={'linkFix'}>
                     <Button color={'inherit'} variant={'text'}>Contact</Button>
                   </Link>
                   <Auth handleLogout={this.handleLogout}
                         loggedInStatus={this.state.loggedInStatus}
-                        classes={classes}/>
+                  />
 
                 </Toolbar>
               </AppBar>
@@ -199,7 +181,4 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-export default withStyles(styles)(App);
+export default App;

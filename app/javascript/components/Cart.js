@@ -10,12 +10,6 @@ import Paper from '@material-ui/core/Paper';
 
 const TAX_RATE = 0.06;
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 700,
-  },
-});
-
 
 function ccyFormat(num) {
   return `${num.toFixed(2)}`;
@@ -49,7 +43,7 @@ export default function Cart() {
 
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="spanning table">
+      <Table aria-label="spanning table">
         <TableHead>
           <TableRow>
             <TableCell align="center" colSpan={3}>
