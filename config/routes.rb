@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create]
       resources :registrations, only: [:create]
       resources :testimonials, defaults: {format: :json}
+      resources :customers, defaults: {format: :json}
       delete :logout, to: "sessions#logout"
       get :logged_in, to: "sessions#logged_in"
       get :latest_products, to: "products#latest", defaults: {format: :json}

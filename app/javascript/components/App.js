@@ -21,16 +21,35 @@ import Cart from './Cart';
 import Testimonials from './Testimonials';
 import Tooltip from '@material-ui/core/Tooltip';
 import Badge from '@material-ui/core/Badge';
-import {ShoppingCart} from '@material-ui/icons';
+import {AccountBox, ShoppingCart} from '@material-ui/icons';
 import IconButton from '@material-ui/core/IconButton';
 import NewTestimonial from './NewTestimonial';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class Auth extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      anchorEl: null,
+      anchorOriginVertical: 'bottom',
+      anchorOriginHorizontal: 'right',
+      transformOriginVertical: 'top',
+      transformOriginHorizontal: 'right',
+      anchorReference: 'anchorEl',
+    };
+
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
   }
+
+  handleMenu = event => {
+    this.setState({anchorEl: event.currentTarget});
+  };
+
+  handleClose = () => {
+    this.setState({anchorEl: null});
+  };
 
   handleLogoutClick() {
     axios.delete('/api/v1/logout', {withCredentials: true}).then((response) => {
@@ -41,6 +60,9 @@ class Auth extends Component {
   }
 
   render() {
+    const anchorEl = this.state.anchorEl;
+    const open = Boolean(anchorEl);
+
     const linkFix = {
       textDecoration: 'none',
       color: '#FFFFFF',
@@ -48,14 +70,33 @@ class Auth extends Component {
     if (this.props.loggedInStatus === 'LOGGED_IN') {
       return (
           <div>
-            <Button color={'inherit'} variant={'text'}
-                    onClick={() => this.handleLogoutClick()}>Logout</Button>
+            <IconButton
+                aria-owns={open ? 'menu-appbar' : null}
+                aria-haspopup="true"
+                onClick={this.handleMenu}
+                color={'inherit'}
+            >
+              <AccountBox/>
+            </IconButton>
+            <Menu id={'menu-appbar'} anchorEl={anchorEl} open={open}
+                  onClose={this.handleClose}>
+              <Link to={'/profile'} style={linkFix}>
+                <MenuItem onClick={this.handleClose}
+                          style={{color: 'black'}}>Profile</MenuItem>
+              </Link>
+              <Link to={'/'} style={linkFix}>
+                <MenuItem onClick={() => this.handleLogoutClick()}
+                          style={{color: 'black'}}>Logout</MenuItem>
+              </Link>
+            </Menu>
           </div>
       );
     } else {
       return (
           <Link to="/login" style={linkFix}>
-            <Button color={'inherit'} variant={'text'}>Login</Button>
+            <IconButton color={'inherit'}>
+              <AccountBox/>
+            </IconButton>
           </Link>
       );
     }
