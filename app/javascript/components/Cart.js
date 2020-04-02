@@ -1,90 +1,78 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React, {Component} from 'react';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import CardHeader from '@material-ui/core/CardHeader';
+import Card from '@material-ui/core/Card';
+import List from '@material-ui/core/List';
+import {CardContent} from '@material-ui/core';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import IconButton from '@material-ui/core/IconButton';
+import {Delete} from '@material-ui/icons';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 
-const TAX_RATE = 0.06;
+class CartList extends Component {
+  constructor(props) {
+    super(props);
 
+  }
 
-function ccyFormat(num) {
-  return `${num.toFixed(2)}`;
+  render() {
+    const root = {
+      flexGrow: 1,
+      width: '100%',
+    };
+    if (this.props.cart.length !== 0) {
+      return (
+          this.props.cart.map((product, i) => {
+                return (
+                    <div key={i} style={root}>
+                      <ListItemText primary={product.name}
+                                    secondary={'$' + product.retail}/>
+                      <ListItemSecondaryAction>
+                        <IconButton edge={'end'}
+                                    onClick={() => this.props.handleRemoveFromCart(
+                                        product)}>
+                          <Delete/>
+                        </IconButton>
+                      </ListItemSecondaryAction>
+                    </div>
+                );
+              },
+          ));
+    } else {
+      return (
+          <ListItemText primary={'You Don\'t Have Anything in Your Cart!'}/>
+      );
+    }
+
+  }
 }
 
-function priceRow(qty, unit) {
-  return qty * unit;
+class Cart extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+  render() {
+    return (
+        <Container maxWidth={'sm'}>
+          <Box mt={3}>
+            <Card>
+              <CardHeader title={'Cart'}/>
+              <CardContent>
+                <List>
+                  <CartList cart={this.props.cart}
+                            handleRemoveFromCart={this.props.handleRemoveFromCart}/>
+                </List>
+              </CardContent>
+            </Card>
+          </Box>
+        </Container>
+    );
+  }
 }
 
-function createRow(desc, qty, unit) {
-  const price = priceRow(qty, unit);
-  return {desc, qty, unit, price};
-}
-
-function subtotal(items) {
-  return items.map(({price}) => price).reduce((sum, i) => sum + i, 0);
-}
-
-const rows = [
-  createRow('Paperclips (Box)', 100, 1.15),
-  createRow('Paper (Case)', 10, 45.99),
-  createRow('Waste Basket', 2, 17.99),
-];
-
-const invoiceSubtotal = subtotal(rows);
-const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal;
-
-export default function Cart() {
-  const classes = useStyles();
-
-  return (
-    <TableContainer component={Paper}>
-      <Table aria-label="spanning table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="center" colSpan={3}>
-              Details
-            </TableCell>
-            <TableCell align="right">Price</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Desc</TableCell>
-            <TableCell align="right">Qty.</TableCell>
-            <TableCell align="right">Unit</TableCell>
-            <TableCell align="right">Sum</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.desc}>
-              <TableCell>{row.desc}</TableCell>
-              <TableCell align="right">{row.qty}</TableCell>
-              <TableCell align="right">{row.unit}</TableCell>
-              <TableCell align="right">{ccyFormat(row.price)}</TableCell>
-            </TableRow>
-          ))}
-          <TableRow>
-            <TableCell rowSpan={3}/>
-            <TableCell colSpan={2}>Subtotal</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Tax</TableCell>
-            <TableCell align="right">
-              {`${(TAX_RATE * 100).toFixed(0)} %`}
-            </TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell colSpan={2}>Total</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
-}
+export default Cart;

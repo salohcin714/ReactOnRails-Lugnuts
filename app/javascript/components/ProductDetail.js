@@ -21,16 +21,23 @@ import Button from '@material-ui/core/Button';
 class ProductDetail extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      product: {},
+    };
   }
 
   componentDidMount() {
     console.log(this.props);
-    const {product} = this.props.location.state.product;
+    const product = this.props.location.state.product;
     console.log(product);
+    this.setState({
+      product: product,
+    });
   }
 
   render() {
-    const {product} = this.props.location.state;
+    const product = this.state.product;
 
     const linkFix = {
       textDecoration: 'none',
@@ -63,13 +70,10 @@ class ProductDetail extends Component {
                     </Box>
                   </CardContent>
                   <CardActions>
-                    <Link to={{
-                      pathname: '/cart',
-                      state: {},
-                    }} style={linkFix}><Button variant={'contained'}
-                                               color={'primary'}
-                    >Add to Cart</Button>
-                    </Link>
+                    <Button variant={'contained'} color={'primary'}
+                            onClick={() => this.props.handleAddToCart(product)}>
+                      Add to Cart
+                    </Button>
                   </CardActions>
                 </Card>
 

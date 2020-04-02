@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import {Container} from '@material-ui/core';
-import Shop1 from '../assets/images/shop1.jpg';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
@@ -10,7 +8,6 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import ProductCard from './ProductCard';
-import {withStyles} from '@material-ui/core/styles';
 import Footer from './Footer';
 
 

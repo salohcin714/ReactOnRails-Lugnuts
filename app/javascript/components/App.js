@@ -18,7 +18,10 @@ import Registration from './auth/Registration';
 import PropTypes from 'prop-types';
 import Login from './auth/Login';
 import Cart from './Cart';
-
+import Tooltip from '@material-ui/core/Tooltip';
+import Badge from '@material-ui/core/Badge';
+import {ShoppingCart} from '@material-ui/icons';
+import IconButton from '@material-ui/core/IconButton';
 
 class Auth extends Component {
   constructor(props) {
@@ -63,8 +66,8 @@ Auth.propTypes = {
 };
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       loggedInStatus: 'NOT_LOGGED_IN',
@@ -76,6 +79,8 @@ class App extends React.Component {
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleAddToCart = this.handleAddToCart.bind(this);
+    this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
   }
 
   componentDidMount() {
@@ -125,6 +130,22 @@ class App extends React.Component {
     });
   }
 
+  handleAddToCart(product) {
+    this.setState({
+      cart: this.state.cart.concat(product),
+    });
+    console.log(this.state.cart);
+  }
+
+  handleRemoveFromCart(product) {
+    const array = [...this.state.cart];
+    const index = array.indexOf(product);
+    if (index !== -1) {
+      array.splice(index, 1);
+      this.setState({cart: array});
+    }
+  }
+
   render() {
 
     const linkFix = {
@@ -156,6 +177,17 @@ class App extends React.Component {
                   <Link to="/contact" style={linkFix}>
                     <Button color={'inherit'} variant={'text'}>Contact</Button>
                   </Link>
+                  <Link to={'/cart'} style={linkFix}>
+                    <Tooltip title={'Cart'}>
+
+                      <IconButton color={'inherit'}>
+                        <Badge badgeContent={this.state.cart.length}>
+                          <ShoppingCart/>
+                        </Badge>
+
+                      </IconButton>
+                    </Tooltip>
+                  </Link>
                   <Auth handleLogout={this.handleLogout}
                         loggedInStatus={this.state.loggedInStatus}
                   />
@@ -164,28 +196,35 @@ class App extends React.Component {
               </AppBar>
             </Box>
 
-          <Switch>
-            <Route path="/" exact component={Home}/>
-            <Route path="/about" exact component={About}/>
-            <Route path="/shop/checkout" exact component={Checkout}/>
-            <Route path="/shop" exact>
-              <Shop loggedInStatus={this.state.loggedInStatus}
-                    user={this.state.user} customer={this.state.customer}/>
-            </Route>
-            <Route path="/contact" exact component={Contact}/>
-            <Route path="/login" exact>
-              <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
-            </Route>
-            <Route path={'/cart'} exact component={Cart}/>
-            <Route path="/register">
-              <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
-            </Route>
+            <Switch>
+              <Route path="/" exact component={Home}/>
+              <Route path="/about" exact component={About}/>
+              <Route path="/shop/checkout" exact component={Checkout}/>
+              <Route path="/shop" exact>
+                <Shop loggedInStatus={this.state.loggedInStatus}
+                      user={this.state.user} customer={this.state.customer}/>
+              </Route>
+              <Route path="/contact" exact component={Contact}>
+              </Route>
+              <Route path="/login" exact>
+                <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+              </Route>
+              <Route path={'/cart'} exact>
+                <Cart cart={this.state.cart}
+                      handleRemoveFromCart={this.handleRemoveFromCart}/>
+              </Route>
+              <Route path="/register">
+                <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+              </Route>
 
 
-            <Route path="/product/detail" exact component={ProductDetail}/>
+              <Route path="/product/detail" exact render={routeProps => (
+                  <ProductDetail {...routeProps}
+                                 handleAddToCart={this.handleAddToCart}/>
+              )}/>
 
 
-          </Switch>
+            </Switch>
           </Container>
         </Router>
     );
