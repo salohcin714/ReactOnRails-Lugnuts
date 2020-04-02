@@ -12,9 +12,9 @@ import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import Footer from './Footer';
 import CardHeader from '@material-ui/core/CardHeader';
 import Hero from '../assets/images/hero.png';
-import Latest from './Latest';
-
-
+import LatestProducts from './LatestProducts';
+import LatestTestimonials from './LatestTestimonials';
+import CardActions from '@material-ui/core/CardActions';
 
 class Home extends Component {
   constructor(props) {
@@ -50,81 +50,37 @@ class Home extends Component {
 
 
           <Box mt={3}>
-            <Typography variant="h3"
-                        style={{textAlign: 'center', marginBottom: '15px'}}>
-              Testimonials
-            </Typography>
-            <Grid container spacing={3} style={{textAlign: 'center'}}>
-              <Grid item xs={12} sm={4}>
-                <Card>
-                  <CardContent>
-                    <FormatQuoteIcon/>
-                    <Typography variant="body2" gutterBottom
-                                style={{textAlign: 'justify'}}>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Quos blanditiis tenetur unde suscipit, quam beatae rerum
-                      inventore consectetur, neque doloribus, cupiditate numquam
-                      dignissimos laborum fugiat deleniti? Eum quasi quidem
-                      quibusdam.
-                    </Typography>
-                    <Typography variant="caption" display="block" gutterBottom>
-                      - Client Name
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
+            <Card>
+              <CardHeader title={'Testimonials'}
+                          style={{textAlign: 'center'}}/>
+              <CardContent>
+                <LatestTestimonials/>
+              </CardContent>
 
-              <Grid item xs={12} sm={4}>
-                <Card>
-                  <CardContent>
-                    <FormatQuoteIcon/>
-                    <Typography variant="body2" gutterBottom
-                                style={{textAlign: 'justify'}}>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Quos blanditiis tenetur unde suscipit, quam beatae rerum
-                      inventore consectetur, neque doloribus, cupiditate numquam
-                      dignissimos laborum fugiat deleniti? Eum quasi quidem
-                      quibusdam.
-                    </Typography>
-                    <Typography variant="caption" display="block" gutterBottom>
-                      - Client Name
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
+              <Box m={2} style={{textAlign: 'center'}}>
+                <Link to={'/testimonials'} style={linkFix}>
+                  <Button variant={'contained'} color={'secondary'}
+                          style={{textAlign: 'center'}}>View
+                    Testimonials</Button>
+                </Link>
+              </Box>
 
-              <Grid item xs={12} sm={4}>
-                <Card>
-                  <CardContent>
-                    <FormatQuoteIcon/>
-                    <Typography
-                        variant="body2"
-                        gutterBottom
-                        style={{
-                          textAlign: 'justify',
-                        }}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Quos blanditiis tenetur unde suscipit, quam beatae rerum
-                      inventore consectetur, neque doloribus, cupiditate numquam
-                      dignissimos laborum fugiat deleniti? Eum quasi quidem
-                      quibusdam.
-                    </Typography>
-                    <Typography variant="caption" display="block" gutterBottom>
-                      - Client Name
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            </Grid>
+            </Card>
           </Box>
           <Box mt={3}>
             <Card>
               <CardHeader title={'Latest Products'}
                           style={{textAlign: 'center'}}/>
               <CardContent>
-                <Latest/>
+                <LatestProducts/>
               </CardContent>
+              <Box m={2} style={{textAlign: 'center'}}>
+                <Link to={'/shop'} style={linkFix}>
+                  <Button variant={'contained'} color={'secondary'}>
+                    View All Products
+                  </Button>
+                </Link>
+              </Box>
             </Card>
 
           </Box>

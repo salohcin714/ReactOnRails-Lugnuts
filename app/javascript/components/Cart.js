@@ -9,8 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import IconButton from '@material-ui/core/IconButton';
 import {Delete} from '@material-ui/icons';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
+import ListItem from '@material-ui/core/ListItem';
 
 class CartList extends Component {
   constructor(props) {
@@ -27,7 +26,7 @@ class CartList extends Component {
       return (
           this.props.cart.map((product, i) => {
                 return (
-                    <div key={i} style={root}>
+                    <ListItem key={i} style={root}>
                       <ListItemText primary={product.name}
                                     secondary={'$' + product.retail}/>
                       <ListItemSecondaryAction>
@@ -37,7 +36,7 @@ class CartList extends Component {
                           <Delete/>
                         </IconButton>
                       </ListItemSecondaryAction>
-                    </div>
+                    </ListItem>
                 );
               },
           ));

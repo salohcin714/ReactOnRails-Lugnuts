@@ -18,10 +18,12 @@ import Registration from './auth/Registration';
 import PropTypes from 'prop-types';
 import Login from './auth/Login';
 import Cart from './Cart';
+import Testimonials from './Testimonials';
 import Tooltip from '@material-ui/core/Tooltip';
 import Badge from '@material-ui/core/Badge';
 import {ShoppingCart} from '@material-ui/icons';
 import IconButton from '@material-ui/core/IconButton';
+import NewTestimonial from './NewTestimonial';
 
 class Auth extends Component {
   constructor(props) {
@@ -134,7 +136,6 @@ class App extends React.Component {
     this.setState({
       cart: this.state.cart.concat(product),
     });
-    console.log(this.state.cart);
   }
 
   handleRemoveFromCart(product) {
@@ -181,7 +182,8 @@ class App extends React.Component {
                     <Tooltip title={'Cart'}>
 
                       <IconButton color={'inherit'}>
-                        <Badge badgeContent={this.state.cart.length}>
+                        <Badge badgeContent={this.state.cart.length}
+                               color={'secondary'}>
                           <ShoppingCart/>
                         </Badge>
 
@@ -216,14 +218,12 @@ class App extends React.Component {
               <Route path="/register">
                 <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
               </Route>
-
-
               <Route path="/product/detail" exact render={routeProps => (
                   <ProductDetail {...routeProps}
                                  handleAddToCart={this.handleAddToCart}/>
               )}/>
-
-
+              <Route path={'/new'} exact component={NewTestimonial}/>
+              <Route path={'/testimonials'} exact component={Testimonials}/>
             </Switch>
           </Container>
         </Router>

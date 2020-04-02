@@ -9,9 +9,11 @@ Rails.application.routes.draw do
       resources :reviews, only: [:create, :destroy], defaults: {format: :json}
       resources :sessions, only: [:create]
       resources :registrations, only: [:create]
+      resources :testimonials, defaults: {format: :json}
       delete :logout, to: "sessions#logout"
       get :logged_in, to: "sessions#logged_in"
-      get :latest, to: "products#latest", defaults: {format: :json}
+      get :latest_products, to: "products#latest", defaults: {format: :json}
+      get :latest_testimonials, to: 'testimonials#latest', defaults: {format: :json}
     end
   end
 

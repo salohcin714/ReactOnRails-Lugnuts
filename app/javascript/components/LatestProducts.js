@@ -3,7 +3,7 @@ import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import ProductCard from './ProductCard';
 
-class Latest extends Component {
+class LatestProducts extends Component {
   constructor(props) {
     super(props);
 
@@ -13,11 +13,12 @@ class Latest extends Component {
   }
 
   componentDidMount() {
-    axios.get('api/v1/latest', {withCredentials: true}).then((response) => {
-      this.setState({
-        latest: response.data.latest,
-      });
-    }).catch((error) => {
+    axios.get('api/v1/latest_products', {withCredentials: true}).
+        then((response) => {
+          this.setState({
+            latest: response.data.latest,
+          });
+        }).catch((error) => {
       console.log('server error', error);
     });
   }
@@ -33,5 +34,5 @@ class Latest extends Component {
   }
 }
 
-export default Latest;
+export default LatestProducts;
 

@@ -28,9 +28,7 @@ class ProductDetail extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     const product = this.props.location.state.product;
-    console.log(product);
     this.setState({
       product: product,
     });
