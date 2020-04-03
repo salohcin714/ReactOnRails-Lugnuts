@@ -1,4 +1,4 @@
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 wiper_blades = ProductLine.create(
     name: "Windshield Wiper Blades",
@@ -309,3 +309,10 @@ product_list.each do |productName, productLine, productScale, productVendor, pro
       retail: msrp.to_f)
 end
 
+Testimonial.create(
+    title: "A Real Life Saver!",
+    content: "If it wasn't for the parts from Lugnuts, the Falcon wouldn't have been able to make the Kessel Run in less than 12 parsecs!",
+    firstName: 'Han',
+    lastName: "Solo",
+    verified: true
+)
