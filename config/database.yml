@@ -23,12 +23,12 @@ default: &default
 
 development:
   <<: *default
-  username: lugnuts
-  password: gfkh6dgttqtyycze
-  host: db-postgresql-nyc1-55291-do-user-4631391-0.a.db.ondigitalocean.com
-  port: 25060
+  username: postgres
+  password: admin
+  host: localhost
+  port: 5432
   database: Lugnuts_development
-  sslmode: require
+
 
 
   # The specified database role being used to connect to postgres.

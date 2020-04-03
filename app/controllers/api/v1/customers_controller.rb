@@ -12,7 +12,7 @@ module Api
             city: params['customer']['city'],
             state: params['customer']['state'],
             postalCode: params['customer']['postalCode'],
-            country: params['customer']['country'])
+            )
           customer.save
           render json: {
               customer: customer,

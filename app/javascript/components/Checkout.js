@@ -13,13 +13,14 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+import PaypalExpressBtn from 'react-paypal-express-checkout';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="#">
-        Your Website
+        Lugnuts
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -64,22 +65,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Shipping address', 'Review your order'];
 
-function getStepContent(step) {
+function getStepContent(step, props) {
   switch (step) {
     case 0:
-      return <AddressForm/>;
+      return <AddressForm customer={props.customer}/>;
     case 1:
-      return <PaymentForm/>;
-    case 2:
-      return <Review/>;
+      return <Review cart={props.cart} customer={props.customer}/>;
     default:
       throw new Error('Unknown step');
   }
 }
 
-export default function Checkout() {
+export default function Checkout(props) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -87,15 +86,19 @@ export default function Checkout() {
     setActiveStep(activeStep + 1);
   };
 
+  const handleFinish = () => {
+
+  };
+
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
 
   return (
-    <React.Fragment>
-      <CssBaseline/>
-      <main className={classes.layout}>
-        <Paper className={classes.paper}>
+      <React.Fragment>
+        <CssBaseline/>
+        <main className={classes.layout}>
+          <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>
@@ -113,7 +116,7 @@ export default function Checkout() {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539.
+
                   We have emailed your order confirmation,
                   and will send you an update when your
                   order has shipped.
@@ -121,24 +124,25 @@ export default function Checkout() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                {getStepContent(activeStep, props)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
-                    <Button
-                      onClick={handleBack}
-                      className={classes.button}>
-                      Back
-                    </Button>
+                      <Button
+                          onClick={handleBack}
+                          className={classes.button}>
+                        Back
+                      </Button>
                   )}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {/* eslint-disable-next-line max-len */}
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                  </Button>
+                  {}
+
+                  {activeStep === steps.length - 1 ?
+                      <PaypalExpressBtn/> :
+                      <Button
+                          variant="contained"
+                          color="primary"
+                          onClick={handleNext}
+                          className={classes.button}
+                      >Next</Button>}
                 </div>
               </React.Fragment>
             )}

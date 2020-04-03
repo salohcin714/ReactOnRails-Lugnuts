@@ -2,7 +2,7 @@ module Api
   module V1
     class ProductsController < ApplicationController
       def index
-        products = Product.all
+        products = Product.where(published: true)
         renderProduct = []
         products.each do |p|
           productInfo = {
@@ -38,6 +38,7 @@ module Api
 
       def create
         product = Product.new(product_params)
+        product.published = false
 
         if product.save
           render json: ProductSerializer.new(product).serialized_json
@@ -67,7 +68,7 @@ module Api
       end
 
       def latest
-        products = Product.last(4)
+        products = Product.where(published: true).last(4)
         renderProduct = []
         products.each do |p|
           productInfo = {

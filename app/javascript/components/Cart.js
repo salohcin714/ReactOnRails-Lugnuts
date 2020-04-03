@@ -19,6 +19,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Button from '@material-ui/core/Button';
+import {Link} from 'react-router-dom';
+import Tooltip from '@material-ui/core/Tooltip';
 
 class CartList extends Component {
   constructor(props) {
@@ -59,6 +61,37 @@ class CartList extends Component {
       );
     }
 
+  }
+}
+
+class CheckoutButton extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+  render() {
+
+    const linkFix = {
+      textDecoration: 'none',
+      color: '#FFFFFF',
+    };
+
+    if (this.props.loggedInStatus === 'LOGGED_IN') {
+      return (
+          <Link to={'/checkout'} style={linkFix}>
+            <Button variant={'contained'}
+                    color={'secondary'}>Checkout</Button>
+          </Link>
+      );
+    } else if (this.props.loggedInStatus === 'NOT_LOGGED_IN') {
+      return (
+          <Tooltip title={'You must be logged in to checkout'}>
+            <Button variant={'contained'} style={linkFix} disableElevation
+                    disableRipple>Checkout</Button>
+          </Tooltip>
+      );
+    }
   }
 }
 
@@ -116,10 +149,11 @@ class Cart extends Component {
                   </TableRow>
                 </TableBody>
               </Table>
+
               <Box m={2} style={{textAlign: 'center'}}>
-                <Button variant={'contained'}
-                        color={'secondary'}>Checkout</Button>
+                <CheckoutButton loggedInStatus={this.props.loggedInStatus}/>
               </Box>
+
             </TableContainer>
           </Box>
         </Container>
