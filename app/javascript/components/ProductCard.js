@@ -21,29 +21,29 @@ class ProductCard extends Component {
 
   render() {
     return (
-        <Grid item xs={12} sm={6} lg={3}>
-          <Card style={{height: '100%'}}>
-            <CardMedia component={'img'} image={this.props.product.imageURL}/>
-            <CardHeader title={this.props.product.name}/>
-            <CardContent>
-              <Chip icon={<AttachMoney/>} label={this.props.product.retail}/>
-              <Box mt={1}>
-                <Typography variant={'body2'}>
-                  {smartTruncate(this.props.product.description, 64)}
-                </Typography>
-              </Box>
-            </CardContent>
-            <CardActions style={{alignItems: 'flex-end'}}>
-              <Link to={{
-                pathname: '/product/detail',
-                state: {product: this.props.product},
-              }} style={{color: '#FFFFFF', textDecoration: 'none'}}>
-                <Button variant={'contained'} color={'secondary'}>View
-                  Product</Button>
-              </Link>
-            </CardActions>
-          </Card>
-        </Grid>
+      <Grid item xs={12} sm={6} lg={3}>
+        <Card style={{height: '100%'}}>
+          <CardMedia component={'img'} image={this.props.product.imageURL}/>
+          <CardHeader title={this.props.product.name}/>
+          <CardContent>
+            <Chip icon={<AttachMoney/>} label={this.props.product.retail}/>
+            <Box mt={1}>
+              <Typography variant={'body2'}>
+                {smartTruncate(this.props.product.description, 64)}
+              </Typography>
+            </Box>
+          </CardContent>
+          <CardActions style={{alignItems: 'flex-end'}}>
+            <Link to={{
+              pathname: '/product/detail',
+              state: {product: this.props.product},
+            }} style={{color: '#FFFFFF', textDecoration: 'none'}}>
+              <Button variant={'contained'} color={'secondary'}>View
+                Product</Button>
+            </Link>
+          </CardActions>
+        </Card>
+      </Grid>
     );
   }
 }

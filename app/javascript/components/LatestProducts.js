@@ -14,22 +14,22 @@ class LatestProducts extends Component {
 
   componentDidMount() {
     axios.get('api/v1/latest_products', {withCredentials: true}).
-        then((response) => {
-          this.setState({
-            latest: response.data.latest,
-          });
-        }).catch((error) => {
+      then((response) => {
+        this.setState({
+          latest: response.data.latest,
+        });
+      }).catch((error) => {
       console.log('server error', error);
     });
   }
 
   render() {
     return (
-        <Grid container spacing={3}>
-          {this.state.latest.map((product, i) => {
-            return (<ProductCard key={i} product={product}/>);
-          })}
-        </Grid>
+      <Grid container spacing={3}>
+        {this.state.latest.map((product, i) => {
+          return (<ProductCard key={i} product={product}/>);
+        })}
+      </Grid>
     );
   }
 }

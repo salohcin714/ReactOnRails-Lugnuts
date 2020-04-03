@@ -1,8 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -11,7 +9,6 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
-import PaymentForm from './PaymentForm';
 import Review from './Review';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 
@@ -95,10 +92,10 @@ export default function Checkout(props) {
   };
 
   return (
-      <React.Fragment>
-        <CssBaseline/>
-        <main className={classes.layout}>
-          <Paper className={classes.paper}>
+    <React.Fragment>
+      <CssBaseline/>
+      <main className={classes.layout}>
+        <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>
@@ -127,22 +124,22 @@ export default function Checkout(props) {
                 {getStepContent(activeStep, props)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
-                      <Button
-                          onClick={handleBack}
-                          className={classes.button}>
-                        Back
-                      </Button>
+                    <Button
+                      onClick={handleBack}
+                      className={classes.button}>
+                      Back
+                    </Button>
                   )}
                   {}
 
                   {activeStep === steps.length - 1 ?
                       <PaypalExpressBtn/> :
-                      <Button
-                          variant="contained"
-                          color="primary"
-                          onClick={handleNext}
-                          className={classes.button}
-                      >Next</Button>}
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >Next</Button>}
                 </div>
               </React.Fragment>
             )}

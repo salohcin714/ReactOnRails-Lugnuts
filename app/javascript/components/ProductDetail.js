@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Container} from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -15,7 +15,6 @@ import {AttachMoney} from '@material-ui/icons';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
-import {Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 class ProductDetail extends Component {
@@ -47,83 +46,85 @@ class ProductDetail extends Component {
     };
 
     return (
-        <Container maxWidth="lg" style={root}>
-          <Box mt={3}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
-                <Card>
-                  <CardMedia component={'img'} image={product.imageURL}/>
-                </Card>
-              </Grid>
-
-              <Grid item xs={12} sm={6}>
-                <Card>
-                  <CardHeader title={product.name}/>
-                  <CardContent>
-                    <Chip color={'secondary'} icon={<AttachMoney/>}
-                          label={product.retail}/>
-                    <Box mt={1}>
-                      <Typography
-                          variant={'body1'}>{product.description}</Typography>
-                    </Box>
-                  </CardContent>
-                  <CardActions>
-                    <Button variant={'contained'} color={'primary'}
-                            onClick={() => this.props.handleAddToCart(product)}>
-                      Add to Cart
-                    </Button>
-                  </CardActions>
-                </Card>
-
-
-              </Grid>
+      <Container maxWidth="lg" style={root}>
+        <Box mt={3}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+              <Card>
+                <CardMedia component={'img'} image={product.imageURL}/>
+              </Card>
             </Grid>
-          </Box>
+
+            <Grid item xs={12} sm={6}>
+              <Card>
+                <CardHeader title={product.name}/>
+                <CardContent>
+                  <Chip color={'secondary'} icon={<AttachMoney/>}
+                        label={product.retail}/>
+                  <Box mt={1}>
+                    <Typography
+                      variant={'body1'}>{product.description}</Typography>
+                  </Box>
+                </CardContent>
+                <CardActions>
+                  <Button variant={'contained'}
+                          color={'primary'}
+                          style={linkFix}
+                          onClick={() => this.props.handleAddToCart(product)}>
+                    Add to Cart
+                  </Button>
+                </CardActions>
+              </Card>
 
 
-          <Box mt={3}>
-            <Card>
-              <CardContent>
-                <Grid container spacing={3} style={{textAlign: 'center'}}>
-                  <Grid item xs={4}>
-                    <LocalShippingIcon/>
-                    <Typography variant="h5">Free 2-day Shipping</Typography>
-                    <Typography variant="body2">
-                      Orders over $50 qualify for free shipping.
-                    </Typography>
-                    <Typography variant={'caption'}>Note: This does not apply to
-                      international orders</Typography>
-                  </Grid>
+            </Grid>
+          </Grid>
+        </Box>
 
-                  <Grid item xs={4}>
-                    <VerifiedUserIcon/>
-                    <Typography variant="h5">Refund Policy</Typography>
-                    <Typography variant="body2">
-                      All orders can be returned within 30 days of ship date.
-                      Any
-                      defective products must go through the manufacturer's
-                      warranty.
-                    </Typography>
-                  </Grid>
 
-                  <Grid item xs={4}>
-                    <HelpIcon/>
-                    <Typography variant="h5">Dependable Customer
-                      Service</Typography>
-                    <Typography variant="body2">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse malesuada lacus ex, sit amet blandit leo
-                      lobortis eget.
-                    </Typography>
-                  </Grid>
+        <Box mt={3}>
+          <Card>
+            <CardContent>
+              <Grid container spacing={3} style={{textAlign: 'center'}}>
+                <Grid item xs={4}>
+                  <LocalShippingIcon/>
+                  <Typography variant="h5">Free 2-day Shipping</Typography>
+                  <Typography variant="body2">
+                    Orders over $50 qualify for free shipping.
+                  </Typography>
+                  <Typography variant={'caption'}>Note: This does not apply to
+                    international orders</Typography>
                 </Grid>
-              </CardContent>
-            </Card>
-          </Box>
+
+                <Grid item xs={4}>
+                  <VerifiedUserIcon/>
+                  <Typography variant="h5">Refund Policy</Typography>
+                  <Typography variant="body2">
+                    All orders can be returned within 30 days of ship date.
+                    Any
+                    defective products must go through the manufacturer's
+                    warranty.
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={4}>
+                  <HelpIcon/>
+                  <Typography variant="h5">Dependable Customer
+                    Service</Typography>
+                  <Typography variant="body2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Box>
 
 
-          <Footer/>
-        </Container>
+        <Footer/>
+      </Container>
     );
   }
 }

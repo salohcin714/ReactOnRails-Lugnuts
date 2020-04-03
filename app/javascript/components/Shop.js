@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Typography from '@material-ui/core/Typography';
-import {Container} from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
@@ -46,45 +46,45 @@ class Shop extends Component {
       flexGrow: 1,
     };
     return (
-        <Container style={root}>
+      <Container style={root}>
 
 
-          <Box mt={4}>
-            <Grid container spacing={3} style={{justifyContent: 'center'}}>
-              <Grid item xs={12} sm={6}>
-                <Typography variant="h4" style={{marginBottom: '15px'}}>
-                  Find what you're looking for
-                </Typography>
+        <Box mt={4}>
+          <Grid container spacing={3} style={{justifyContent: 'center'}}>
+            <Grid item xs={12} sm={6}>
+              <Typography variant="h4" style={{marginBottom: '15px'}}>
+                Find what you're looking for
+              </Typography>
 
 
-                <TextField
-                    value={this.state.search}
-                    onChange={this.updateSearch.bind(this)}
-                    fullWidth
-                    placeholder="Search the shop..."
-                    InputProps={{
-                      startAdornment: (
-                          <InputAdornment position="start">
-                            <SearchIcon/>
-                          </InputAdornment>
-                      ),
-                    }}
-                />
+              <TextField
+                value={this.state.search}
+                onChange={this.updateSearch.bind(this)}
+                fullWidth
+                placeholder="Search the shop..."
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon/>
+                    </InputAdornment>
+                  ),
+                }}
+              />
 
 
-              </Grid>
             </Grid>
-          </Box>
-
-          <Grid container spacing={3}>
-            {filteredProducts.map((product, i) => {
-              return <ProductCard key={i} product={product}/>;
-            })}
           </Grid>
+        </Box>
+
+        <Grid container spacing={3}>
+          {filteredProducts.map((product, i) => {
+            return <ProductCard key={i} product={product}/>;
+          })}
+        </Grid>
 
 
-          <Footer/>
-        </Container>
+        <Footer/>
+      </Container>
     );
   }
 }

@@ -3,9 +3,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {Router, Link, Route, Switch} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-import {Container} from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 import Home from './Home';
 import About from './About';
 import Shop from './Shop';
@@ -22,7 +21,6 @@ import Testimonials from './Testimonials';
 import Tooltip from '@material-ui/core/Tooltip';
 import Badge from '@material-ui/core/Badge';
 import {
-  AccountBox,
   AccountCircle, Info, Mail,
   ShoppingCart, Store,
   VpnKey,

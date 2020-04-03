@@ -5,10 +5,9 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import {Add} from '@material-ui/icons';
 import {Link} from 'react-router-dom';
-import {Tooltip} from '@material-ui/core';
+import Tooltip from '@material-ui/core/Tooltip';
 import Box from '@material-ui/core/Box';
 import Fab from '@material-ui/core/Fab';
 
@@ -41,42 +40,42 @@ class Testimonials extends Component {
     };
 
     return (
-        <Box mt={3}>
-          <Card>
-            <CardHeader title={'Testimonials'}/>
-            <Link to={'/new'} style={linkFix}>
-              <Tooltip title={'Add Your Testimonial'}>
-                <Fab color={'secondary'} style={{
-                  float: 'right',
-                  marginRight: '16px',
-                  marginTop: '-48px',
-                }}>
-                  <Add/>
-                </Fab>
-              </Tooltip>
-            </Link>
-            <CardContent>
-              <Grid container spacing={3} direction={'row'}
-                    justify={'space-around'} alignItems={'stretch'}>
-                {this.state.testimonials.map((testimonial, i) => {
-                  return (
-                      <Grid item xs={12} sm={4} key={i}>
-                        <Card>
-                          <CardHeader title={testimonial.title}/>
-                          <CardContent>
-                            <Typography
-                                variant={'body1'}>{testimonial.content}</Typography>
-                            <Typography
-                                variant={'caption'}>- {testimonial.firstName} {testimonial.lastName}</Typography>
-                          </CardContent>
-                        </Card>
-                      </Grid>
-                  );
-                })}
-              </Grid>
-            </CardContent>
-          </Card>
-        </Box>
+      <Box mt={3}>
+        <Card>
+          <CardHeader title={'Testimonials'}/>
+          <Link to={'/new'} style={linkFix}>
+            <Tooltip title={'Add Your Testimonial'}>
+              <Fab color={'secondary'} style={{
+                float: 'right',
+                marginRight: '16px',
+                marginTop: '-48px',
+              }}>
+                <Add/>
+              </Fab>
+            </Tooltip>
+          </Link>
+          <CardContent>
+            <Grid container spacing={3} direction={'row'}
+                  justify={'space-around'} alignItems={'stretch'}>
+              {this.state.testimonials.map((testimonial, i) => {
+                return (
+                  <Grid item xs={12} sm={4} key={i}>
+                    <Card>
+                      <CardHeader title={testimonial.title}/>
+                      <CardContent>
+                        <Typography
+                          variant={'body1'}>{testimonial.content}</Typography>
+                        <Typography
+                          variant={'caption'}>- {testimonial.firstName} {testimonial.lastName}</Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </CardContent>
+        </Card>
+      </Box>
     );
   }
 }
