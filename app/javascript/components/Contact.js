@@ -15,7 +15,7 @@ export default function Contact() {
   return (
     <>
       <Container maxWidth={'sm'}>
-        <Box m={3}>
+        <Box mt={3}>
           <Card>
 
             <CardMedia
@@ -32,58 +32,59 @@ export default function Contact() {
             </CardContent>
           </Card>
         </Box>
-        <Box m={3}>
+        <Box mt={3}>
           <Card>
-            <CardContent>
+            <form>
+              <CardContent>
 
 
-              <TextField
-                required
-                id="fullname"
-                name="fullname"
-                label="Full name"
-                fullWidth
-              />
+                <TextField
+                  required
+                  id="fullname"
+                  name="fullname"
+                  label="Full name"
+                  fullWidth
+                />
 
 
-              <TextField
-                required
-                id="email"
-                name="email"
-                label="Email Address"
-                fullWidth
-              />
+                <TextField
+                  required
+                  id="email"
+                  name="email"
+                  label="Email Address"
+                  fullWidth
+                />
 
-              <TextField
-                required
-                id="phone"
-                name="phone"
-                label="Phone Number"
-                fullWidth
-              />
+                <TextField
+                  required
+                  id="phone"
+                  name="phone"
+                  label="Phone Number"
+                  fullWidth
+                />
 
-              <TextField
-                id="orderNum"
-                name="orderNum"
-                label="Order Number"
-                fullWidth
-              />
+                <TextField
+                  id="orderNum"
+                  name="orderNum"
+                  label="Order Number"
+                  fullWidth
+                />
 
-              <TextField
-                required
-                id="message"
-                label="Message"
-                multiline
-                rowsMax="4"
-                fullWidth
-              />
-              <Box mt={1}>
-                <Button variant="contained" color="secondary">
-                  Send
-                </Button>
-              </Box>
-            </CardContent>
-
+                <TextField
+                  required
+                  id="message"
+                  label="Message"
+                  multiline
+                  rowsMax="4"
+                  fullWidth
+                />
+                <Box mt={1} style={{textAlign: 'center'}}>
+                  <Button variant="contained" color="secondary">
+                    Send
+                  </Button>
+                </Box>
+              </CardContent>
+            </form>
           </Card>
 
         </Box>

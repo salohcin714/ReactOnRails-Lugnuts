@@ -197,6 +197,7 @@ class App extends React.Component {
           country: response.data.customer.country,
         },
       });
+      window.alert('Your info has been updated!');
     });
   }
 

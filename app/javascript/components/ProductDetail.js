@@ -100,8 +100,7 @@ class ProductDetail extends Component {
                   <VerifiedUserIcon/>
                   <Typography variant="h5">Refund Policy</Typography>
                   <Typography variant="body2">
-                    All orders can be returned within 30 days of ship date.
-                    Any
+                    All orders can be returned within 30 days of ship date. Any
                     defective products must go through the manufacturer's
                     warranty.
                   </Typography>

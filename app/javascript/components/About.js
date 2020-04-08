@@ -59,7 +59,7 @@ export default function About() {
             <Grid item xs={12}>
               <Card>
                 <CardMedia component={'img'} image={About1}
-                           title="Contemplative Reptile"/>
+                           title="About Us"/>
                 <CardHeader title={'About Us'}/>
                 <CardContent>
                   <Typography variant="body1" component="p">
@@ -93,20 +93,6 @@ export default function About() {
             </Grid>
           </Grid>
 
-          <div>
-            <Tabs orientation="vertical" variant="scrollable" value={value}
-                  onChange={handleChange} aria-label="Company History"
-            >
-              <Tab label="The Beginning" {...allyProps(0)} />
-              <Tab label="The Middle" {...allyProps(1)} />
-            </Tabs>
-            <TabPanel index={0} value={value}>
-              The beginning of the company started like this...
-            </TabPanel>
-            <TabPanel index={1} value={value}>
-              The story went like this...
-            </TabPanel>
-          </div>
 
         </Box>
 
