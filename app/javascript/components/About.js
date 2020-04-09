@@ -63,30 +63,22 @@ export default function About() {
                 <CardHeader title={'About Us'}/>
                 <CardContent>
                   <Typography variant="body1" component="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Urna condimentum mattis pellentesque id nibh
-                    tortor id aliquet lectus. Egestas maecenas pharetra
-                    convallis posuere morbi leo urna molestie. Nullam vehicula
-                    ipsum a arcu cursus. Praesent elementum facilisis leo vel.
-                  </Typography>
-                  <br/>
-                  <Typography variant="body1" component="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Urna condimentum mattis pellentesque id nibh
-                    tortor id aliquet lectus. Egestas maecenas pharetra
-                    convallis posuere morbi leo urna molestie. Nullam vehicula
-                    ipsum a arcu cursus. Praesent elementum facilisis leo vel.
-                  </Typography>
+                    Larry Lugnut started an automotive parts supply company
+                    nearly 50 years ago. Upon his death, he left the business to
+                    his granddaughter Patty Lugnut. The business had grown into
+                    a local and regional success. However, Larry eschewed the
+                    advances in communications technology, preferring to do
+                    business face-to-face, in order to develop long-term
+                    customer relationships.
+                    <br/>
+                    <br/>
+                    Patty, as the new CEO, had a background in marketing. Her
+                    primary experience with her family’s automotive parts
+                    company primarily was listening to long customer and vendor
+                    stories during family get-to-gathers. She knew that for the
+                    business to survive she would have to provide the leadership
+                    to change company culture and embrace the web.
 
-                  <Typography variant="body1" component="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Urna condimentum mattis pellentesque id nibh
-                    tortor id aliquet lectus. Egestas maecenas pharetra
-                    convallis posuere morbi leo urna molestie. Nullam vehicula
-                    ipsum a arcu cursus. Praesent elementum facilisis leo vel.
                   </Typography>
                 </CardContent>
               </Card>
