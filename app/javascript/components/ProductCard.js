@@ -25,7 +25,7 @@ class ProductCard extends Component {
         <Card style={{height: '100%'}}>
           <CardMedia component={'img'} image={this.props.product.imageURL}/>
           <CardHeader title={this.props.product.name}/>
-          <CardContent>
+          <CardContent style={{marginTop: '-24px'}}>
             <Chip icon={<AttachMoney/>} label={this.props.product.retail}/>
             <Box mt={1}>
               <Typography variant={'body2'}>

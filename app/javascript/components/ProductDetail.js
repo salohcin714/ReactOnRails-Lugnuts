@@ -58,7 +58,7 @@ class ProductDetail extends Component {
             <Grid item xs={12} sm={6}>
               <Card>
                 <CardHeader title={product.name}/>
-                <CardContent>
+                <CardContent style={{marginTop: '-24px'}}>
                   <Chip color={'secondary'} icon={<AttachMoney/>}
                         label={product.retail}/>
                   <Box mt={1}>
@@ -111,9 +111,8 @@ class ProductDetail extends Component {
                   <Typography variant="h5">Dependable Customer
                     Service</Typography>
                   <Typography variant="body2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    Our Customer Service hours are Monday-Friday from 8am-7pm
+                    EST.
                   </Typography>
                 </Grid>
               </Grid>
