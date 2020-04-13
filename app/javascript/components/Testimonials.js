@@ -43,7 +43,7 @@ class Testimonials extends Component {
       <Box mt={3}>
         <Card>
           <CardHeader title={'Testimonials'}/>
-          <Link to={'/new'} style={linkFix}>
+          <Link to={'/testimonials/new'} style={linkFix}>
             <Tooltip title={'Add Your Testimonial'}>
               <Fab color={'secondary'} style={{
                 float: 'right',

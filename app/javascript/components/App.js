@@ -56,7 +56,8 @@ class Auth extends Component {
   };
 
   handleLogoutClick() {
-    axios.delete('/api/v1/logout', {withCredentials: true}).then((response) => {
+    axios.delete('https://localhost:3000/api/v1/logout',
+      {withCredentials: true}).then((response) => {
       this.props.handleLogout();
     }).catch((error) => {
       console.log('logout error', error);
@@ -318,10 +319,11 @@ class App extends React.Component {
                 <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
               </Route>
               <Route path="/product/detail" exact render={routeProps => (
-                  <ProductDetail {...routeProps}
-                                 handleAddToCart={this.handleAddToCart}/>
+                <ProductDetail {...routeProps}
+                               handleAddToCart={this.handleAddToCart}/>
               )}/>
-              <Route path={'/new'} exact component={NewTestimonial}/>
+              <Route path={'/testimonials/new'} exact
+                     component={NewTestimonial}/>
               <Route path={'/testimonials'} exact component={Testimonials}/>
               <Route path={'/checkout'} exact>
                 <Checkout customer={this.state.customer}
