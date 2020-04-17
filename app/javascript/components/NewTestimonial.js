@@ -26,7 +26,7 @@ export default class NewTestimonial extends Component {
   }
 
   handleSubmit(event) {
-    axios.post('/api/v1/testimonials', {
+    axios.post('https://lugnuts-webd495.herokuapp.com/api/v1/testimonials', {
       testimonial: {
         title: this.state.title,
         content: this.state.content,

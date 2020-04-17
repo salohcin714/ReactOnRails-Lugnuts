@@ -78,6 +78,11 @@ export default function Contact() {
                   rowsMax="4"
                   fullWidth
                 />
+                <Container maxWidth={'xs'} style={{textAlign: 'center'}}>
+                  <div className="g-recaptcha"
+                       data-sitekey="6LfYiugUAAAAANJzlDvUUnjej6EZkiBhUWwUi3wd"
+                       style={{display: 'inline-block'}}/>
+                </Container>
                 <Box mt={1} style={{textAlign: 'center'}}>
                   <Button variant="contained" color="secondary">
                     Send
