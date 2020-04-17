@@ -12,6 +12,11 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Footer from './Footer';
 
 export default function Contact() {
+
+  function handleSubmit() {
+    window.alert('Your message has been sent!');
+  }
+
   return (
     <>
       <Container maxWidth={'sm'}>
@@ -34,7 +39,7 @@ export default function Contact() {
         </Box>
         <Box mt={3}>
           <Card>
-            <form>
+            <form onSubmit={handleSubmit}>
               <CardContent>
 
 
@@ -81,10 +86,10 @@ export default function Contact() {
                 <Container maxWidth={'xs'} style={{textAlign: 'center'}}>
                   <div className="g-recaptcha"
                        data-sitekey="6LfYiugUAAAAANJzlDvUUnjej6EZkiBhUWwUi3wd"
-                       style={{display: 'inline-block'}}/>
+                       style={{display: 'inline-block', marginTop: '16px'}}/>
                 </Container>
                 <Box mt={1} style={{textAlign: 'center'}}>
-                  <Button variant="contained" color="secondary">
+                  <Button variant="contained" color="secondary" type={'submit'}>
                     Send
                   </Button>
                 </Box>
