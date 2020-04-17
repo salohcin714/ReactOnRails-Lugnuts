@@ -322,7 +322,7 @@ class App extends React.Component {
                 <ProductDetail {...routeProps}
                                handleAddToCart={this.handleAddToCart}/>
               )}/>
-              <Route path={'/testimonials/new'} exact
+              <Route path={'/newtestimonial'} exact
                      component={NewTestimonial}/>
               <Route path={'/testimonials'} exact component={Testimonials}/>
               <Route path={'/checkout'} exact>
